@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mehequanna.gestureplayground.R;
+import com.mehequanna.gestureplayground.util.DetectGestures;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,11 +35,31 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4.setVisibility(View.INVISIBLE);
         mChicken5.setVisibility(View.INVISIBLE);
 
+        mChicken0.setOnTouchListener(this);
+        mChicken1.setOnTouchListener(this);
+        mChicken2.setOnTouchListener(this);
+        mChicken3.setOnTouchListener(this);
+        mChicken4.setOnTouchListener(this);
+        mChicken5.setOnTouchListener(this);
+
+        mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mChicken0.setVisibility(View.INVISIBLE);
+                mChicken1.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
 
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        return false;
+        if (view == mChicken0) {
+            mChicken0GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+            return false;
     }
 }
