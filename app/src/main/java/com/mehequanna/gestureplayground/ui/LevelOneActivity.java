@@ -95,8 +95,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken5GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                mChicken0.setVisibility(View.VISIBLE);
+                mChicken1.setVisibility(View.VISIBLE);
+                mChicken2.setVisibility(View.VISIBLE);
+                mChicken3.setVisibility(View.VISIBLE);
+                mChicken4.setVisibility(View.VISIBLE);
                 mChicken5.setVisibility(View.INVISIBLE);
-//                mChicken1.setVisibility(View.VISIBLE);
                 return true;
             }
         });
