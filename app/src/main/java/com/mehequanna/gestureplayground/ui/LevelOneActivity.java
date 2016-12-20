@@ -1,8 +1,10 @@
-package com.mehequanna.gestureplayground;
+package com.mehequanna.gestureplayground.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
+import com.mehequanna.gestureplayground.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

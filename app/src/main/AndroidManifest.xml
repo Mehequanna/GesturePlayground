@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LevelOneActivity" />
-        <activity android:name=".ParentsActivity"></activity>
+        <activity android:name=".ui.LevelOneActivity" />
+        <activity android:name=".ui.ParentsActivity"></activity>
     </application>
 
 </manifest>

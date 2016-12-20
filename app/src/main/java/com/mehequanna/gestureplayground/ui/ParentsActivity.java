@@ -1,7 +1,9 @@
-package com.mehequanna.gestureplayground;
+package com.mehequanna.gestureplayground.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.mehequanna.gestureplayground.R;
 
 public class ParentsActivity extends AppCompatActivity {
 
