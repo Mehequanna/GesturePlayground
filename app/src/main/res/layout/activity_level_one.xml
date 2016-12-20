@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken4"
+        android:id="@+id/chicken1"
         android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp"
         android:layout_alignParentBottom="true"
@@ -37,10 +37,10 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken5"
-        android:layout_above="@+id/chicken4"
-        android:layout_toLeftOf="@+id/chicken4"
-        android:layout_toStartOf="@+id/chicken4"
+        android:id="@+id/chicken0"
+        android:layout_above="@+id/chicken1"
+        android:layout_toLeftOf="@+id/chicken1"
+        android:layout_toStartOf="@+id/chicken1"
         android:layout_marginRight="77dp"
         android:layout_marginEnd="77dp"
         android:layout_marginBottom="24dp" />
@@ -52,26 +52,12 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken1"
-        android:layout_alignBottom="@+id/chicken6"
-        android:layout_toLeftOf="@+id/chicken4"
-        android:layout_toStartOf="@+id/chicken4"
+        android:id="@+id/chicken4"
+        android:layout_alignBottom="@+id/chicken5"
+        android:layout_toLeftOf="@+id/chicken1"
+        android:layout_toStartOf="@+id/chicken1"
         android:layout_marginRight="33dp"
         android:layout_marginEnd="33dp" />
-
-    <ImageView
-        android:contentDescription="@string/pink_chicken"
-        android:src="@drawable/farmchickenpink"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:layout_marginRight="88dp"
-        android:layout_marginEnd="88dp"
-        android:id="@+id/chicken2"
-        android:layout_above="@+id/chicken6"
-        android:layout_toLeftOf="@+id/chicken1"
-        android:layout_toStartOf="@+id/chicken1" />
 
     <ImageView
         android:contentDescription="@string/blue_chicken"
@@ -80,7 +66,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken6"
+        android:id="@+id/chicken5"
         android:layout_marginBottom="12dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -89,17 +75,30 @@
         android:layout_marginStart="12dp" />
 
     <ImageView
+        android:contentDescription="@string/pink_chicken"
+        android:src="@drawable/farmchickenpink"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken3"
+        android:layout_alignBottom="@+id/chicken0"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
         android:contentDescription="@string/red_chicken"
         android:src="@drawable/farmchickenred"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken3"
-        android:layout_alignBottom="@+id/chicken6"
-        android:layout_toLeftOf="@+id/chicken2"
-        android:layout_toStartOf="@+id/chicken2"
-        android:layout_marginRight="26dp"
-        android:layout_marginEnd="26dp" />
+        android:id="@+id/chicken2"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_alignBottom="@+id/chicken4"
+        android:layout_toLeftOf="@+id/chicken0"
+        android:layout_toStartOf="@+id/chicken0"
+        android:layout_marginBottom="42dp" />
 
 </RelativeLayout>
