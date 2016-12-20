@@ -22,6 +22,11 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.chicken5) ImageView mChicken5;
 
     private GestureDetector mChicken0GestureDetector;
+    private GestureDetector mChicken1GestureDetector;
+    private GestureDetector mChicken2GestureDetector;
+    private GestureDetector mChicken3GestureDetector;
+    private GestureDetector mChicken4GestureDetector;
+    private GestureDetector mChicken5GestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +56,82 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             }
         });
 
+        mChicken1GestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mChicken1.setVisibility(View.INVISIBLE);
+                mChicken2.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
+        mChicken2GestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mChicken2.setVisibility(View.INVISIBLE);
+                mChicken3.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
+        mChicken3GestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mChicken3.setVisibility(View.INVISIBLE);
+                mChicken4.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
+        mChicken4GestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mChicken4.setVisibility(View.INVISIBLE);
+                mChicken5.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
+        mChicken5GestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                mChicken5.setVisibility(View.INVISIBLE);
+//                mChicken1.setVisibility(View.VISIBLE);
+                return true;
+            }
+        });
+
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (view == mChicken0) {
             mChicken0GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mChicken1) {
+            mChicken1GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mChicken2) {
+            mChicken2GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mChicken3) {
+            mChicken3GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mChicken4) {
+            mChicken4GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mChicken5) {
+            mChicken5GestureDetector.onTouchEvent(motionEvent);
             return true;
         }
 
