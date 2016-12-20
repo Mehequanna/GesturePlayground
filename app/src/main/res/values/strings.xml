@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GesturePlayground</string>
+    <string name="main_parents">Parents</string>
 </resources>
