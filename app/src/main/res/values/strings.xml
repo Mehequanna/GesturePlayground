@@ -3,4 +3,10 @@
     <string name="main_parents">Parents</string>
     <string name="main_title">Gesture Playground</string>
     <string name="main_subtitle">Let\'s play!</string>
+    <string name="blue_chicken">Blue Chicken</string>
+    <string name="brown_chicken">Brown Chicken</string>
+    <string name="pink_chicken">Pink Chicken</string>
+    <string name="red_chicken">Red Chicken</string>
+    <string name="white_chicken">White Chicken</string>
+    <string name="yellow_chicken">Yellow Chicken</string>
 </resources>
