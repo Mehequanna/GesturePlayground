@@ -38,6 +38,13 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     MediaPlayer white;
     MediaPlayer yellow;
 
+    private int mChicken0count;
+    private int mChicken1count;
+    private int mChicken2count;
+    private int mChicken3count;
+    private int mChicken4count;
+    private int mChicken5count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,20 +71,28 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4.setOnTouchListener(this);
         mChicken5.setOnTouchListener(this);
 
-        int mChicken0count = 0;
-        int mChicken1count = 0;
-        int mChicken2count = 0;
-        int mChicken3count = 0;
-        int mChicken4count = 0;
-        int mChicken5count = 0;
+        mChicken0count = 0;
+        mChicken1count = 0;
+        mChicken2count = 0;
+        mChicken3count = 0;
+        mChicken4count = 0;
+        mChicken5count = 0;
 
         mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                rotateImage(mChicken0);
-                mChicken0.setVisibility(View.INVISIBLE);
-                yellow.start();
-                mChicken1.setVisibility(View.VISIBLE);
+
+                if (mChicken0count == 0) {
+                    rotateImage(mChicken0);
+                    mChicken0.setVisibility(View.INVISIBLE);
+                    yellow.start();
+                    mChicken1.setVisibility(View.VISIBLE);
+                    mChicken0count += 1;
+                } else if (mChicken0count == 1) {
+                    scaleImage(mChicken0);
+                    mChicken0.setVisibility(View.INVISIBLE);
+                    yellow.start();
+                }
 
                 return true;
             }
