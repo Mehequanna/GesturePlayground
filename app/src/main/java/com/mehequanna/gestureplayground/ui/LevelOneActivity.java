@@ -67,10 +67,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                Animation rotateAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.rotate_animation);
-                // Start animating the image
-                mChicken0.startAnimation(rotateAnimation);
+                rotateImage(mChicken0);
 
                 mChicken0.setVisibility(View.INVISIBLE);
 
@@ -84,9 +81,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken1GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                Animation scaleAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.scale_animation);
-                mChicken1.startAnimation(scaleAnimation);
+                scaleImage(mChicken1);
 
                 mChicken1.setVisibility(View.INVISIBLE);
 
@@ -178,4 +173,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
             return false;
     }
+
+    public void scaleImage(View view) {
+        Animation scaleAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_animation);
+        view.startAnimation(scaleAnimation);
+    }
+
+    public void rotateImage(View view) {
+        Animation rotateAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.rotate_animation);
+        view.startAnimation(rotateAnimation);
+    }
+
 }
