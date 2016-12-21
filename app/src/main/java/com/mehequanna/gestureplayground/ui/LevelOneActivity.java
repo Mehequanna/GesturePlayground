@@ -38,12 +38,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     MediaPlayer white;
     MediaPlayer yellow;
 
-    private int mChicken0count;
-    private int mChicken1count;
-    private int mChicken2count;
-    private int mChicken3count;
-    private int mChicken4count;
-    private int mChicken5count;
+    private int mChicken0Count;
+    private int mChicken1Count;
+    private int mChicken2Count;
+    private int mChicken3Count;
+    private int mChicken4Count;
+    private int mChicken5Count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,24 +71,24 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4.setOnTouchListener(this);
         mChicken5.setOnTouchListener(this);
 
-        mChicken0count = 0;
-        mChicken1count = 0;
-        mChicken2count = 0;
-        mChicken3count = 0;
-        mChicken4count = 0;
-        mChicken5count = 0;
+        mChicken0Count = 0;
+        mChicken1Count = 0;
+        mChicken2Count = 0;
+        mChicken3Count = 0;
+        mChicken4Count = 0;
+        mChicken5Count = 0;
 
         mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
 
-                if (mChicken0count == 0) {
+                if (mChicken0Count == 0) {
                     rotateImage(mChicken0);
                     mChicken0.setVisibility(View.INVISIBLE);
                     yellow.start();
                     mChicken1.setVisibility(View.VISIBLE);
-                    mChicken0count += 1;
-                } else if (mChicken0count == 1) {
+                    mChicken0Count += 1;
+                } else if (mChicken0Count == 1) {
                     scaleImage(mChicken0);
                     mChicken0.setVisibility(View.INVISIBLE);
                     yellow.start();
@@ -101,12 +101,18 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken1GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                scaleImage(mChicken1);
+                if (mChicken1Count == 0) {
+                    scaleImage(mChicken1);
+                    mChicken1.setVisibility(View.INVISIBLE);
+                    white.start();
+                    mChicken2.setVisibility(View.VISIBLE);
+                    mChicken1Count += 1;
+                } else if (mChicken1Count == 1) {
+                    fadeOutImage(mChicken1);
+                    mChicken1.setVisibility(View.INVISIBLE);
+                    white.start();
+                }
 
-                mChicken1.setVisibility(View.INVISIBLE);
-
-                white.start();
-                mChicken2.setVisibility(View.VISIBLE);
                 return true;
             }
         });
