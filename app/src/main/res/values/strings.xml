@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GesturePlayground</string>
+    <string name="app_name">Gesture\nPlayground</string>
     <string name="main_parents">Parents</string>
     <string name="main_title">Gesture Playground</string>
     <string name="main_subtitle">Let\'s play!</string>
