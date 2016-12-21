@@ -52,7 +52,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                RotateAnimation anim = new RotateAnimation(0f, 350f, 1f, 1f);
+                RotateAnimation anim = new RotateAnimation(0f, 350f, 15f, 15f);
                 anim.setInterpolator(new LinearInterpolator());
                 anim.setRepeatCount(0);
                 anim.setDuration(700);
