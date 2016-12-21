@@ -10,20 +10,23 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LevelOneActivity">
+        <activity android:name=".ui.LevelOneActivity"
+                  android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mehequanna.gestureplayground.ui.MainActivity" />
         </activity>
 
-        <activity android:name=".ui.ParentsActivity">
+        <activity android:name=".ui.ParentsActivity"
+                  android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mehequanna.gestureplayground.ui.MainActivity" />
