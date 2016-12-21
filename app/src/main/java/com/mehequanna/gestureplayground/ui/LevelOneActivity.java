@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -30,11 +31,25 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     private GestureDetector mChicken4GestureDetector;
     private GestureDetector mChicken5GestureDetector;
 
+    MediaPlayer blue;
+    MediaPlayer brown;
+    MediaPlayer pink;
+    MediaPlayer red;
+    MediaPlayer white;
+    MediaPlayer yellow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one);
         ButterKnife.bind(this);
+
+        blue = MediaPlayer.create(this, R.raw.bluef);
+        brown = MediaPlayer.create(this, R.raw.brownf);
+        pink = MediaPlayer.create(this, R.raw.pinkf);
+        red = MediaPlayer.create(this, R.raw.redf);
+        white = MediaPlayer.create(this, R.raw.whitef);
+        yellow = MediaPlayer.create(this, R.raw.yellowf);
 
         mChicken1.setVisibility(View.INVISIBLE);
         mChicken2.setVisibility(View.INVISIBLE);
