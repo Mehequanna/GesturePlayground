@@ -94,9 +94,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken2GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                fadeOutImage(mChicken2);
+                red.start();
                 mChicken2.setVisibility(View.INVISIBLE);
 
-                red.start();
                 mChicken3.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -105,9 +106,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken3GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                rotateImage(mChicken3);
+                pink.start();
                 mChicken3.setVisibility(View.INVISIBLE);
 
-                pink.start();
                 mChicken4.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -116,9 +118,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                scaleImage(mChicken4);
+                brown.start();
                 mChicken4.setVisibility(View.INVISIBLE);
 
-                brown.start();
                 mChicken5.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -127,7 +130,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken5GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                fadeOutImage(mChicken5);
                 blue.start();
+
                 mChicken0.setVisibility(View.VISIBLE);
                 mChicken1.setVisibility(View.VISIBLE);
                 mChicken2.setVisibility(View.VISIBLE);
@@ -184,6 +189,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         Animation rotateAnimation = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.rotate_animation);
         view.startAnimation(rotateAnimation);
+    }
+
+    public void fadeOutImage(View view) {
+        Animation fadeOutAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_out_animation);
+        view.startAnimation(fadeOutAnimation);
     }
 
 }
