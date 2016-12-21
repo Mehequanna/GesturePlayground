@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -87,6 +89,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken1GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                Animation scaleAnimation = AnimationUtils.loadAnimation(
+                        getApplicationContext(), R.anim.scale_animation);
+                mChicken1.startAnimation(scaleAnimation);
+
                 mChicken1.setVisibility(View.INVISIBLE);
 
 //                red.start();
