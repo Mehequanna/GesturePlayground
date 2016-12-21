@@ -76,6 +76,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                 mChicken0.startAnimation(anim);
 
                 mChicken0.setVisibility(View.INVISIBLE);
+
+//                white.start();
                 mChicken1.setVisibility(View.VISIBLE);
 
                 return true;
@@ -86,6 +88,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken1.setVisibility(View.INVISIBLE);
+
+//                red.start();
                 mChicken2.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -95,6 +99,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken2.setVisibility(View.INVISIBLE);
+
+//                pink.start();
                 mChicken3.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -104,6 +110,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken3.setVisibility(View.INVISIBLE);
+
+//                brown.start();
                 mChicken4.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -113,6 +121,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken4.setVisibility(View.INVISIBLE);
+
+//                blue.start();
                 mChicken5.setVisibility(View.VISIBLE);
                 return true;
             }
