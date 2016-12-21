@@ -71,7 +71,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
                 mChicken0.setVisibility(View.INVISIBLE);
 
-//                white.start();
+                yellow.start();
                 mChicken1.setVisibility(View.VISIBLE);
 
                 return true;
@@ -85,7 +85,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
                 mChicken1.setVisibility(View.INVISIBLE);
 
-//                red.start();
+                white.start();
                 mChicken2.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -96,7 +96,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken2.setVisibility(View.INVISIBLE);
 
-//                pink.start();
+                red.start();
                 mChicken3.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -107,7 +107,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken3.setVisibility(View.INVISIBLE);
 
-//                brown.start();
+                pink.start();
                 mChicken4.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -118,7 +118,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             public boolean onDoubleTap(MotionEvent e) {
                 mChicken4.setVisibility(View.INVISIBLE);
 
-//                blue.start();
+                brown.start();
                 mChicken5.setVisibility(View.VISIBLE);
                 return true;
             }
@@ -127,12 +127,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken5GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                blue.start();
                 mChicken0.setVisibility(View.VISIBLE);
                 mChicken1.setVisibility(View.VISIBLE);
                 mChicken2.setVisibility(View.VISIBLE);
                 mChicken3.setVisibility(View.VISIBLE);
                 mChicken4.setVisibility(View.VISIBLE);
-                mChicken5.setVisibility(View.INVISIBLE);
                 return true;
             }
         });
