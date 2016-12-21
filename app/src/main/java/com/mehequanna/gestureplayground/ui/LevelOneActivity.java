@@ -8,8 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.mehequanna.gestureplayground.R;
@@ -69,13 +67,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                RotateAnimation anim = new RotateAnimation(0f, 350f, 15f, 15f);
-                anim.setInterpolator(new LinearInterpolator());
-                anim.setRepeatCount(0);
-                anim.setDuration(700);
-
+                Animation rotateAnimation = AnimationUtils.loadAnimation(
+                        getApplicationContext(), R.anim.rotate_animation);
                 // Start animating the image
-                mChicken0.startAnimation(anim);
+                mChicken0.startAnimation(rotateAnimation);
 
                 mChicken0.setVisibility(View.INVISIBLE);
 
