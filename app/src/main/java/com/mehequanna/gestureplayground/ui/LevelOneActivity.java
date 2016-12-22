@@ -120,11 +120,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken2GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                fadeOutImage(mChicken2);
-                red.start();
-                mChicken2.setVisibility(View.INVISIBLE);
-
-                mChicken3.setVisibility(View.VISIBLE);
+               if (mChicken2Count == 0) {
+                    fadeOutImage(mChicken2);
+                    red.start();
+                    mChicken2.setVisibility(View.INVISIBLE);
+                    mChicken3.setVisibility(View.VISIBLE);
+                    mChicken2Count += 1;
+               } else if (mChicken2Count == 1) {
+                   rotateImage(mChicken2);
+                   mChicken2.setVisibility(View.INVISIBLE);
+                   red.start();
+               }
                 return true;
             }
         });
@@ -132,11 +138,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken3GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                rotateImage(mChicken3);
-                pink.start();
-                mChicken3.setVisibility(View.INVISIBLE);
-
-                mChicken4.setVisibility(View.VISIBLE);
+                if (mChicken3Count == 0) {
+                    rotateImage(mChicken3);
+                    pink.start();
+                    mChicken3.setVisibility(View.INVISIBLE);
+                    mChicken4.setVisibility(View.VISIBLE);
+                    mChicken3Count += 1;
+                } else if (mChicken3Count == 1) {
+                    scaleImage(mChicken3);
+                    pink.start();
+                    mChicken3.setVisibility(View.INVISIBLE);
+                }
                 return true;
             }
         });
@@ -144,11 +156,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                scaleImage(mChicken4);
-                brown.start();
-                mChicken4.setVisibility(View.INVISIBLE);
-
-                mChicken5.setVisibility(View.VISIBLE);
+               if (mChicken4Count == 0) {
+                    scaleImage(mChicken4);
+                    brown.start();
+                    mChicken4.setVisibility(View.INVISIBLE);
+                    mChicken5.setVisibility(View.VISIBLE);
+                    mChicken4Count += 1;
+               } else if (mChicken4Count == 1) {
+                   fadeOutImage(mChicken4);
+                   brown.start();
+                   mChicken4.setVisibility(View.INVISIBLE);
+               }
                 return true;
             }
         });
@@ -156,14 +174,20 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken5GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                fadeOutImage(mChicken5);
-                blue.start();
-
-                mChicken0.setVisibility(View.VISIBLE);
-                mChicken1.setVisibility(View.VISIBLE);
-                mChicken2.setVisibility(View.VISIBLE);
-                mChicken3.setVisibility(View.VISIBLE);
-                mChicken4.setVisibility(View.VISIBLE);
+                if (mChicken5Count == 0) {
+                    fadeOutImage(mChicken5);
+                    blue.start();
+                    mChicken0.setVisibility(View.VISIBLE);
+                    mChicken1.setVisibility(View.VISIBLE);
+                    mChicken2.setVisibility(View.VISIBLE);
+                    mChicken3.setVisibility(View.VISIBLE);
+                    mChicken4.setVisibility(View.VISIBLE);
+                    mChicken5Count += 1;
+                } else if (mChicken5Count == 1) {
+                    rotateImage(mChicken5);
+                    blue.start();
+                    mChicken5.setVisibility(View.INVISIBLE);
+                }
                 return true;
             }
         });
