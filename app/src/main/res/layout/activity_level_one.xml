@@ -13,8 +13,8 @@
         android:id="@+id/imageView"
         android:scaleType="fitXY"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/farm_background" />
 
     <ImageView
         android:contentDescription="@string/white_chicken"
@@ -24,10 +24,8 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken1"
-        android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <ImageView
@@ -39,9 +37,7 @@
         android:adjustViewBounds="true"
         android:id="@+id/chicken0"
         android:layout_above="@+id/chicken1"
-        android:layout_toLeftOf="@+id/chicken1"
         android:layout_toStartOf="@+id/chicken1"
-        android:layout_marginRight="77dp"
         android:layout_marginEnd="77dp"
         android:layout_marginBottom="24dp" />
 
@@ -54,9 +50,7 @@
         android:adjustViewBounds="true"
         android:id="@+id/chicken4"
         android:layout_alignBottom="@+id/chicken5"
-        android:layout_toLeftOf="@+id/chicken1"
         android:layout_toStartOf="@+id/chicken1"
-        android:layout_marginRight="33dp"
         android:layout_marginEnd="33dp" />
 
     <ImageView
@@ -69,9 +63,7 @@
         android:id="@+id/chicken5"
         android:layout_marginBottom="12dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="12dp"
         android:layout_marginStart="12dp" />
 
     <ImageView
@@ -83,7 +75,6 @@
         android:adjustViewBounds="true"
         android:id="@+id/chicken3"
         android:layout_alignBottom="@+id/chicken0"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ImageView
@@ -94,10 +85,8 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken2"
-        android:layout_marginRight="22dp"
         android:layout_marginEnd="22dp"
         android:layout_alignBottom="@+id/chicken4"
-        android:layout_toLeftOf="@+id/chicken0"
         android:layout_toStartOf="@+id/chicken0"
         android:layout_marginBottom="42dp" />
 
@@ -106,9 +95,7 @@
         android:layout_height="wrap_content"
         android:textSize="42sp"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/chicken2"
         android:layout_alignStart="@+id/chicken2"
-        android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"
         android:id="@+id/winTextView"
         android:textColor="#000000"/>
