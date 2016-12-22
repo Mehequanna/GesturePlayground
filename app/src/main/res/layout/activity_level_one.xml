@@ -101,4 +101,15 @@
         android:layout_toStartOf="@+id/chicken0"
         android:layout_marginBottom="42dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="42sp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/chicken2"
+        android:layout_alignStart="@+id/chicken2"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:id="@+id/winTextView" />
+
 </RelativeLayout>
