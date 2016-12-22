@@ -1,6 +1,7 @@
 package com.mehequanna.gestureplayground.ui;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -26,6 +28,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.chicken4) ImageView mChicken4;
     @Bind(R.id.chicken5) ImageView mChicken5;
     @Bind(R.id.winTextView) TextView mWinTextView;
+    @Bind(R.id.mainVideoView) VideoView mDoubleTapVideoView;
 
     private GestureDetector mChicken0GestureDetector;
     private GestureDetector mChicken1GestureDetector;
@@ -48,11 +51,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     private int mChicken4Count;
     private int mChicken5Count;
 
+    private GestureDetector mVideoGestureDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one);
         ButterKnife.bind(this);
+
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.doubletap);
+        mDoubleTapVideoView.setVideoURI(uri);
+        mDoubleTapVideoView.start();
 
         blue = MediaPlayer.create(this, R.raw.bluef);
         brown = MediaPlayer.create(this, R.raw.brownf);
@@ -66,13 +75,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken3.setVisibility(View.INVISIBLE);
         mChicken4.setVisibility(View.INVISIBLE);
         mChicken5.setVisibility(View.INVISIBLE);
-
-        mChicken0.setOnTouchListener(this);
-        mChicken1.setOnTouchListener(this);
-        mChicken2.setOnTouchListener(this);
-        mChicken3.setOnTouchListener(this);
-        mChicken4.setOnTouchListener(this);
-        mChicken5.setOnTouchListener(this);
 
         mChicken0Count = 0;
         mChicken1Count = 0;
@@ -198,6 +200,22 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             }
         });
 
+        mVideoGestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public boolean onDown(MotionEvent e) {
+                mDoubleTapVideoView.stopPlayback();
+                mDoubleTapVideoView.setVisibility(View.GONE);
+                return true;
+            }
+        });
+
+        mChicken0.setOnTouchListener(this);
+        mChicken1.setOnTouchListener(this);
+        mChicken2.setOnTouchListener(this);
+        mChicken3.setOnTouchListener(this);
+        mChicken4.setOnTouchListener(this);
+        mChicken5.setOnTouchListener(this);
+        mDoubleTapVideoView.setOnTouchListener(this);
     }
 
     @Override
@@ -229,6 +247,11 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
         if (view == mChicken5) {
             mChicken5GestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mDoubleTapVideoView) {
+            mVideoGestureDetector.onTouchEvent(motionEvent);
             return true;
         }
 
