@@ -202,7 +202,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
         mVideoGestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
-            public boolean onDown(MotionEvent e) {
+            public boolean onDoubleTap(MotionEvent e) {
                 mDoubleTapVideoView.stopPlayback();
                 mDoubleTapVideoView.setVisibility(View.GONE);
                 return true;
