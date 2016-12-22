@@ -3,6 +3,7 @@ package com.mehequanna.gestureplayground.ui;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -81,19 +82,18 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mChicken0GestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-
                 if (mChicken0Count == 0) {
                     rotateImage(mChicken0);
                     mChicken0.setVisibility(View.INVISIBLE);
                     yellow.start();
                     mChicken1.setVisibility(View.VISIBLE);
-                    mChicken0Count += 1;
                 } else if (mChicken0Count == 1) {
                     scaleImage(mChicken0);
                     mChicken0.setVisibility(View.INVISIBLE);
                     yellow.start();
                 }
-
+                mChicken0Count += 1;
+                winCheck();
                 return true;
             }
         });
@@ -106,13 +106,13 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                     mChicken1.setVisibility(View.INVISIBLE);
                     white.start();
                     mChicken2.setVisibility(View.VISIBLE);
-                    mChicken1Count += 1;
                 } else if (mChicken1Count == 1) {
                     fadeOutImage(mChicken1);
                     mChicken1.setVisibility(View.INVISIBLE);
                     white.start();
                 }
-
+                mChicken1Count += 1;
+                winCheck();
                 return true;
             }
         });
@@ -125,12 +125,13 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                     red.start();
                     mChicken2.setVisibility(View.INVISIBLE);
                     mChicken3.setVisibility(View.VISIBLE);
-                    mChicken2Count += 1;
                } else if (mChicken2Count == 1) {
                    rotateImage(mChicken2);
                    mChicken2.setVisibility(View.INVISIBLE);
                    red.start();
                }
+                mChicken2Count += 1;
+                winCheck();
                 return true;
             }
         });
@@ -143,12 +144,13 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                     pink.start();
                     mChicken3.setVisibility(View.INVISIBLE);
                     mChicken4.setVisibility(View.VISIBLE);
-                    mChicken3Count += 1;
                 } else if (mChicken3Count == 1) {
                     scaleImage(mChicken3);
                     pink.start();
                     mChicken3.setVisibility(View.INVISIBLE);
                 }
+                mChicken3Count += 1;
+                winCheck();
                 return true;
             }
         });
@@ -161,12 +163,13 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                     brown.start();
                     mChicken4.setVisibility(View.INVISIBLE);
                     mChicken5.setVisibility(View.VISIBLE);
-                    mChicken4Count += 1;
                } else if (mChicken4Count == 1) {
                    fadeOutImage(mChicken4);
                    brown.start();
                    mChicken4.setVisibility(View.INVISIBLE);
                }
+                mChicken4Count += 1;
+                winCheck();
                 return true;
             }
         });
@@ -182,12 +185,13 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                     mChicken2.setVisibility(View.VISIBLE);
                     mChicken3.setVisibility(View.VISIBLE);
                     mChicken4.setVisibility(View.VISIBLE);
-                    mChicken5Count += 1;
                 } else if (mChicken5Count == 1) {
                     rotateImage(mChicken5);
                     blue.start();
                     mChicken5.setVisibility(View.INVISIBLE);
                 }
+                mChicken5Count += 1;
+                winCheck();
                 return true;
             }
         });
@@ -245,6 +249,14 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         Animation fadeOutAnimation = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.fade_out_animation);
         view.startAnimation(fadeOutAnimation);
+    }
+
+    public void winCheck() {
+        if (mChicken0Count == 2 && mChicken1Count == 2 && mChicken2Count == 2 && mChicken3Count == 2 && mChicken4Count == 2 && mChicken5Count == 2) {
+            Log.d("logs", "winCheck: WINS!");
+        } else {
+            Log.d("logs", "winCheck: Not Yet");
+        }
     }
 
 }
