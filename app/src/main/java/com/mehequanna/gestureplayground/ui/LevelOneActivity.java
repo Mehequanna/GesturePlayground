@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -24,6 +25,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.chicken3) ImageView mChicken3;
     @Bind(R.id.chicken4) ImageView mChicken4;
     @Bind(R.id.chicken5) ImageView mChicken5;
+    @Bind(R.id.winTextView) TextView mWinTextView;
 
     private GestureDetector mChicken0GestureDetector;
     private GestureDetector mChicken1GestureDetector;
@@ -253,7 +255,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
     public void winCheck() {
         if (mChicken0Count == 2 && mChicken1Count == 2 && mChicken2Count == 2 && mChicken3Count == 2 && mChicken4Count == 2 && mChicken5Count == 2) {
-            Log.d("logs", "winCheck: WINS!");
+            mWinTextView.setText("Great Job!");
         } else {
             Log.d("logs", "winCheck: Not Yet");
         }
