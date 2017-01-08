@@ -20,7 +20,7 @@ import com.mehequanna.gestureplayground.util.DetectGestures;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LevelOneActivity extends AppCompatActivity implements View.OnTouchListener {
+public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchListener {
     @Bind(R.id.chicken0) ImageView mChicken0;
     @Bind(R.id.chicken1) ImageView mChicken1;
     @Bind(R.id.chicken2) ImageView mChicken2;
@@ -56,7 +56,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_one);
+        setContentView(R.layout.activity_level_two);
         ButterKnife.bind(this);
 
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.doubletap);

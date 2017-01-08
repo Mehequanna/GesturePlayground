@@ -4,7 +4,7 @@
     android:id="@+id/activity_level_one"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mehequanna.gestureplayground.ui.LevelOneActivity">
+    tools:context="com.mehequanna.gestureplayground.ui.LevelTwoActivity">
 
     <ImageView
         android:layout_width="match_parent"

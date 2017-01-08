@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view == mLevelOneImageButton) {
-            Intent intent = new Intent(MainActivity.this, LevelOneActivity.class);
+            Intent intent = new Intent(MainActivity.this, LevelTwoActivity.class);
             startActivity(intent);
         }
         if (view == mParentsButton) {
