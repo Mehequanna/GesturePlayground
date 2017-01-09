@@ -48,26 +48,62 @@
         android:layout_below="@+id/titleTextView"
         android:layout_toEndOf="@+id/titleTextView" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chickenbuttonsmall"
-        android:id="@+id/levelOneImageButton"
-        android:background="#00000000"
-        android:layout_marginBottom="36dp"
-        android:layout_alignBottom="@+id/parentsButton"
-        android:layout_toStartOf="@+id/subtitielTextView"
-        android:layout_marginEnd="56dp"
-        android:contentDescription="@string/level_one" />
-
+    <!--TODO: Remove video?-->
     <VideoView
         android:id="@+id/mainVideoView"
         android:layout_alignParentStart="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:elevation="2dp"
+        android:elevation="-1dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"/>
+
+    <ImageButton
+        android:src="@drawable/level1"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_one"
+        android:id="@+id/levelOneImageButton"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="66dp"
+        android:layout_above="@+id/parentsButton"
+        android:layout_toStartOf="@+id/subtitielTextView" />
+
+    <ImageButton
+        android:src="@drawable/level2"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_two"
+        android:id="@+id/levelTwoImageButton"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="13dp"
+        android:layout_alignBottom="@+id/parentsButton"
+        android:layout_alignEnd="@+id/subtitielTextView" />
+
+    <ImageButton
+        android:src="@drawable/level3"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_three"
+        android:id="@+id/levelThreeImageButton"
+        android:layout_marginStart="-70dp"
+        android:layout_alignTop="@+id/levelOneImageButton"
+        android:layout_toEndOf="@+id/levelTwoImageButton" />
+
+    <ImageButton
+        android:src="@drawable/level4"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_four"
+        android:id="@+id/levelFourImageButton"
+        android:layout_marginStart="16dp"
+        android:layout_alignTop="@+id/levelTwoImageButton"
+        android:layout_toEndOf="@+id/levelThreeImageButton" />
+
+    <ImageButton
+        android:src="@drawable/level5"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_five"
+        android:id="@+id/levelFiveImageButton"
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/levelThreeImageButton"
+        android:layout_toEndOf="@+id/levelFourImageButton" />
 
 </RelativeLayout>
