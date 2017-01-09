@@ -97,4 +97,13 @@
         android:layout_alignTop="@+id/levelTwoImageButton"
         android:layout_toEndOf="@+id/levelThreeImageButton" />
 
+    <ImageButton
+        android:src="@drawable/level5"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_five"
+        android:id="@+id/levelFiveImageButton"
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/levelThreeImageButton"
+        android:layout_toEndOf="@+id/levelFourImageButton" />
+
 </RelativeLayout>
