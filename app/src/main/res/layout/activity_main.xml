@@ -79,4 +79,13 @@
         android:layout_alignBottom="@+id/parentsButton"
         android:layout_alignEnd="@+id/subtitielTextView" />
 
+    <ImageButton
+        android:src="@drawable/level3"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_three"
+        android:id="@+id/levelThreeImageButton"
+        android:layout_marginStart="-70dp"
+        android:layout_alignTop="@+id/levelOneImageButton"
+        android:layout_toEndOf="@+id/levelTwoImageButton" />
+
 </RelativeLayout>
