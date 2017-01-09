@@ -88,4 +88,13 @@
         android:layout_alignTop="@+id/levelOneImageButton"
         android:layout_toEndOf="@+id/levelTwoImageButton" />
 
+    <ImageButton
+        android:src="@drawable/level4"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_four"
+        android:id="@+id/levelFourImageButton"
+        android:layout_marginStart="16dp"
+        android:layout_alignTop="@+id/levelTwoImageButton"
+        android:layout_toEndOf="@+id/levelThreeImageButton" />
+
 </RelativeLayout>
