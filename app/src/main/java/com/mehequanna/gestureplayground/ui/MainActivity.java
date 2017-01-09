@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -19,6 +20,10 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener {
     @Bind(R.id.levelOneImageButton) ImageButton mLevelOneImageButton;
+    @Bind(R.id.levelTwoImageButton) ImageButton mLevelTwoImageButton;
+    @Bind(R.id.levelThreeImageButton) ImageButton mLevelThreeImageButton;
+    @Bind(R.id.levelFourImageButton) ImageButton mLevelFourImageButton;
+    @Bind(R.id.levelFiveImageButton) ImageButton mLevelFiveImageButton;
     @Bind(R.id.parentsButton) Button mParentsButton;
     @Bind(R.id.mainVideoView) VideoView mMainVideoView;
 
@@ -44,16 +49,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         mLevelOneImageButton.setOnClickListener(this);
+        mLevelTwoImageButton.setOnClickListener(this);
+        mLevelThreeImageButton.setOnClickListener(this);
+        mLevelFourImageButton.setOnClickListener(this);
+        mLevelFiveImageButton.setOnClickListener(this);
         mParentsButton.setOnClickListener(this);
         mMainVideoView.setOnTouchListener(this);
     }
 
     @Override
     public void onClick(View view) {
+        //TODO: Connect onClick View to activity after they are created.
         if (view == mLevelOneImageButton) {
-            //TODO: change to LevelOneActivity.class
+            Toast.makeText(this, "Level One Tapped", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(MainActivity.this, LevelOneActivity.class);
+//            startActivity(intent);
+        }
+        if (view == mLevelTwoImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelTwoActivity.class);
             startActivity(intent);
+        }
+        if (view == mLevelThreeImageButton) {
+            Toast.makeText(this, "Level Three Tapped", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(MainActivity.this, LevelThreeActivity.class);
+//            startActivity(intent);
+        }
+        if (view == mLevelFourImageButton) {
+            Toast.makeText(this, "Level Four Tapped", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(MainActivity.this, LevelFourActivity.class);
+//            startActivity(intent);
+        }
+        if (view == mLevelFiveImageButton) {
+            Toast.makeText(this, "Level Five Tapped", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(MainActivity.this, LevelFiveActivity.class);
+//            startActivity(intent);
         }
         if (view == mParentsButton) {
             Intent intent = new Intent(MainActivity.this, ParentsActivity.class);
