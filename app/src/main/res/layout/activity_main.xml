@@ -61,12 +61,22 @@
 
     <ImageButton
         android:src="@drawable/level1"
-        android:id="@+id/levelOneImageButton"
-        android:layout_marginBottom="24dp"
         style="@style/level_buttons"
         android:contentDescription="@string/level_one"
+        android:id="@+id/levelOneImageButton"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="66dp"
-        android:layout_alignBottom="@+id/parentsButton"
+        android:layout_above="@+id/parentsButton"
         android:layout_toStartOf="@+id/subtitielTextView" />
+
+    <ImageButton
+        android:src="@drawable/level2"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_two"
+        android:id="@+id/levelTwoImageButton"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="13dp"
+        android:layout_alignBottom="@+id/parentsButton"
+        android:layout_alignEnd="@+id/subtitielTextView" />
 
 </RelativeLayout>

@@ -12,4 +12,5 @@
     <string name="parents_description">Gesture Playground is an app to teach toddlers the gestures needed on android devices. Toddlers learn best by playing and doing actions. Each level will have a miniature instructional piece. Then the toddler will then practice/play with that gesture on the level.</string>
     <string name="farm_background">Farm Background</string>
     <string name="level_one">Level One</string>
+    <string name="level_two">Level Two</string>
 </resources>
