@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.mehequanna.gestureplayground.ui.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/farmbackground"
+        android:id="@+id/imageView"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/farm_background" />
+
+    <Button
+        android:text="@string/main_parents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:id="@+id/parentsButton"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="13dp"/>
+
+    <TextView
+        android:text="@string/main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:textSize="35sp"
+        android:id="@+id/titleTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/parentsButton" />
+
+    <TextView
+        android:text="@string/main_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="25sp"
+        android:id="@+id/subtitielTextView"
+        android:layout_below="@+id/titleTextView"
+        android:layout_toEndOf="@+id/titleTextView" />
+
+    <ImageButton
+        android:src="@drawable/level1"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_one"
+        android:id="@+id/levelOneImageButton"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="66dp"
+        android:layout_above="@+id/parentsButton"
+        android:layout_toStartOf="@+id/subtitielTextView" />
+
+    <ImageButton
+        android:src="@drawable/level2"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_two"
+        android:id="@+id/levelTwoImageButton"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="13dp"
+        android:layout_alignBottom="@+id/parentsButton"
+        android:layout_alignEnd="@+id/subtitielTextView" />
+
+    <ImageButton
+        android:src="@drawable/level3"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_three"
+        android:id="@+id/levelThreeImageButton"
+        android:layout_marginStart="-70dp"
+        android:layout_alignTop="@+id/levelOneImageButton"
+        android:layout_toEndOf="@+id/levelTwoImageButton" />
+
+    <ImageButton
+        android:src="@drawable/level4"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_four"
+        android:id="@+id/levelFourImageButton"
+        android:layout_marginStart="16dp"
+        android:layout_alignTop="@+id/levelTwoImageButton"
+        android:layout_toEndOf="@+id/levelThreeImageButton" />
+
+    <ImageButton
+        android:src="@drawable/level5"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_five"
+        android:id="@+id/levelFiveImageButton"
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/levelThreeImageButton"
+        android:layout_toEndOf="@+id/levelFourImageButton" />
+
+</RelativeLayout>
