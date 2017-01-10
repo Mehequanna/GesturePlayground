@@ -48,17 +48,6 @@
         android:layout_below="@+id/titleTextView"
         android:layout_toEndOf="@+id/titleTextView" />
 
-    <!--TODO: Remove video?-->
-    <VideoView
-        android:id="@+id/mainVideoView"
-        android:layout_alignParentStart="true"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:elevation="-1dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"/>
-
     <ImageButton
         android:src="@drawable/level1"
         style="@style/level_buttons"
