@@ -42,31 +42,6 @@
         android:layout_marginBottom="24dp" />
 
     <ImageView
-        android:contentDescription="@string/brown_chicken"
-        android:src="@drawable/farmchickenbrown"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/chicken4"
-        android:layout_alignBottom="@+id/chicken5"
-        android:layout_toStartOf="@+id/chicken1"
-        android:layout_marginEnd="33dp" />
-
-    <ImageView
-        android:contentDescription="@string/blue_chicken"
-        android:src="@drawable/farmchickenblue"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/chicken5"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="12dp" />
-
-    <ImageView
         android:contentDescription="@string/pink_chicken"
         android:src="@drawable/farmchickenpink"
         android:layout_width="70dp"
@@ -76,19 +51,6 @@
         android:id="@+id/chicken3"
         android:layout_alignBottom="@+id/chicken0"
         android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:contentDescription="@string/red_chicken"
-        android:src="@drawable/farmchickenred"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/chicken2"
-        android:layout_marginEnd="22dp"
-        android:layout_alignBottom="@+id/chicken4"
-        android:layout_toStartOf="@+id/chicken0"
-        android:layout_marginBottom="42dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,9 +67,47 @@
         android:layout_alignParentStart="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:elevation="2dp"
+        android:elevation="-1dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:contentDescription="@string/blue_chicken"
+        android:src="@drawable/farmchickenblue"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken5"
+        android:layout_marginStart="40dp"
+        android:layout_below="@+id/chicken0"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp" />
+
+    <ImageView
+        android:contentDescription="@string/red_chicken"
+        android:src="@drawable/farmchickenred"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken2"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignBottom="@+id/chicken4"
+        android:layout_toStartOf="@+id/chicken0" />
+
+    <ImageView
+        android:contentDescription="@string/brown_chicken"
+        android:src="@drawable/farmchickenbrown"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken4"
+        android:layout_alignTop="@+id/chicken5"
+        android:layout_toEndOf="@+id/chicken2"
+        android:layout_marginStart="25dp" />
 
 </RelativeLayout>
