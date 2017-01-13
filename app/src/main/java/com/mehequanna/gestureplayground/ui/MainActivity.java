@@ -37,16 +37,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        //TODO: Connect onClick View to activity after they are created.
         if (view == mLevelOneImageButton) {
-            Toast.makeText(this, "Level One Tapped", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(MainActivity.this, LevelOneActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, LevelOneActivity.class);
+            startActivity(intent);
         }
         if (view == mLevelTwoImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelTwoActivity.class);
             startActivity(intent);
         }
+        //TODO: Connect onClick View to activity after they are created.
         if (view == mLevelThreeImageButton) {
             Toast.makeText(this, "Level Three Tapped", Toast.LENGTH_SHORT).show();
 //            Intent intent = new Intent(MainActivity.this, LevelThreeActivity.class);
