@@ -26,7 +26,7 @@
         android:textColor="#000000"/>
 
     <ImageView
-        android:contentDescription="Cow with six."
+        android:contentDescription="@string/cow_six"
         android:src="@drawable/six"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_marginTop="17dp" />
 
     <ImageView
-        android:contentDescription="Cow with one."
+        android:contentDescription="@string/cow_one"
         android:src="@drawable/one"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         android:layout_marginTop="17dp" />
 
     <ImageView
-        android:contentDescription="Cow with seven."
+        android:contentDescription="@string/cow_seven"
         android:src="@drawable/seven"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_marginTop="11dp" />
 
     <ImageView
-        android:contentDescription="Cow with two."
+        android:contentDescription="@string/cow_two"
         android:src="@drawable/two"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         android:layout_marginTop="11dp" />
 
     <ImageView
-        android:contentDescription="Cow with eight."
+        android:contentDescription="@string/cow_eight"
         android:src="@drawable/eight"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
         android:layout_marginStart="23dp" />
 
     <ImageView
-        android:contentDescription="Cow with three."
+        android:contentDescription="@string/cow_three"
         android:src="@drawable/three"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
         android:layout_marginStart="23dp" />
 
     <ImageView
-        android:contentDescription="Cow with nine."
+        android:contentDescription="@string/cow_nine"
         android:src="@drawable/nine"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
         android:layout_marginStart="13dp" />
 
     <ImageView
-        android:contentDescription="Cow with four."
+        android:contentDescription="@string/cow_four"
         android:src="@drawable/four"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
         android:layout_marginStart="13dp" />
 
     <ImageView
-        android:contentDescription="Cow with ten."
+        android:contentDescription="@string/cow_ten"
         android:src="@drawable/ten"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
         android:layout_marginStart="37dp" />
 
     <ImageView
-        android:contentDescription="Cow with five."
+        android:contentDescription="@string/cow_five"
         android:src="@drawable/five"
         android:layout_width="75dp"
         android:layout_height="wrap_content"

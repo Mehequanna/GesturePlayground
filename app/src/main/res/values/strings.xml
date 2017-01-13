@@ -16,4 +16,14 @@
     <string name="level_three">Level Three</string>
     <string name="level_four">Level Four</string>
     <string name="level_five">Level Five</string>
+    <string name="cow_six">Cow with a six.</string>
+    <string name="cow_one">Cow with a one.</string>
+    <string name="cow_seven">Cow with a seven.</string>
+    <string name="cow_two">Cow with a two.</string>
+    <string name="cow_eight">Cow with a eight.</string>
+    <string name="cow_three">Cow with a three.</string>
+    <string name="cow_nine">Cow with a nine.</string>
+    <string name="cow_four">Cow with a four.</string>
+    <string name="cow_ten">Cow with a ten.</string>
+    <string name="cow_five">Cow with a five.</string>
 </resources>
