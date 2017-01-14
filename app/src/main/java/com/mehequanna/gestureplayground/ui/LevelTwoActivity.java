@@ -281,7 +281,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
             mWinTextView.setText(R.string.great_job);
 
             Animation winAnimation = AnimationUtils.loadAnimation(
-                    getApplicationContext(), R.anim.win_animation);
+                    getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
         } else {

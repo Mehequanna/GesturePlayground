@@ -187,9 +187,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
                 mWinTextView.setText(R.string.great_job);
 
-                Animation winAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.win_animation);
-                mWinTextView.startAnimation(winAnimation);
+                Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
+                        getApplicationContext(), R.anim.win_scale_fade_animation);
+                mWinTextView.startAnimation(winScaleUpAnimation);
                 return true;
             }
         });
