@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.mehequanna.gestureplayground.R;
@@ -239,5 +241,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         }
 
         return false;
+    }
+
+    public void scaleUpFadeImage(View view) {
+        Animation scaleUpFade = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_up_fade_animation);
+        view.startAnimation(scaleUpFade);
+    }
+
+    public void scaleDownFadeImage(View view) {
+        Animation scaleDownFade = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_down_fade_animation);
+        view.startAnimation(scaleDownFade);
     }
 }
