@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -36,11 +37,33 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     private GestureDetector mCowNineGestureDetector;
     private GestureDetector mCowTenGestureDetector;
 
+    MediaPlayer one;
+    MediaPlayer two;
+    MediaPlayer three;
+    MediaPlayer four;
+    MediaPlayer five;
+    MediaPlayer six;
+    MediaPlayer seven;
+    MediaPlayer eight;
+    MediaPlayer nine;
+    MediaPlayer ten;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one);
         ButterKnife.bind(this);
+
+        one = MediaPlayer.create(this, R.raw.one);
+        two = MediaPlayer.create(this, R.raw.two);
+        three = MediaPlayer.create(this, R.raw.three);
+        four = MediaPlayer.create(this, R.raw.four);
+        five = MediaPlayer.create(this, R.raw.five);
+        six = MediaPlayer.create(this, R.raw.six);
+        seven = MediaPlayer.create(this, R.raw.seven);
+        eight = MediaPlayer.create(this, R.raw.eight);
+        nine = MediaPlayer.create(this, R.raw.nine);
+        ten = MediaPlayer.create(this, R.raw.ten);
 
         mCowTwo.setVisibility(View.INVISIBLE);
         mCowThree.setVisibility(View.INVISIBLE);
@@ -55,6 +78,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowOneGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               one.start();
                mCowOne.setVisibility(View.INVISIBLE);
                mCowTwo.setVisibility(View.VISIBLE);
                return true;
@@ -64,6 +88,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowTwoGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               two.start();
                mCowTwo.setVisibility(View.INVISIBLE);
                mCowThree.setVisibility(View.VISIBLE);
                return true;
@@ -73,6 +98,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowThreeGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               three.start();
                mCowThree.setVisibility(View.INVISIBLE);
                mCowFour.setVisibility(View.VISIBLE);
                return true;
@@ -82,6 +108,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowFourGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               four.start();
                mCowFour.setVisibility(View.INVISIBLE);
                mCowFive.setVisibility(View.VISIBLE);
                return true;
@@ -91,6 +118,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowFiveGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               five.start();
                mCowFive.setVisibility(View.INVISIBLE);
                mCowSix.setVisibility(View.VISIBLE);
                return true;
@@ -100,6 +128,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowSixGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               six.start();
                mCowSix.setVisibility(View.INVISIBLE);
                mCowSeven.setVisibility(View.VISIBLE);
                return true;
@@ -109,6 +138,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowSevenGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               seven.start();
                mCowSeven.setVisibility(View.INVISIBLE);
                mCowEight.setVisibility(View.VISIBLE);
                return true;
@@ -118,6 +148,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEightGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               eight.start();
                mCowEight.setVisibility(View.INVISIBLE);
                mCowNine.setVisibility(View.VISIBLE);
                return true;
@@ -127,6 +158,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowNineGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               nine.start();
                mCowNine.setVisibility(View.INVISIBLE);
                mCowTen.setVisibility(View.VISIBLE);
                return true;
@@ -136,6 +168,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowTenGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+                ten.start();
                 mCowTen.setVisibility(View.INVISIBLE);
                 return true;
             }
