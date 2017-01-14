@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -27,6 +28,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.cowEight) ImageView mCowEight;
     @Bind(R.id.cowNine) ImageView mCowNine;
     @Bind(R.id.cowTen) ImageView mCowTen;
+    @Bind(R.id.winTextView) TextView mWinTextView;
 
     private GestureDetector mCowOneGestureDetector;
     private GestureDetector mCowTwoGestureDetector;
@@ -182,6 +184,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                 scaleDownFadeImage(mCowTen);
                 ten.start();
                 mCowTen.setVisibility(View.INVISIBLE);
+
+                mWinTextView.setText(R.string.great_job);
+
+                Animation winAnimation = AnimationUtils.loadAnimation(
+                        getApplicationContext(), R.anim.win_animation);
+                mWinTextView.startAnimation(winAnimation);
                 return true;
             }
         });
