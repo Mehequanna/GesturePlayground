@@ -47,9 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         //TODO: Connect onClick View to activity after they are created.
         if (view == mLevelThreeImageButton) {
-            Toast.makeText(this, "Level Three Tapped", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(MainActivity.this, LevelThreeActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, LevelThreeActivity.class);
+            startActivity(intent);
         }
         if (view == mLevelFourImageButton) {
             Toast.makeText(this, "Level Four Tapped", Toast.LENGTH_SHORT).show();
