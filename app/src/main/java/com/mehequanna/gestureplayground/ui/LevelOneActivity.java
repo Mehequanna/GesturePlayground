@@ -80,6 +80,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowOneGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleUpFadeImage(mCowOne);
                one.start();
                mCowOne.setVisibility(View.INVISIBLE);
                mCowTwo.setVisibility(View.VISIBLE);
@@ -90,6 +91,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowTwoGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleDownFadeImage(mCowTwo);
                two.start();
                mCowTwo.setVisibility(View.INVISIBLE);
                mCowThree.setVisibility(View.VISIBLE);
@@ -100,6 +102,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowThreeGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleUpFadeImage(mCowThree);
                three.start();
                mCowThree.setVisibility(View.INVISIBLE);
                mCowFour.setVisibility(View.VISIBLE);
@@ -110,6 +113,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowFourGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleDownFadeImage(mCowFour);
                four.start();
                mCowFour.setVisibility(View.INVISIBLE);
                mCowFive.setVisibility(View.VISIBLE);
@@ -120,6 +124,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowFiveGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleUpFadeImage(mCowFive);
                five.start();
                mCowFive.setVisibility(View.INVISIBLE);
                mCowSix.setVisibility(View.VISIBLE);
@@ -130,6 +135,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowSixGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleDownFadeImage(mCowSix);
                six.start();
                mCowSix.setVisibility(View.INVISIBLE);
                mCowSeven.setVisibility(View.VISIBLE);
@@ -140,6 +146,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowSevenGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleUpFadeImage(mCowSeven);
                seven.start();
                mCowSeven.setVisibility(View.INVISIBLE);
                mCowEight.setVisibility(View.VISIBLE);
@@ -150,6 +157,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEightGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleDownFadeImage(mCowEight);
                eight.start();
                mCowEight.setVisibility(View.INVISIBLE);
                mCowNine.setVisibility(View.VISIBLE);
@@ -160,6 +168,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowNineGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+               scaleUpFadeImage(mCowNine);
                nine.start();
                mCowNine.setVisibility(View.INVISIBLE);
                mCowTen.setVisibility(View.VISIBLE);
@@ -170,6 +179,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowTenGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
+                scaleDownFadeImage(mCowTen);
                 ten.start();
                 mCowTen.setVisibility(View.INVISIBLE);
                 return true;
