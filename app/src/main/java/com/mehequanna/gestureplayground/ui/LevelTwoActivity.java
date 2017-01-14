@@ -278,7 +278,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
     public void winCheck() {
         if (mChicken0Count == 2 && mChicken1Count == 2 && mChicken2Count == 2 && mChicken3Count == 2 && mChicken4Count == 2 && mChicken5Count == 2) {
-            mWinTextView.setText("Great Job!");
+            mWinTextView.setText(R.string.great_job);
 
             Animation winAnimation = AnimationUtils.loadAnimation(
                     getApplicationContext(), R.anim.win_animation);
