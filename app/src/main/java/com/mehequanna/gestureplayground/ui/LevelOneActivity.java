@@ -61,6 +61,86 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
            }
         });
 
+        mCowTwoGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowTwo.setVisibility(View.INVISIBLE);
+               mCowThree.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowThreeGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowThree.setVisibility(View.INVISIBLE);
+               mCowFour.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowFourGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowFour.setVisibility(View.INVISIBLE);
+               mCowFive.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowFiveGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowFive.setVisibility(View.INVISIBLE);
+               mCowSix.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowSixGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowSix.setVisibility(View.INVISIBLE);
+               mCowSeven.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowSevenGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowSeven.setVisibility(View.INVISIBLE);
+               mCowEight.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowEightGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowEight.setVisibility(View.INVISIBLE);
+               mCowNine.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowNineGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+               mCowNine.setVisibility(View.INVISIBLE);
+               mCowTen.setVisibility(View.VISIBLE);
+               return true;
+           }
+        });
+
+        mCowTenGestureDetector = new GestureDetector(this, new DetectGestures(){
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+                mCowTen.setVisibility(View.INVISIBLE);
+                return true;
+            }
+        });
+
         mCowOne.setOnTouchListener(this);
         mCowTwo.setOnTouchListener(this);
         mCowThree.setOnTouchListener(this);
@@ -77,6 +157,51 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (view == mCowOne) {
             mCowOneGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowTwo) {
+            mCowTwoGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowThree) {
+            mCowThreeGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowFour) {
+            mCowFourGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowFive) {
+            mCowFiveGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowSix) {
+            mCowSixGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowSeven) {
+            mCowSevenGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowEight) {
+            mCowEightGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowNine) {
+            mCowNineGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+
+        if (view == mCowTen) {
+            mCowTenGestureDetector.onTouchEvent(motionEvent);
             return true;
         }
 
