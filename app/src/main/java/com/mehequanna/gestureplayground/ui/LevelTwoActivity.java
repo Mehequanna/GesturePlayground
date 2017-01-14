@@ -63,12 +63,12 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mDoubleTapVideoView.setVideoURI(uri);
         mDoubleTapVideoView.start();
 
-        blue = MediaPlayer.create(this, R.raw.bluef);
-        brown = MediaPlayer.create(this, R.raw.brownf);
-        pink = MediaPlayer.create(this, R.raw.pinkf);
-        red = MediaPlayer.create(this, R.raw.redf);
-        white = MediaPlayer.create(this, R.raw.whitef);
-        yellow = MediaPlayer.create(this, R.raw.yellowf);
+        blue = MediaPlayer.create(this, R.raw.blue);
+        brown = MediaPlayer.create(this, R.raw.brown);
+        pink = MediaPlayer.create(this, R.raw.pink);
+        red = MediaPlayer.create(this, R.raw.red);
+        white = MediaPlayer.create(this, R.raw.white);
+        yellow = MediaPlayer.create(this, R.raw.yellow);
 
         mChicken1.setVisibility(View.INVISIBLE);
         mChicken2.setVisibility(View.INVISIBLE);
@@ -278,10 +278,10 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
     public void winCheck() {
         if (mChicken0Count == 2 && mChicken1Count == 2 && mChicken2Count == 2 && mChicken3Count == 2 && mChicken4Count == 2 && mChicken5Count == 2) {
-            mWinTextView.setText("Great Job!");
+            mWinTextView.setText(R.string.great_job);
 
             Animation winAnimation = AnimationUtils.loadAnimation(
-                    getApplicationContext(), R.anim.win_animation);
+                    getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
         } else {

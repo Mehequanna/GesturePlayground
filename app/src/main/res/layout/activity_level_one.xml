@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_level_one"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mehequanna.gestureplayground.ui.LevelOneActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/farmbackground"
+        android:id="@+id/imageView"
+        android:scaleType="fitXY"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/farm_background" />
+
+    <ImageView
+        android:contentDescription="@string/cow_eight"
+        android:src="@drawable/eight"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowEight"
+        android:layout_alignTop="@+id/cowSix"
+        android:layout_toEndOf="@+id/cowSeven"
+        android:layout_marginStart="23dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_three"
+        android:src="@drawable/three"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowThree"
+        android:layout_alignTop="@+id/cowSix"
+        android:layout_toEndOf="@+id/cowSeven"
+        android:layout_marginStart="23dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_nine"
+        android:src="@drawable/nine"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowNine"
+        android:layout_above="@+id/cowSix"
+        android:layout_toEndOf="@+id/cowEight"
+        android:layout_marginStart="13dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_four"
+        android:src="@drawable/four"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowFour"
+        android:layout_above="@+id/cowSix"
+        android:layout_toEndOf="@+id/cowEight"
+        android:layout_marginStart="13dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_ten"
+        android:src="@drawable/ten"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowTen"
+        android:layout_alignTop="@+id/cowEight"
+        android:layout_toEndOf="@+id/cowNine"
+        android:layout_marginStart="37dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_five"
+        android:src="@drawable/five"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowFive"
+        android:layout_alignTop="@+id/cowEight"
+        android:layout_toEndOf="@+id/cowNine"
+        android:layout_marginStart="37dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="42sp"
+        android:id="@+id/winTextView"
+        android:textColor="#000000"
+        android:layout_marginTop="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/cow_one"
+        android:src="@drawable/one"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowOne"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="15dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_six"
+        android:src="@drawable/six"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowSix"
+        android:layout_alignTop="@+id/cowOne"
+        android:layout_alignStart="@+id/cowOne" />
+
+    <ImageView
+        android:contentDescription="@string/cow_seven"
+        android:src="@drawable/seven"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowSeven"
+        android:layout_marginStart="64dp"
+        android:layout_alignTop="@+id/cowTwo"
+        android:layout_toEndOf="@+id/cowOne" />
+
+    <ImageView
+        android:contentDescription="@string/cow_two"
+        android:src="@drawable/two"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowTwo"
+        android:layout_alignTop="@+id/cowNine"
+        android:layout_alignStart="@+id/cowSeven" />
+
+</RelativeLayout>
