@@ -32,7 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mehequanna.gestureplayground.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.LevelOneActivity"
+        <activity
+            android:name=".ui.LevelOneActivity"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mehequanna.gestureplayground.ui.MainActivity" />
+        </activity>
+        <activity android:name=".ui.LevelThreeActivity"
                   android:screenOrientation="landscape">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
