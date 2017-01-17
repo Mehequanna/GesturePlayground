@@ -30,10 +30,41 @@
     <ImageView
         android:contentDescription="Blue Airplane"
         android:src="@drawable/farmairplaneblue"
-        android:layout_width="70dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
+        android:scaleX="-1"
         android:id="@+id/airplaneBlue"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="11dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:contentDescription="Red Airplane"
+        android:src="@drawable/farmairplanered"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/airplaneRed"
+        android:layout_alignTop="@+id/airplaneBlue"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginTop="12dp" />
+
+    <ImageView
+        android:contentDescription="Green Airplane"
+        android:src="@drawable/farmairplanegreen"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:scaleX="-1"
+        android:id="@+id/airplaneGreen"
+        android:layout_below="@+id/airplaneRed"
+        android:layout_alignStart="@+id/airplaneBlue" />
+
+
 </RelativeLayout>
