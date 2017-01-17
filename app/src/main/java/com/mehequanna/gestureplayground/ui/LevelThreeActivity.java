@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -24,6 +25,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Bind(R.id.fiveAirplaneGreen) ImageView mFiveAirplaneGreen;
     @Bind(R.id.sixAirplaneRed) ImageView mSixAirplaneRed;
     @Bind(R.id.sevenAirplaneBlue) ImageView mSevenAirplaneBlue;
+    @Bind(R.id.winTextView) TextView mWinTextView;
 
     private GestureDetector mOneTractorPinkGestureDetector;
     private GestureDetector mTwoTractorBlackGestureDetector;
@@ -176,6 +178,11 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
                 planeFlyRight.start();
                 moveRight(mSevenAirplaneBlue);
                 mSevenAirplaneBlue.setVisibility(View.INVISIBLE);
+                mWinTextView.setText(R.string.great_job);
+
+                Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
+                        getApplicationContext(), R.anim.win_scale_fade_animation);
+                mWinTextView.startAnimation(winScaleUpAnimation);
             }
         });
 
