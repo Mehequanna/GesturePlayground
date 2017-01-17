@@ -18,38 +18,38 @@
 
     <ImageView
         android:contentDescription="@string/white_chicken"
-        android:src="@drawable/farmchickenwhite"
+        android:src="@drawable/chickenwhite"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken1"
+        android:id="@+id/chicken2"
         android:layout_marginEnd="30dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 
     <ImageView
         android:contentDescription="@string/yellow_chicken"
-        android:src="@drawable/farmchickenyellow"
+        android:src="@drawable/chickenyellow"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken0"
-        android:layout_above="@+id/chicken1"
-        android:layout_toStartOf="@+id/chicken1"
+        android:id="@+id/chicken1"
+        android:layout_above="@+id/chicken2"
+        android:layout_toStartOf="@+id/chicken2"
         android:layout_marginEnd="77dp"
         android:layout_marginBottom="24dp" />
 
     <ImageView
         android:contentDescription="@string/pink_chicken"
-        android:src="@drawable/farmchickenpink"
+        android:src="@drawable/chickenpink"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken3"
-        android:layout_alignBottom="@+id/chicken0"
+        android:id="@+id/chicken4"
+        android:layout_alignBottom="@+id/chicken1"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:textSize="42sp"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/chicken2"
+        android:layout_alignStart="@+id/chicken3"
         android:layout_marginStart="17dp"
         android:id="@+id/winTextView"
         android:textColor="#000000"/>
@@ -74,40 +74,40 @@
 
     <ImageView
         android:contentDescription="@string/blue_chicken"
-        android:src="@drawable/farmchickenblue"
+        android:src="@drawable/chickenblue"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken5"
+        android:id="@+id/chicken6"
         android:layout_marginStart="40dp"
-        android:layout_below="@+id/chicken0"
+        android:layout_below="@+id/chicken1"
         android:layout_alignParentStart="true"
         android:layout_marginTop="24dp" />
 
     <ImageView
         android:contentDescription="@string/red_chicken"
-        android:src="@drawable/farmchickenred"
+        android:src="@drawable/chickenred"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken2"
+        android:id="@+id/chicken3"
         android:layout_marginEnd="65dp"
         android:layout_marginBottom="30dp"
-        android:layout_alignBottom="@+id/chicken4"
-        android:layout_toStartOf="@+id/chicken0" />
+        android:layout_alignBottom="@+id/chicken5"
+        android:layout_toStartOf="@+id/chicken1" />
 
     <ImageView
         android:contentDescription="@string/brown_chicken"
-        android:src="@drawable/farmchickenbrown"
+        android:src="@drawable/chickenbrown"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken4"
-        android:layout_alignTop="@+id/chicken5"
-        android:layout_toEndOf="@+id/chicken2"
+        android:id="@+id/chicken5"
+        android:layout_alignTop="@+id/chicken6"
+        android:layout_toEndOf="@+id/chicken3"
         android:layout_marginStart="25dp" />
 
 </RelativeLayout>

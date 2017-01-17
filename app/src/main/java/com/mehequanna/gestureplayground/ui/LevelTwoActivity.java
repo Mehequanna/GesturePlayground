@@ -21,12 +21,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchListener {
-    @Bind(R.id.chicken0) ImageView mChicken0;
-    @Bind(R.id.chicken1) ImageView mChicken1;
-    @Bind(R.id.chicken2) ImageView mChicken2;
-    @Bind(R.id.chicken3) ImageView mChicken3;
-    @Bind(R.id.chicken4) ImageView mChicken4;
-    @Bind(R.id.chicken5) ImageView mChicken5;
+    @Bind(R.id.chicken1) ImageView mChicken0;
+    @Bind(R.id.chicken2) ImageView mChicken1;
+    @Bind(R.id.chicken3) ImageView mChicken2;
+    @Bind(R.id.chicken4) ImageView mChicken3;
+    @Bind(R.id.chicken5) ImageView mChicken4;
+    @Bind(R.id.chicken6) ImageView mChicken5;
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.mainVideoView) VideoView mDoubleTapVideoView;
 
