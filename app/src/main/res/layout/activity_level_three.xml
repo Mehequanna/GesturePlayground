@@ -35,7 +35,8 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:scaleX="-1"
-        android:id="@+id/airplaneBlue"
+        android:visibility="invisible"
+        android:id="@+id/sevenAirplaneBlue"
         android:layout_marginStart="27dp"
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
@@ -48,8 +49,9 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/airplaneRed"
-        android:layout_alignTop="@+id/airplaneBlue"
+        android:visibility="invisible"
+        android:id="@+id/sixAirplaneRed"
+        android:layout_alignTop="@+id/sevenAirplaneBlue"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="13dp"
         android:layout_marginTop="12dp" />
@@ -62,9 +64,10 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:scaleX="-1"
-        android:id="@+id/airplaneGreen"
-        android:layout_below="@+id/airplaneRed"
-        android:layout_alignStart="@+id/airplaneBlue" />
+        android:visibility="invisible"
+        android:id="@+id/fiveAirplaneGreen"
+        android:layout_below="@+id/sixAirplaneRed"
+        android:layout_alignStart="@+id/sevenAirplaneBlue" />
 
     <ImageView
         android:contentDescription="@string/pink_tractor"
@@ -73,7 +76,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/tractorPink"
+        android:id="@+id/oneTractorPink"
         android:layout_marginBottom="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
@@ -86,23 +89,12 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/tractorGreen"
-        android:layout_alignTop="@+id/tractorPink"
-        android:layout_alignEnd="@+id/airplaneRed"
+        android:visibility="invisible"
+        android:id="@+id/fourTractorGreen"
+        android:layout_alignTop="@+id/oneTractorPink"
+        android:layout_alignEnd="@+id/sixAirplaneRed"
         android:layout_marginTop="14dp"
         android:scaleX="-1"/>
-
-    <ImageView
-        android:contentDescription="@string/black_tractor"
-        android:src="@drawable/tractorblack"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/tractorBlack"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/tractorPink"
-        android:layout_marginBottom="12dp" />
 
     <ImageView
         android:contentDescription="@string/red_tractor"
@@ -111,9 +103,24 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/tractorRed"
+        android:visibility="invisible"
+        android:id="@+id/threeTractorRed"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="15dp"
-        android:layout_alignBottom="@+id/tractorPink"
+        android:layout_alignBottom="@+id/oneTractorPink"
         android:layout_toStartOf="@+id/winTextView" />
+
+    <ImageView
+        android:contentDescription="@string/black_tractor"
+        android:src="@drawable/tractorblack"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:visibility="invisible"
+        android:id="@+id/twoTractorBlack"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/fourTractorGreen"
+        android:scaleX="-1"/>
 </RelativeLayout>

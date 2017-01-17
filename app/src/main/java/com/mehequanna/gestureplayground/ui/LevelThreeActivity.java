@@ -17,7 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LevelThreeActivity extends AppCompatActivity implements View.OnTouchListener {
-    @Bind(R.id.airplaneBlue) ImageView mAirplaneBlue;
+    @Bind(R.id.sevenAirplaneBlue) ImageView mAirplaneBlue;
 
     private GestureDetector mAirplaneBlueGestureDetector;
 
