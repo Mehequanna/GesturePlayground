@@ -69,16 +69,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         nine = MediaPlayer.create(this, R.raw.nine);
         ten = MediaPlayer.create(this, R.raw.ten);
 
-        mCowTwo.setVisibility(View.INVISIBLE);
-        mCowThree.setVisibility(View.INVISIBLE);
-        mCowFour.setVisibility(View.INVISIBLE);
-        mCowFive.setVisibility(View.INVISIBLE);
-        mCowSix.setVisibility(View.INVISIBLE);
-        mCowSeven.setVisibility(View.INVISIBLE);
-        mCowEight.setVisibility(View.INVISIBLE);
-        mCowNine.setVisibility(View.INVISIBLE);
-        mCowTen.setVisibility(View.INVISIBLE);
-
         mCowOneGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
