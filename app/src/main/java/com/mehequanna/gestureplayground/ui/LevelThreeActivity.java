@@ -57,13 +57,17 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mOneTractorPinkGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onDown(MotionEvent motionEvent) {
-
+               tractorStart.start();
                return true;
            }
 
             @Override
             public void onSwipeRight() {
-
+                tractorStart.stop();
+                tractorDriveRight.start();
+                moveRight(mOneTractorPink);
+                mOneTractorPink.setVisibility(View.INVISIBLE);
+                mTwoTractorBlack.setVisibility(View.VISIBLE);
             }
         });
 
@@ -112,5 +116,11 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
             return true;
         }
         return false;
+    }
+
+    public void moveRight(View view) {
+        Animation moveRight = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.move_right_fade_animation);
+        view.startAnimation(moveRight);
     }
 }
