@@ -83,20 +83,6 @@
         android:layout_marginStart="11dp" />
 
     <ImageView
-        android:contentDescription="@string/green_tractor"
-        android:src="@drawable/tractorgreen"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:visibility="invisible"
-        android:id="@+id/fourTractorGreen"
-        android:layout_alignTop="@+id/oneTractorPink"
-        android:layout_alignEnd="@+id/sixAirplaneRed"
-        android:layout_marginTop="14dp"
-        android:scaleX="-1"/>
-
-    <ImageView
         android:contentDescription="@string/red_tractor"
         android:src="@drawable/tractorred"
         android:layout_width="100dp"
@@ -123,4 +109,17 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/fourTractorGreen"
         android:scaleX="-1"/>
+
+    <ImageView
+        android:contentDescription="@string/green_tractor"
+        android:src="@drawable/tractorgreen"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:visibility="invisible"
+        android:id="@+id/fourTractorGreen"
+        android:scaleX="-1"
+        android:layout_alignTop="@+id/threeTractorRed"
+        android:layout_alignEnd="@+id/sixAirplaneRed" />
 </RelativeLayout>
