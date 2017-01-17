@@ -25,6 +25,12 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Bind(R.id.sixAirplaneRed) ImageView mSixAirplaneRed;
     @Bind(R.id.sevenAirplaneBlue) ImageView mSevenAirplaneBlue;
 
+    private GestureDetector mOneTractorPinkGestureDetector;
+    private GestureDetector mTwoTractorBlackGestureDetector;
+    private GestureDetector mThreeTractorRedGestureDetector;
+    private GestureDetector mFourTractorGreenGestureDetector;
+    private GestureDetector mFiveAirplaneGreenGestureDetector;
+    private GestureDetector mSixAirplaneRedGestureDetector;
     private GestureDetector mSevenAirplaneBlueGestureDetector;
 
     @Override
@@ -32,6 +38,14 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
+
+        mOneTractorPinkGestureDetector = new GestureDetector(this, new DetectGestures(){
+           @Override
+            public boolean onDown(MotionEvent motionEvent) {
+               Toast.makeText(LevelThreeActivity.this, "onDown", Toast.LENGTH_SHORT).show();
+               return true;
+           }
+        });
 
         mSevenAirplaneBlueGestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
@@ -54,6 +68,25 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (view == mOneTractorPink) {
+            mOneTractorPinkGestureDetector.onTouchEvent(motionEvent);
+            return true;
+        }
+        if (view == mTwoTractorBlack) {
+            return true;
+        }
+        if (view == mThreeTractorRed) {
+            return true;
+        }
+        if (view == mFourTractorGreen) {
+            return true;
+        }
+        if (view == mFiveAirplaneGreen) {
+            return true;
+        }
+        if (view == mSixAirplaneRed) {
+            return true;
+        }
         if (view == mSevenAirplaneBlue) {
             mSevenAirplaneBlueGestureDetector.onTouchEvent(motionEvent);
             return true;
