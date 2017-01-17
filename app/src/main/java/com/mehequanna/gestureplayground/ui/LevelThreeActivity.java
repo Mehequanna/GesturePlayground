@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -33,18 +34,37 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     private GestureDetector mSixAirplaneRedGestureDetector;
     private GestureDetector mSevenAirplaneBlueGestureDetector;
 
+    MediaPlayer planeStart;
+    MediaPlayer planeFlyRight;
+    MediaPlayer planeFlyLeft;
+    MediaPlayer tractorStart;
+    MediaPlayer tractorDriveLeft;
+    MediaPlayer tractorDriveRight;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
+        planeStart = MediaPlayer.create(this, R.raw.planestart);
+        planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
+        planeFlyRight = MediaPlayer.create(this, R.raw.planeflytoright);
+        tractorStart = MediaPlayer.create(this, R.raw.tractorstarting);
+        tractorDriveLeft = MediaPlayer.create(this, R.raw.tractordrivingtoleft);
+        tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
+
         mOneTractorPinkGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onDown(MotionEvent motionEvent) {
-               Toast.makeText(LevelThreeActivity.this, "onDown", Toast.LENGTH_SHORT).show();
+
                return true;
            }
+
+            @Override
+            public void onSwipeRight() {
+
+            }
         });
 
         mSevenAirplaneBlueGestureDetector = new GestureDetector(this, new DetectGestures() {
