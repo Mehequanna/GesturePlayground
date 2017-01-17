@@ -29,7 +29,7 @@
 
     <ImageView
         android:contentDescription="@string/blue_airplane"
-        android:src="@drawable/farmairplaneblue"
+        android:src="@drawable/airplaneblue"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -43,7 +43,7 @@
 
     <ImageView
         android:contentDescription="@string/red_airplane"
-        android:src="@drawable/farmairplanered"
+        android:src="@drawable/airplanered"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -56,7 +56,7 @@
 
     <ImageView
         android:contentDescription="@string/green_airplane"
-        android:src="@drawable/farmairplanegreen"
+        android:src="@drawable/airplanegreen"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -68,7 +68,7 @@
 
     <ImageView
         android:contentDescription="@string/pink_tractor"
-        android:src="@drawable/farmtractorpink"
+        android:src="@drawable/tractorpink"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -81,7 +81,7 @@
 
     <ImageView
         android:contentDescription="@string/green_tractor"
-        android:src="@drawable/farmtractorgreen"
+        android:src="@drawable/tractorgreen"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -94,7 +94,7 @@
 
     <ImageView
         android:contentDescription="@string/black_tractor"
-        android:src="@drawable/farmtractorblack"
+        android:src="@drawable/tractorblack"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -106,7 +106,7 @@
 
     <ImageView
         android:contentDescription="@string/red_tractor"
-        android:src="@drawable/farmtractorred"
+        android:src="@drawable/tractorred"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
