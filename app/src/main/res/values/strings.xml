@@ -27,4 +27,11 @@
     <string name="cow_ten">Cow with a ten.</string>
     <string name="cow_five">Cow with a five.</string>
     <string name="great_job">Great Job!</string>
+    <string name="blue_airplane">Blue Airplane</string>
+    <string name="red_airplane">Red Airplane</string>
+    <string name="green_airplane">Green Airplane</string>
+    <string name="pink_tractor">Pink Tractor</string>
+    <string name="green_tractor">Green Tractor</string>
+    <string name="black_tractor">Black Tractor</string>
+    <string name="red_tractor">Red Tractor</string>
 </resources>

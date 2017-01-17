@@ -28,7 +28,7 @@
         android:layout_marginTop="42dp" />
 
     <ImageView
-        android:contentDescription="Blue Airplane"
+        android:contentDescription="@string/blue_airplane"
         android:src="@drawable/farmairplaneblue"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:contentDescription="Red Airplane"
+        android:contentDescription="@string/red_airplane"
         android:src="@drawable/farmairplanered"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         android:layout_marginTop="12dp" />
 
     <ImageView
-        android:contentDescription="Green Airplane"
+        android:contentDescription="@string/green_airplane"
         android:src="@drawable/farmairplanegreen"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
         android:layout_alignStart="@+id/airplaneBlue" />
 
     <ImageView
-        android:contentDescription="Pink Tractor"
+        android:contentDescription="@string/pink_tractor"
         android:src="@drawable/farmtractorpink"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         android:layout_marginStart="11dp" />
 
     <ImageView
-        android:contentDescription="Green Tractor"
+        android:contentDescription="@string/green_tractor"
         android:src="@drawable/farmtractorgreen"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
         android:scaleX="-1"/>
 
     <ImageView
-        android:contentDescription="Black Tractor"
+        android:contentDescription="@string/black_tractor"
         android:src="@drawable/farmtractorblack"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
         android:layout_marginBottom="12dp" />
 
     <ImageView
-        android:contentDescription="Red Tractor"
+        android:contentDescription="@string/red_tractor"
         android:src="@drawable/farmtractorred"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
