@@ -18,7 +18,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_eight"
-        android:src="@drawable/eight"
+        android:src="@drawable/coweight"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -30,7 +30,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_three"
-        android:src="@drawable/three"
+        android:src="@drawable/cowthree"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -42,7 +42,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_nine"
-        android:src="@drawable/nine"
+        android:src="@drawable/cownine"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -54,7 +54,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_four"
-        android:src="@drawable/four"
+        android:src="@drawable/cowfour"
         android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -66,7 +66,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_ten"
-        android:src="@drawable/ten"
+        android:src="@drawable/cowten"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -78,7 +78,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_five"
-        android:src="@drawable/five"
+        android:src="@drawable/cowfive"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -100,7 +100,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_one"
-        android:src="@drawable/one"
+        android:src="@drawable/cowone"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -113,7 +113,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_six"
-        android:src="@drawable/six"
+        android:src="@drawable/cowsix"
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -124,7 +124,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_seven"
-        android:src="@drawable/seven"
+        android:src="@drawable/cowseven"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
@@ -136,7 +136,7 @@
 
     <ImageView
         android:contentDescription="@string/cow_two"
-        android:src="@drawable/two"
+        android:src="@drawable/cowtwo"
         android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
