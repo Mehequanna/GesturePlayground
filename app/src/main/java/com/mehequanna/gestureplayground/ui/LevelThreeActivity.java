@@ -34,10 +34,12 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     private GestureDetector mSixAirplaneRedGestureDetector;
     private GestureDetector mSevenAirplaneBlueGestureDetector;
 
-    MediaPlayer planeStart;
+    MediaPlayer planeStartLeft;
+    MediaPlayer planeStartRight;
     MediaPlayer planeFlyRight;
     MediaPlayer planeFlyLeft;
-    MediaPlayer tractorStart;
+    MediaPlayer tractorStartLeft;
+    MediaPlayer tractorStartRight;
     MediaPlayer tractorDriveLeft;
     MediaPlayer tractorDriveRight;
 
@@ -47,23 +49,25 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
-        planeStart = MediaPlayer.create(this, R.raw.planestart);
+        planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
+        planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
         planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
         planeFlyRight = MediaPlayer.create(this, R.raw.planeflytoright);
-        tractorStart = MediaPlayer.create(this, R.raw.tractorstarting);
+        tractorStartLeft = MediaPlayer.create(this, R.raw.tractorstartleft);
+        tractorStartRight = MediaPlayer.create(this, R.raw.tractorstartright);
         tractorDriveLeft = MediaPlayer.create(this, R.raw.tractordrivingtoleft);
         tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
 
         mOneTractorPinkGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onDown(MotionEvent motionEvent) {
-               tractorStart.start();
+               tractorStartLeft.start();
                return true;
            }
 
             @Override
             public void onSwipeRight() {
-                tractorStart.stop();
+                tractorStartLeft.stop();
                 tractorDriveRight.start();
                 moveRight(mOneTractorPink);
                 mOneTractorPink.setVisibility(View.INVISIBLE);
@@ -71,10 +75,28 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
             }
         });
 
-        mSevenAirplaneBlueGestureDetector = new GestureDetector(this, new DetectGestures() {
+        mTwoTractorBlackGestureDetector = new GestureDetector(this, new DetectGestures(){
+            @Override
+            public boolean onDown(MotionEvent motionEvent) {
+                tractorStartRight.start();
+                return true;
+            }
+
+            //To future self: When flipping an ImageView in xml via: android:scaleX="-1" you are also flipping the swipe directions. So this should have been onSwipeLeft, but since the scaleX="-1" is used onSwipeRight is needed.
             @Override
             public void onSwipeRight() {
                 Toast.makeText(LevelThreeActivity.this, "swiped", Toast.LENGTH_SHORT).show();
+                tractorStartRight.stop();
+                tractorDriveLeft.start();
+                moveLeft(mTwoTractorBlack);
+                mTwoTractorBlack.setVisibility(View.INVISIBLE);
+                mThreeTractorRed.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mSevenAirplaneBlueGestureDetector = new GestureDetector(this, new DetectGestures() {
+            @Override
+            public void onSwipeRight() {
                 Animation moveRight = AnimationUtils.loadAnimation(
                         getApplicationContext(), R.anim.move_right_fade_animation);
                 mSevenAirplaneBlue.startAnimation(moveRight);
@@ -97,6 +119,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
             return true;
         }
         if (view == mTwoTractorBlack) {
+            mTwoTractorBlackGestureDetector.onTouchEvent(motionEvent);
             return true;
         }
         if (view == mThreeTractorRed) {
@@ -122,5 +145,11 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         Animation moveRight = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.move_right_fade_animation);
         view.startAnimation(moveRight);
+    }
+
+    private void moveLeft(View view) {
+        Animation moveLeft = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.move_left_fade_animation);
+        view.startAnimation(moveLeft);
     }
 }
