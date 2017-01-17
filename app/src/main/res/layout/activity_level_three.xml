@@ -66,5 +66,54 @@
         android:layout_below="@+id/airplaneRed"
         android:layout_alignStart="@+id/airplaneBlue" />
 
+    <ImageView
+        android:contentDescription="Pink Tractor"
+        android:src="@drawable/farmtractorpink"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/tractorPink"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp" />
 
+    <ImageView
+        android:contentDescription="Green Tractor"
+        android:src="@drawable/farmtractorgreen"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/tractorGreen"
+        android:layout_alignTop="@+id/tractorPink"
+        android:layout_alignEnd="@+id/airplaneRed"
+        android:layout_marginTop="14dp"
+        android:scaleX="-1"/>
+
+    <ImageView
+        android:contentDescription="Black Tractor"
+        android:src="@drawable/farmtractorblack"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/tractorBlack"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/tractorPink"
+        android:layout_marginBottom="12dp" />
+
+    <ImageView
+        android:contentDescription="Red Tractor"
+        android:src="@drawable/farmtractorred"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/tractorRed"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignBottom="@+id/tractorPink"
+        android:layout_toStartOf="@+id/winTextView" />
 </RelativeLayout>
