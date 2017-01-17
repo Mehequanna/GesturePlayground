@@ -17,9 +17,15 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LevelThreeActivity extends AppCompatActivity implements View.OnTouchListener {
-    @Bind(R.id.sevenAirplaneBlue) ImageView mAirplaneBlue;
+    @Bind(R.id.oneTractorPink) ImageView mOneTractorPink;
+    @Bind(R.id.twoTractorBlack) ImageView mTwoTractorBlack;
+    @Bind(R.id.threeTractorRed) ImageView mThreeTractorRed;
+    @Bind(R.id.fourTractorGreen) ImageView mFourTractorGreen;
+    @Bind(R.id.fiveAirplaneGreen) ImageView mFiveAirplaneGreen;
+    @Bind(R.id.sixAirplaneRed) ImageView mSixAirplaneRed;
+    @Bind(R.id.sevenAirplaneBlue) ImageView mSevenAirplaneBlue;
 
-    private GestureDetector mAirplaneBlueGestureDetector;
+    private GestureDetector mSevenAirplaneBlueGestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +33,29 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
-        mAirplaneBlueGestureDetector = new GestureDetector(this, new DetectGestures() {
+        mSevenAirplaneBlueGestureDetector = new GestureDetector(this, new DetectGestures() {
             @Override
             public void onSwipeRight() {
                 Toast.makeText(LevelThreeActivity.this, "swiped", Toast.LENGTH_SHORT).show();
                 Animation moveRight = AnimationUtils.loadAnimation(
                         getApplicationContext(), R.anim.move_right_fade_animation);
-                mAirplaneBlue.startAnimation(moveRight);
+                mSevenAirplaneBlue.startAnimation(moveRight);
             }
         });
 
-        mAirplaneBlue.setOnTouchListener(this);
+        mOneTractorPink.setOnTouchListener(this);
+        mTwoTractorBlack.setOnTouchListener(this);
+        mThreeTractorRed.setOnTouchListener(this);
+        mFourTractorGreen.setOnTouchListener(this);
+        mFiveAirplaneGreen.setOnTouchListener(this);
+        mSixAirplaneRed.setOnTouchListener(this);
+        mSevenAirplaneBlue.setOnTouchListener(this);
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == mAirplaneBlue) {
-            mAirplaneBlueGestureDetector.onTouchEvent(motionEvent);
+        if (view == mSevenAirplaneBlue) {
+            mSevenAirplaneBlueGestureDetector.onTouchEvent(motionEvent);
             return true;
         }
         return false;
