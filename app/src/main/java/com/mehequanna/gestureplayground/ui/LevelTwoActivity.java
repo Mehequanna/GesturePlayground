@@ -91,7 +91,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     mChicken1.setVisibility(View.INVISIBLE);
                     yellow.start();
                     mChicken2.setVisibility(View.VISIBLE);
-                } else if (mChicken1Count == 1) {
+                } else if (mChicken1Count >= 1) {
                     scaleImage(mChicken1);
                     mChicken1.setVisibility(View.INVISIBLE);
                     yellow.start();
@@ -110,7 +110,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     mChicken2.setVisibility(View.INVISIBLE);
                     white.start();
                     mChicken3.setVisibility(View.VISIBLE);
-                } else if (mChicken2Count == 1) {
+                } else if (mChicken2Count >= 1) {
                     fadeOutImage(mChicken2);
                     mChicken2.setVisibility(View.INVISIBLE);
                     white.start();
@@ -129,7 +129,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     red.start();
                     mChicken3.setVisibility(View.INVISIBLE);
                     mChicken4.setVisibility(View.VISIBLE);
-               } else if (mChicken3Count == 1) {
+               } else if (mChicken3Count >= 1) {
                    rotateImage(mChicken3);
                    mChicken3.setVisibility(View.INVISIBLE);
                    red.start();
@@ -148,7 +148,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     pink.start();
                     mChicken4.setVisibility(View.INVISIBLE);
                     mChicken5.setVisibility(View.VISIBLE);
-                } else if (mChicken4Count == 1) {
+                } else if (mChicken4Count >= 1) {
                     scaleImage(mChicken4);
                     pink.start();
                     mChicken4.setVisibility(View.INVISIBLE);
@@ -167,7 +167,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     brown.start();
                     mChicken5.setVisibility(View.INVISIBLE);
                     mChicken6.setVisibility(View.VISIBLE);
-               } else if (mChicken5Count == 1) {
+               } else if (mChicken5Count >= 1) {
                    fadeOutImage(mChicken5);
                    brown.start();
                    mChicken5.setVisibility(View.INVISIBLE);
@@ -189,7 +189,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     mChicken3.setVisibility(View.VISIBLE);
                     mChicken4.setVisibility(View.VISIBLE);
                     mChicken5.setVisibility(View.VISIBLE);
-                } else if (mChicken6Count == 1) {
+                } else if (mChicken6Count >= 1) {
                     rotateImage(mChicken6);
                     blue.start();
                     mChicken6.setVisibility(View.INVISIBLE);
@@ -277,7 +277,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     public void winCheck() {
-        if (mChicken1Count == 2 && mChicken2Count == 2 && mChicken3Count == 2 && mChicken4Count == 2 && mChicken5Count == 2 && mChicken6Count == 2) {
+        if (mChicken1.getVisibility() >= 4 && mChicken2.getVisibility() >= 4 && mChicken3.getVisibility() >= 4 && mChicken4.getVisibility() >= 4 && mChicken5.getVisibility() >= 4 && mChicken6.getVisibility() >= 4) {
             mWinTextView.setText(R.string.great_job);
 
             Animation winAnimation = AnimationUtils.loadAnimation(
