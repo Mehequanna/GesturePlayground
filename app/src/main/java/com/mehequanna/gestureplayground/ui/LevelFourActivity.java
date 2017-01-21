@@ -42,7 +42,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mPig1.isShown()) {
-                    flingUpRight(mPig1);
+                    flingUp(mPig1);
                     mPig1.setVisibility(View.INVISIBLE);
                     fadeIn(mPig2);
                     mPig2.setVisibility(View.VISIBLE);
@@ -52,41 +52,50 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                     fadeIn(mPig3);
                     mPig3.setVisibility(View.VISIBLE);
                 } else if (mPig3.isShown()) {
+                    flingLeft(mPig3);
                     mPig3.setVisibility(View.INVISIBLE);
                     fadeIn(mPig4);
                     mPig4.setVisibility(View.VISIBLE);
                 } else if (mPig4.isShown()) {
+                    flingRight(mPig4);
                     mPig4.setVisibility(View.INVISIBLE);
                     fadeIn(mPig5);
                     mPig5.setVisibility(View.VISIBLE);
                 } else if (mPig5.isShown()) {
+                    flingUpLeft(mPig5);
                     mPig5.setVisibility(View.INVISIBLE);
                     fadeIn(mPig6);
                     mPig6.setVisibility(View.VISIBLE);
                 } else if (mPig6.isShown()) {
+                    flingDownLeft(mPig6);
                     mPig6.setVisibility(View.INVISIBLE);
                     fadeIn(mPig7);
                     mPig7.setVisibility(View.VISIBLE);
                 } else if (mPig7.isShown()) {
+                    flingUpRight(mPig7);
                     mPig7.setVisibility(View.INVISIBLE);
                     fadeIn(mPig8);
                     mPig8.setVisibility(View.VISIBLE);
                 } else if (mPig8.isShown()) {
+                    flingDownRight(mPig8);
                     mPig8.setVisibility(View.INVISIBLE);
                     fadeIn(mPig9);
                     mPig9.setVisibility(View.VISIBLE);
                 } else if (mPig9.isShown()) {
+                    flingUp(mPig9);
                     mPig9.setVisibility(View.INVISIBLE);
                     fadeIn(mPig10);
                     mPig10.setVisibility(View.VISIBLE);
                 } else if (mPig10.isShown()) {
+                    flingUp(mPig10);
                     mPig10.setVisibility(View.INVISIBLE);
                     fadeIn(mPig11);
                     mPig11.setVisibility(View.VISIBLE);
                 } else if (mPig11.isShown()) {
+                    flingUp(mPig11);
                     mPig11.setVisibility(View.INVISIBLE);
-                    mWinTextView.setText(R.string.great_job);
 
+                    mWinTextView.setText(R.string.great_job);
                     Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
