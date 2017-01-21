@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -32,67 +33,86 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
 
     GestureDetector mGestureDetector;
 
+    MediaPlayer up;
+    MediaPlayer down;
+    MediaPlayer pigsnort;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_four);
         ButterKnife.bind(this);
 
+        up = MediaPlayer.create(this, R.raw.up);
+        down = MediaPlayer.create(this, R.raw.down);
+        pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
+
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mPig1.isShown()) {
                     flingUp(mPig1);
+                    up.start();
                     mPig1.setVisibility(View.INVISIBLE);
                     fadeIn(mPig2);
                     mPig2.setVisibility(View.VISIBLE);
                 } else if (mPig2.isShown()) {
                     flingDown(mPig2);
+                    down.start();
                     mPig2.setVisibility(View.INVISIBLE);
                     fadeIn(mPig3);
                     mPig3.setVisibility(View.VISIBLE);
                 } else if (mPig3.isShown()) {
                     flingLeft(mPig3);
+                    pigsnort.start();
                     mPig3.setVisibility(View.INVISIBLE);
                     fadeIn(mPig4);
                     mPig4.setVisibility(View.VISIBLE);
                 } else if (mPig4.isShown()) {
                     flingRight(mPig4);
+                    pigsnort.start();
                     mPig4.setVisibility(View.INVISIBLE);
                     fadeIn(mPig5);
                     mPig5.setVisibility(View.VISIBLE);
                 } else if (mPig5.isShown()) {
                     flingUpLeft(mPig5);
+                    up.start();
                     mPig5.setVisibility(View.INVISIBLE);
                     fadeIn(mPig6);
                     mPig6.setVisibility(View.VISIBLE);
                 } else if (mPig6.isShown()) {
                     flingDownLeft(mPig6);
+                    down.start();
                     mPig6.setVisibility(View.INVISIBLE);
                     fadeIn(mPig7);
                     mPig7.setVisibility(View.VISIBLE);
                 } else if (mPig7.isShown()) {
                     flingUpRight(mPig7);
+                    up.start();
                     mPig7.setVisibility(View.INVISIBLE);
                     fadeIn(mPig8);
                     mPig8.setVisibility(View.VISIBLE);
                 } else if (mPig8.isShown()) {
                     flingDownRight(mPig8);
+                    down.start();
                     mPig8.setVisibility(View.INVISIBLE);
                     fadeIn(mPig9);
                     mPig9.setVisibility(View.VISIBLE);
                 } else if (mPig9.isShown()) {
                     flingUp(mPig9);
+                    pigsnort.start();
                     mPig9.setVisibility(View.INVISIBLE);
                     fadeIn(mPig10);
                     mPig10.setVisibility(View.VISIBLE);
                 } else if (mPig10.isShown()) {
                     flingUp(mPig10);
+                    up.start();
                     mPig10.setVisibility(View.INVISIBLE);
                     fadeIn(mPig11);
                     mPig11.setVisibility(View.VISIBLE);
                 } else if (mPig11.isShown()) {
                     flingUp(mPig11);
+                    pigsnort.start();
                     mPig11.setVisibility(View.INVISIBLE);
 
                     mWinTextView.setText(R.string.great_job);
