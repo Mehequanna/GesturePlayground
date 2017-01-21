@@ -53,27 +53,35 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                     mPig3.setVisibility(View.VISIBLE);
                 } else if (mPig3.isShown()) {
                     mPig3.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig4);
                     mPig4.setVisibility(View.VISIBLE);
                 } else if (mPig4.isShown()) {
                     mPig4.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig5);
                     mPig5.setVisibility(View.VISIBLE);
                 } else if (mPig5.isShown()) {
                     mPig5.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig6);
                     mPig6.setVisibility(View.VISIBLE);
                 } else if (mPig6.isShown()) {
                     mPig6.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig7);
                     mPig7.setVisibility(View.VISIBLE);
                 } else if (mPig7.isShown()) {
                     mPig7.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig8);
                     mPig8.setVisibility(View.VISIBLE);
                 } else if (mPig8.isShown()) {
                     mPig8.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig9);
                     mPig9.setVisibility(View.VISIBLE);
                 } else if (mPig9.isShown()) {
                     mPig9.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig10);
                     mPig10.setVisibility(View.VISIBLE);
                 } else if (mPig10.isShown()) {
                     mPig10.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig11);
                     mPig11.setVisibility(View.VISIBLE);
                 } else if (mPig11.isShown()) {
                     mPig11.setVisibility(View.INVISIBLE);
