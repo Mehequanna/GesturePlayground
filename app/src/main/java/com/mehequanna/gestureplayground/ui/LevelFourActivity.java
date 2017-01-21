@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mehequanna.gestureplayground.R;
@@ -26,6 +29,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.pig9) ImageView mPig9;
     @Bind(R.id.pig10) ImageView mPig10;
     @Bind(R.id.pig11) ImageView mPig11;
+    @Bind(R.id.winTextView) TextView mWinTextView;
 
     GestureDetector mGestureDetector;
 
@@ -81,6 +85,11 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                 } else if (mPig11.isShown()) {
                     Toast.makeText(LevelFourActivity.this, "Eleven!", Toast.LENGTH_SHORT).show();
                     mPig11.setVisibility(View.INVISIBLE);
+                    mWinTextView.setText(R.string.great_job);
+
+                    Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
+                            getApplicationContext(), R.anim.win_scale_fade_animation);
+                    mWinTextView.startAnimation(winScaleUpAnimation);
                 }
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
