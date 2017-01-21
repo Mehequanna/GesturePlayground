@@ -140,7 +140,7 @@
         android:layout_height="150dp"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/pig10"
+        android:id="@+id/pig11"
         android:visibility="invisible"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -152,7 +152,7 @@
         android:layout_height="150dp"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/pig11"
+        android:id="@+id/pig10"
         android:visibility="invisible"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
