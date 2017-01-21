@@ -8,14 +8,9 @@
     tools:context="com.mehequanna.gestureplayground.ui.MainActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:src="@drawable/farmbackground"
         android:id="@+id/imageView"
-        android:scaleType="fitXY"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:contentDescription="@string/farm_background" />
+        style="@style/farm_background" />
 
     <Button
         android:text="@string/main_parents"

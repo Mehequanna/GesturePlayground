@@ -51,9 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (view == mLevelFourImageButton) {
-            Toast.makeText(this, "Level Four Tapped", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(MainActivity.this, LevelFourActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, LevelFourActivity.class);
+            startActivity(intent);
         }
         if (view == mLevelFiveImageButton) {
             Toast.makeText(this, "Level Five Tapped", Toast.LENGTH_SHORT).show();
