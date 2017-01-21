@@ -42,10 +42,14 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mPig1.isShown()) {
+                    flingUp(mPig1);
                     mPig1.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig2);
                     mPig2.setVisibility(View.VISIBLE);
                 } else if (mPig2.isShown()) {
+                    flingDown(mPig2);
                     mPig2.setVisibility(View.INVISIBLE);
+                    fadeIn(mPig3);
                     mPig3.setVisibility(View.VISIBLE);
                 } else if (mPig3.isShown()) {
                     mPig3.setVisibility(View.INVISIBLE);
@@ -100,5 +104,23 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mGestureDetector.onTouchEvent(motionEvent);
         return true;
+    }
+
+    private void flingUp(View view) {
+        Animation flingUp = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_up_animation);
+        view.startAnimation(flingUp);
+    }
+
+    private void flingDown(View view) {
+        Animation flingDown = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_down_animation);
+        view.startAnimation(flingDown);
+    }
+
+    private void fadeIn(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
     }
 }
