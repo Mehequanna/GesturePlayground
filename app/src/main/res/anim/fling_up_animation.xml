@@ -27,6 +27,4 @@
         android:fromYDelta="-40%p"
         android:toYDelta="10%p"
         android:duration="500" />
-
-
 </set>
