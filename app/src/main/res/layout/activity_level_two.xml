@@ -7,14 +7,9 @@
     tools:context="com.mehequanna.gestureplayground.ui.LevelTwoActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:src="@drawable/farmbackground"
         android:id="@+id/imageView"
-        android:scaleType="fitXY"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:contentDescription="@string/farm_background" />
+        style="@style/farm_background" />
 
     <ImageView
         android:contentDescription="@string/white_chicken"
@@ -55,14 +50,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="42sp"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/chicken3"
-        android:layout_marginStart="17dp"
-        android:id="@+id/winTextView"
-        android:textColor="#000000"/>
+        style="@style/win_text"/>
 
     <VideoView
         android:id="@+id/mainVideoView"

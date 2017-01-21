@@ -7,153 +7,86 @@
     tools:context="com.mehequanna.gestureplayground.ui.LevelFourActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:src="@drawable/farmbackground"
         android:id="@+id/imageView"
-        android:scaleType="fitXY"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:contentDescription="@string/farm_background" />
+        style="@style/farm_background" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="42sp"
-        android:id="@+id/winTextView"
-        android:textColor="#000000"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        style="@style/win_text" />
 
     <ImageView
         android:contentDescription="@string/pig_up"
         android:src="@drawable/pigup"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig1"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_down"
         android:src="@drawable/pigdown"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig2"
-        android:layout_centerVertical="true"
         android:visibility="invisible"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_left"
         android:src="@drawable/pigleft"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig3"
-        android:layout_centerVertical="true"
         android:visibility="invisible"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_right"
         android:src="@drawable/pigright"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig4"
-        android:layout_centerVertical="true"
         android:visibility="invisible"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_up_left"
         android:src="@drawable/pigupleft"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig5"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_down_left"
         android:src="@drawable/pigdownleft"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig6"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_up_right"
         android:src="@drawable/pigupright"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig7"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_down_right"
         android:src="@drawable/pigdownright"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig8"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_side_facing"
         android:src="@drawable/pigside"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig9"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_surprise"
         android:src="@drawable/pigsurprise"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig11"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_family"
         android:src="@drawable/pigfamily"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
         android:id="@+id/pig10"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        style="@style/pig_imageviews" />
 </RelativeLayout>
