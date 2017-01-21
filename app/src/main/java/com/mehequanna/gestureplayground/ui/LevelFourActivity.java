@@ -2,24 +2,22 @@ package com.mehequanna.gestureplayground.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.mehequanna.gestureplayground.R;
+import com.mehequanna.gestureplayground.util.DetectGestures;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.mehequanna.gestureplayground.R.id.imageView;
-
-public class LevelFourActivity extends AppCompatActivity {
+public class LevelFourActivity extends AppCompatActivity implements View.OnTouchListener {
     @Bind(R.id.TractorGreen) ImageView mTractorGreen;
-    @Bind(imageView) ImageView mBackground;
 
-    private ScaleGestureDetector scaleGestureDetector;
-    private int mCounter = 0;
+    GestureDetector mTractorDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,33 +25,23 @@ public class LevelFourActivity extends AppCompatActivity {
         setContentView(R.layout.activity_level_four);
         ButterKnife.bind(this);
 
-        scaleGestureDetector = new ScaleGestureDetector(this,new ScaleListener());
+        mTractorDetector = new GestureDetector(this, new DetectGestures(){
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                Toast.makeText(LevelFourActivity.this, "You!", Toast.LENGTH_SHORT).show();
+                return super.onFling(e1, e2, velocityX, velocityY);
+            }
+        });
+
+        mTractorGreen.setOnTouchListener(this);
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        scaleGestureDetector.onTouchEvent(ev);
-        return true;
-    }
-
-    private class ScaleListener extends ScaleGestureDetector.
-            SimpleOnScaleGestureListener {
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            Log.d("LOGS", "onScale: " + mCounter);
-            if (mCounter == 0) {
-                mTractorGreen.requestLayout();
-                mTractorGreen.getLayoutParams().height = 200 - (mCounter * 10);
-                mCounter++;
-                return false;
-            } else if (mCounter == 1) {
-                mTractorGreen.requestLayout();
-                mTractorGreen.getLayoutParams().height = 200 - (mCounter * 10);
-                mCounter ++;
-                return false;
-            }
-
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (view == mTractorGreen) {
+            mTractorDetector.onTouchEvent(motionEvent);
             return true;
         }
+        return false;
     }
 }
