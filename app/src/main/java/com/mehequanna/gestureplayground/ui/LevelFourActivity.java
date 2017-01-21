@@ -38,10 +38,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == mTractorGreen) {
-            mTractorDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-        return false;
+        mTractorDetector.onTouchEvent(motionEvent);
+        return true;
     }
 }
