@@ -90,6 +90,7 @@
         android:layout_marginStart="37dp" />
 
     <TextView
+        android:id="@+id/winTextView"
         style="@style/win_text" />
 
     <ImageView

@@ -13,6 +13,7 @@
         style="@style/farm_background" />
 
     <TextView
+        android:id="@+id/winTextView"
         style="@style/win_text" />
 
     <ImageView
@@ -81,8 +82,7 @@
         android:id="@+id/threeTractorRed"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="15dp"
-        android:layout_alignBottom="@+id/oneTractorPink"
-        android:layout_toStartOf="@+id/winTextView" />
+        android:layout_alignBottom="@+id/oneTractorPink" />
 
     <ImageView
         android:contentDescription="@string/black_tractor"
