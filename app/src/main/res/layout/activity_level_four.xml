@@ -27,14 +27,133 @@
         android:layout_marginTop="42dp" />
 
     <ImageView
-        android:contentDescription="@string/green_tractor"
-        android:src="@drawable/"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:contentDescription="@string/pig_up"
+        android:src="@drawable/pigup"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/pigup"
-        android:elevation="2dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_down"
+        android:src="@drawable/pigdown"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigdown"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_left"
+        android:src="@drawable/pigleft"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigleft"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_right"
+        android:src="@drawable/pigright"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigright"
+        android:layout_centerVertical="true"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_up_left"
+        android:src="@drawable/pigupleft"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigupleft"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_down_left"
+        android:src="@drawable/pigdownleft"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigdownleft"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_up_right"
+        android:src="@drawable/pigupright"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigupright"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_down_right"
+        android:src="@drawable/pigdownright"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigdownright"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_side_facing"
+        android:src="@drawable/pigside"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigside"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_surprise"
+        android:src="@drawable/pigsurprise"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigsurpise"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:contentDescription="@string/pig_family"
+        android:src="@drawable/pigfamily"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/pigfamily"
+        android:visibility="invisible"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

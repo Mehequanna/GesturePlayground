@@ -34,4 +34,15 @@
     <string name="green_tractor">Green Tractor</string>
     <string name="black_tractor">Black Tractor</string>
     <string name="red_tractor">Red Tractor</string>
+    <string name="pig_up">Pig looking up.</string>
+    <string name="pig_down">Pig looking down.</string>
+    <string name="pig_left">Pig looking left.</string>
+    <string name="pig_right">Pig looking right.</string>
+    <string name="pig_up_left">Pig looking up left.</string>
+    <string name="pig_down_left">Pig looking down left.</string>
+    <string name="pig_up_right">Pig looking up right.</string>
+    <string name="pig_down_right">Pig looking down right.</string>
+    <string name="pig_side_facing">Pig side facing.</string>
+    <string name="pig_surprise">Pig surprise.</string>
+    <string name="pig_family">Pig family.</string>
 </resources>
