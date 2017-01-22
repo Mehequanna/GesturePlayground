@@ -56,32 +56,6 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:contentDescription="@string/red_tractor"
-        android:src="@drawable/tractorred"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/tractorRed"
-        android:elevation="1dp"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/pigUp"
-        android:layout_alignStart="@+id/airplaneBlue" />
-
-    <ImageView
-        android:contentDescription="@string/cow_five"
-        android:src="@drawable/cowfive"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowFive"
-        android:layout_alignBottom="@+id/tractorRed"
-        android:layout_alignEnd="@+id/airplaneRed"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="27dp" />
-
-    <ImageView
         android:contentDescription="@string/cow_ten"
         android:src="@drawable/cowten"
         android:layout_width="75dp"
@@ -92,31 +66,6 @@
         android:layout_alignTop="@+id/cowFive"
         android:layout_toStartOf="@+id/pigUp"
         android:layout_marginEnd="9dp" />
-
-    <ImageView
-        android:contentDescription="@string/pink_chicken"
-        android:src="@drawable/chickenpink"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/chickenPink"
-        android:layout_above="@+id/tractorRed"
-        android:layout_alignEnd="@+id/airplaneBlue"
-        android:layout_marginBottom="20dp" />
-
-    <ImageView
-        android:contentDescription="@string/blue_chicken"
-        android:src="@drawable/chickenblue"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/chickenBlue"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:layout_alignTop="@+id/chickenPink"
-        android:layout_toEndOf="@+id/pigUp" />
 
     <ImageView
         android:contentDescription="@string/red_tractor"
@@ -130,4 +79,51 @@
         android:layout_alignBottom="@+id/tractorRed"
         android:layout_alignEnd="@+id/airplaneRed"
         android:scaleX="-1" />
+
+    <ImageView
+        android:contentDescription="@string/red_tractor"
+        android:src="@drawable/tractorred"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/tractorRed"
+        android:elevation="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/airplaneBlue" />
+
+    <ImageView
+        android:contentDescription="@string/cow_five"
+        android:src="@drawable/cowfive"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowFive"
+        android:layout_above="@+id/tractorRed"
+        android:layout_alignStart="@+id/tractorTralier"
+        android:layout_marginStart="37dp" />
+
+    <ImageView
+        android:contentDescription="@string/blue_chicken"
+        android:src="@drawable/chickenblue"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chickenBlue"
+        android:layout_alignBottom="@+id/cowFive"
+        android:layout_toStartOf="@+id/tractorTralier" />
+
+    <ImageView
+        android:contentDescription="@string/pink_chicken"
+        android:src="@drawable/chickenpink"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chickenPink"
+        android:layout_marginBottom="13dp"
+        android:layout_alignBottom="@+id/pigUp"
+        android:layout_alignEnd="@+id/airplaneBlue" />
 </RelativeLayout>
