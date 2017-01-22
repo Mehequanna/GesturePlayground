@@ -25,6 +25,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Bind(R.id.fiveAirplaneGreen) ImageView mFiveAirplaneGreen;
     @Bind(R.id.sixAirplaneRed) ImageView mSixAirplaneRed;
     @Bind(R.id.sevenAirplaneBlue) ImageView mSevenAirplaneBlue;
+    @Bind(R.id.eightTractorTrailer) ImageView mEightTractorTrailer;
     @Bind(R.id.winTextView) TextView mWinTextView;
 
     private GestureDetector mOneTractorPinkGestureDetector;
@@ -193,6 +194,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mFiveAirplaneGreen.setOnTouchListener(this);
         mSixAirplaneRed.setOnTouchListener(this);
         mSevenAirplaneBlue.setOnTouchListener(this);
+        mEightTractorTrailer.setOnTouchListener(this);
     }
 
     @Override

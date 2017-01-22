@@ -95,7 +95,7 @@
         android:scaleType="centerInside"
         android:visibility="invisible"
         android:adjustViewBounds="true"
-        android:id="@+id/tenTractorTrailer"
+        android:id="@+id/eightTractorTrailer"
         android:scaleX="-1"
         android:layout_above="@+id/fourTractorGreen"
         android:layout_alignEnd="@+id/fourTractorGreen" />
