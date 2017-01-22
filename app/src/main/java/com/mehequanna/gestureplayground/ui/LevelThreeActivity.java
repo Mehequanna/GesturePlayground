@@ -3,6 +3,7 @@ package com.mehequanna.gestureplayground.ui;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,16 +30,6 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Bind(R.id.winTextView) TextView mWinTextView;
 
     private GestureDetector mGestureDetector;
-    private int mViewId;
-
-    private int mOneTractorId;
-    private int mTwoTractorId;
-    private int mThreeTractorId;
-    private int mFourTractorId;
-    private int mFiveAirplaneId;
-    private int mSixAirplaneId;
-    private int mSevenAirplaneId;
-    private int mEightTractorId;
 
     private MediaPlayer planeStartLeft;
     private MediaPlayer planeStartRight;
@@ -55,15 +46,6 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
-        mOneTractorId = mOneTractorPink.getId();
-        mTwoTractorId = mTwoTractorBlack.getId();
-        mThreeTractorId = mThreeTractorRed.getId();
-        mFourTractorId = mFourTractorGreen.getId();
-        mFiveAirplaneId = mFiveAirplaneGreen.getId();
-        mSixAirplaneId = mSixAirplaneRed.getId();
-        mSevenAirplaneId = mSevenAirplaneBlue.getId();
-        mEightTractorId = mEightTractorTrailer.getId();
-
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
         planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
         planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
@@ -76,21 +58,21 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onDown(MotionEvent e) {
-                if (mViewId == mOneTractorId) {
+                if (mOneTractorPink.isShown()) {
                     tractorStartLeft.start();
-                } else if (mViewId == mTwoTractorId) {
+                } else if (mTwoTractorBlack.isShown()) {
                     tractorStartRight.start();
-                } else if (mViewId == mThreeTractorId) {
+                } else if (mThreeTractorRed.isShown()) {
                     tractorStartLeft.start();
-                } else if (mViewId == mFourTractorId) {
+                } else if (mFourTractorGreen.isShown()) {
                     tractorStartRight.start();
-                } else if (mViewId == mFiveAirplaneId) {
+                } else if (mFiveAirplaneGreen.isShown()) {
                     planeStartLeft.start();
-                } else if (mViewId == mSixAirplaneId) {
+                } else if (mSixAirplaneRed.isShown()) {
                     planeStartRight.start();
-                } else if (mViewId == mSevenAirplaneId) {
+                } else if (mSevenAirplaneBlue.isShown()) {
                     planeStartLeft.start();
-                } else if (mViewId == mEightTractorId) {
+                } else if (mEightTractorTrailer.isShown()) {
                     tractorStartRight.start();
                 }
                 return super.onDown(e);
@@ -98,33 +80,33 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
 
             @Override
             public void onSwipeRight() {
-                if (mViewId == mOneTractorId) {
+                if (mOneTractorPink.isShown()) {
                     tractorStartLeft.stop();
                     tractorDriveRight.start();
                     moveRight(mOneTractorPink);
                     mOneTractorPink.setVisibility(View.INVISIBLE);
                     mTwoTractorBlack.setVisibility(View.VISIBLE);
-                } else if (mViewId == mTwoTractorId) {
+                } else if (mTwoTractorBlack.isShown()) {
                     //To future self: When flipping an ImageView in xml via: android:scaleX="-1" you are also flipping the swipe directions. So this should have been onSwipeLeft, but since the scaleX="-1" is used onSwipeRight is needed.
                     tractorStartRight.stop();
                     tractorDriveLeft.start();
                     moveLeft(mTwoTractorBlack);
                     mTwoTractorBlack.setVisibility(View.INVISIBLE);
                     mThreeTractorRed.setVisibility(View.VISIBLE);
-                } else if (mViewId == mThreeTractorId) {
+                } else if (mThreeTractorRed.isShown()) {
                     tractorStartLeft.stop();
                     tractorDriveRight.start();
                     moveRight(mThreeTractorRed);
                     mThreeTractorRed.setVisibility(View.INVISIBLE);
                     mFourTractorGreen.setVisibility(View.VISIBLE);
-                } else if (mViewId == mFourTractorId) {
+                } else if (mFourTractorGreen.isShown()) {
                     // See previous note.
                     tractorStartRight.stop();
                     tractorDriveLeft.start();
                     moveLeft(mFourTractorGreen);
                     mFourTractorGreen.setVisibility(View.INVISIBLE);
                     mFiveAirplaneGreen.setVisibility(View.VISIBLE);
-                } else if (mViewId == mEightTractorId) {
+                } else if (mEightTractorTrailer.isShown()) {
                     // See previous note.
                     tractorStartRight.stop();
                     tractorDriveLeft.start();
@@ -141,20 +123,20 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
 
             @Override
             public void onSwipeLeft() {
-                if (mViewId == mFiveAirplaneId) {
+                if (mFiveAirplaneGreen.isShown()) {
                     //To future self: When flipping an ImageView in xml via: android:scaleX="-1" you are also flipping the swipe directions. So this should have been onSwipeRight, but since the scaleX="-1" is used onSwipeLeft is needed.
                     planeStartLeft.stop();
                     planeFlyRight.start();
                     moveRight(mFiveAirplaneGreen);
                     mFiveAirplaneGreen.setVisibility(View.INVISIBLE);
                     mSixAirplaneRed.setVisibility(View.VISIBLE);
-                } else if (mViewId == mSixAirplaneId) {
+                } else if (mSixAirplaneRed.isShown()) {
                     planeStartRight.stop();
                     planeFlyLeft.start();
                     moveLeft(mSixAirplaneRed);
                     mSixAirplaneRed.setVisibility(View.INVISIBLE);
                     mSevenAirplaneBlue.setVisibility(View.VISIBLE);
-                } else if (mViewId == mSevenAirplaneId) {
+                } else if (mSevenAirplaneBlue.isShown()) {
                     // See previous note.
                     planeStartLeft.stop();
                     planeFlyRight.start();
@@ -178,7 +160,6 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
         return true;
     }
