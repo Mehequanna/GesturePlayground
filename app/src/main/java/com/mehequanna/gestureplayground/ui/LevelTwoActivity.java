@@ -30,19 +30,14 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.mainVideoView) VideoView mDoubleTapVideoView;
 
-    private GestureDetector mChicken1GestureDetector;
-    private GestureDetector mChicken2GestureDetector;
-    private GestureDetector mChicken3GestureDetector;
-    private GestureDetector mChicken4GestureDetector;
-    private GestureDetector mChicken5GestureDetector;
-    private GestureDetector mChicken6GestureDetector;
+    private GestureDetector mGestureDetector;
 
-    MediaPlayer blue;
-    MediaPlayer brown;
-    MediaPlayer pink;
-    MediaPlayer red;
-    MediaPlayer white;
-    MediaPlayer yellow;
+    private MediaPlayer blue;
+    private MediaPlayer brown;
+    private MediaPlayer pink;
+    private MediaPlayer red;
+    private MediaPlayer white;
+    private MediaPlayer yellow;
 
     private int mChicken1Count;
     private int mChicken2Count;
@@ -51,7 +46,14 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     private int mChicken5Count;
     private int mChicken6Count;
 
-    private GestureDetector mVideoGestureDetector;
+    private int mChicken1Id;
+    private int mChicken2Id;
+    private int mChicken3Id;
+    private int mChicken4Id;
+    private int mChicken5Id;
+    private int mChicken6Id;
+    private int mVideoViewId;
+    private int mViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,18 +65,20 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mDoubleTapVideoView.setVideoURI(uri);
         mDoubleTapVideoView.start();
 
+        mChicken1Id = mChicken1.getId();
+        mChicken2Id = mChicken2.getId();
+        mChicken3Id = mChicken3.getId();
+        mChicken4Id = mChicken4.getId();
+        mChicken5Id = mChicken5.getId();
+        mChicken6Id = mChicken6.getId();
+        mVideoViewId = mDoubleTapVideoView.getId();
+
         blue = MediaPlayer.create(this, R.raw.blue);
         brown = MediaPlayer.create(this, R.raw.brown);
         pink = MediaPlayer.create(this, R.raw.pink);
         red = MediaPlayer.create(this, R.raw.red);
         white = MediaPlayer.create(this, R.raw.white);
         yellow = MediaPlayer.create(this, R.raw.yellow);
-
-        mChicken2.setVisibility(View.INVISIBLE);
-        mChicken3.setVisibility(View.INVISIBLE);
-        mChicken4.setVisibility(View.INVISIBLE);
-        mChicken5.setVisibility(View.INVISIBLE);
-        mChicken6.setVisibility(View.INVISIBLE);
 
         mChicken1Count = 0;
         mChicken2Count = 0;
@@ -83,129 +87,89 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken5Count = 0;
         mChicken6Count = 0;
 
-        mChicken1GestureDetector = new GestureDetector(this, new DetectGestures() {
+        mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                if (mChicken1Count == 0) {
-                    rotateImage(mChicken1);
-                    mChicken1.setVisibility(View.INVISIBLE);
-                    yellow.start();
-                    mChicken2.setVisibility(View.VISIBLE);
-                } else if (mChicken1Count >= 1) {
-                    scaleImage(mChicken1);
-                    mChicken1.setVisibility(View.INVISIBLE);
-                    yellow.start();
+                if (mViewId == mChicken1Id) {
+                    if (mChicken1Count == 0) {
+                        rotateImage(mChicken1);
+                        mChicken1.setVisibility(View.INVISIBLE);
+                        yellow.start();
+                        mChicken2.setVisibility(View.VISIBLE);
+                    } else if (mChicken1Count >= 1) {
+                        scaleImage(mChicken1);
+                        mChicken1.setVisibility(View.INVISIBLE);
+                        yellow.start();
+                    }
+                    mChicken1Count += 1;
+                } else if (mViewId == mChicken2Id) {
+                    if (mChicken2Count == 0) {
+                        scaleImage(mChicken2);
+                        mChicken2.setVisibility(View.INVISIBLE);
+                        white.start();
+                        mChicken3.setVisibility(View.VISIBLE);
+                    } else if (mChicken2Count >= 1) {
+                        fadeOutImage(mChicken2);
+                        mChicken2.setVisibility(View.INVISIBLE);
+                        white.start();
+                    }
+                    mChicken2Count += 1;
+                } else if (mViewId == mChicken3Id) {
+                    if (mChicken3Count == 0) {
+                        fadeOutImage(mChicken3);
+                        red.start();
+                        mChicken3.setVisibility(View.INVISIBLE);
+                        mChicken4.setVisibility(View.VISIBLE);
+                    } else if (mChicken3Count >= 1) {
+                        rotateImage(mChicken3);
+                        mChicken3.setVisibility(View.INVISIBLE);
+                        red.start();
+                    }
+                    mChicken3Count += 1;
+                } else if (mViewId == mChicken4Id) {
+                    if (mChicken4Count == 0) {
+                        rotateImage(mChicken4);
+                        pink.start();
+                        mChicken4.setVisibility(View.INVISIBLE);
+                        mChicken5.setVisibility(View.VISIBLE);
+                    } else if (mChicken4Count >= 1) {
+                        scaleImage(mChicken4);
+                        pink.start();
+                        mChicken4.setVisibility(View.INVISIBLE);
+                    }
+                    mChicken4Count += 1;
+                } else if (mViewId == mChicken5Id) {
+                    if (mChicken5Count == 0) {
+                        scaleImage(mChicken5);
+                        brown.start();
+                        mChicken5.setVisibility(View.INVISIBLE);
+                        mChicken6.setVisibility(View.VISIBLE);
+                    } else if (mChicken5Count >= 1) {
+                        fadeOutImage(mChicken5);
+                        brown.start();
+                        mChicken5.setVisibility(View.INVISIBLE);
+                    }
+                    mChicken5Count += 1;
+                } else if (mViewId == mChicken6Id) {
+                    if (mChicken6Count == 0) {
+                        fadeOutImage(mChicken6);
+                        blue.start();
+                        mChicken1.setVisibility(View.VISIBLE);
+                        mChicken2.setVisibility(View.VISIBLE);
+                        mChicken3.setVisibility(View.VISIBLE);
+                        mChicken4.setVisibility(View.VISIBLE);
+                        mChicken5.setVisibility(View.VISIBLE);
+                    } else if (mChicken6Count >= 1) {
+                        rotateImage(mChicken6);
+                        blue.start();
+                        mChicken6.setVisibility(View.INVISIBLE);
+                    }
+                    mChicken6Count += 1;
+                } else if (mViewId == mVideoViewId) {
+                    mDoubleTapVideoView.stopPlayback();
+                    mDoubleTapVideoView.setVisibility(View.GONE);
                 }
-                mChicken1Count += 1;
-                winCheck();
-                return true;
-            }
-        });
-
-        mChicken2GestureDetector = new GestureDetector(this, new DetectGestures() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                if (mChicken2Count == 0) {
-                    scaleImage(mChicken2);
-                    mChicken2.setVisibility(View.INVISIBLE);
-                    white.start();
-                    mChicken3.setVisibility(View.VISIBLE);
-                } else if (mChicken2Count >= 1) {
-                    fadeOutImage(mChicken2);
-                    mChicken2.setVisibility(View.INVISIBLE);
-                    white.start();
-                }
-                mChicken2Count += 1;
-                winCheck();
-                return true;
-            }
-        });
-
-        mChicken3GestureDetector = new GestureDetector(this, new DetectGestures() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-               if (mChicken3Count == 0) {
-                    fadeOutImage(mChicken3);
-                    red.start();
-                    mChicken3.setVisibility(View.INVISIBLE);
-                    mChicken4.setVisibility(View.VISIBLE);
-               } else if (mChicken3Count >= 1) {
-                   rotateImage(mChicken3);
-                   mChicken3.setVisibility(View.INVISIBLE);
-                   red.start();
-               }
-                mChicken3Count += 1;
-                winCheck();
-                return true;
-            }
-        });
-
-        mChicken4GestureDetector = new GestureDetector(this, new DetectGestures() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                if (mChicken4Count == 0) {
-                    rotateImage(mChicken4);
-                    pink.start();
-                    mChicken4.setVisibility(View.INVISIBLE);
-                    mChicken5.setVisibility(View.VISIBLE);
-                } else if (mChicken4Count >= 1) {
-                    scaleImage(mChicken4);
-                    pink.start();
-                    mChicken4.setVisibility(View.INVISIBLE);
-                }
-                mChicken4Count += 1;
-                winCheck();
-                return true;
-            }
-        });
-
-        mChicken5GestureDetector = new GestureDetector(this, new DetectGestures() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-               if (mChicken5Count == 0) {
-                    scaleImage(mChicken5);
-                    brown.start();
-                    mChicken5.setVisibility(View.INVISIBLE);
-                    mChicken6.setVisibility(View.VISIBLE);
-               } else if (mChicken5Count >= 1) {
-                   fadeOutImage(mChicken5);
-                   brown.start();
-                   mChicken5.setVisibility(View.INVISIBLE);
-               }
-                mChicken5Count += 1;
-                winCheck();
-                return true;
-            }
-        });
-
-        mChicken6GestureDetector = new GestureDetector(this, new DetectGestures() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                if (mChicken6Count == 0) {
-                    fadeOutImage(mChicken6);
-                    blue.start();
-                    mChicken1.setVisibility(View.VISIBLE);
-                    mChicken2.setVisibility(View.VISIBLE);
-                    mChicken3.setVisibility(View.VISIBLE);
-                    mChicken4.setVisibility(View.VISIBLE);
-                    mChicken5.setVisibility(View.VISIBLE);
-                } else if (mChicken6Count >= 1) {
-                    rotateImage(mChicken6);
-                    blue.start();
-                    mChicken6.setVisibility(View.INVISIBLE);
-                }
-                mChicken6Count += 1;
-                winCheck();
-                return true;
-            }
-        });
-
-        mVideoGestureDetector = new GestureDetector(this, new DetectGestures() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                mDoubleTapVideoView.stopPlayback();
-                mDoubleTapVideoView.setVisibility(View.GONE);
-                return true;
+                return super.onDoubleTap(e);
             }
         });
 
@@ -220,42 +184,10 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == mChicken1) {
-            mChicken1GestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mChicken2) {
-            mChicken2GestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mChicken3) {
-            mChicken3GestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mChicken4) {
-            mChicken4GestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mChicken5) {
-            mChicken5GestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mChicken6) {
-            mChicken6GestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mDoubleTapVideoView) {
-            mVideoGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-            return false;
+        mViewId = view.getId();
+        mGestureDetector.onTouchEvent(motionEvent);
+        winCheck();
+        return true;
     }
 
     public void scaleImage(View view) {
@@ -288,5 +220,4 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
             Log.d("logs", "winCheck: Not Yet");
         }
     }
-
 }
