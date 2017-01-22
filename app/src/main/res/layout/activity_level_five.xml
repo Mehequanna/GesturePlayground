@@ -12,8 +12,8 @@
         style="@style/farm_background" />
 
     <TextView
-    android:id="@+id/winTextView"
-    style="@style/win_text" />
+        android:id="@+id/winTextView"
+        style="@style/win_text" />
 
     <ImageView
         android:contentDescription="@string/pig_up"
