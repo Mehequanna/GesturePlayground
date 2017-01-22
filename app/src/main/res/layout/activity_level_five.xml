@@ -25,6 +25,7 @@
         android:contentDescription="@string/pig_down"
         android:src="@drawable/pigdown"
         android:id="@+id/pigDown"
+        android:visibility="invisible"
         style="@style/pig_imageviews" />
 
     <ImageView

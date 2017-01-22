@@ -52,6 +52,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     MediaPlayer ten;
     MediaPlayer blue;
     MediaPlayer pink;
+    MediaPlayer up;
+    MediaPlayer down;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         ten = MediaPlayer.create(this, R.raw.ten);
         pink = MediaPlayer.create(this, R.raw.pink);
         blue = MediaPlayer.create(this, R.raw.blue);
+        up = MediaPlayer.create(this, R.raw.up);
+        down = MediaPlayer.create(this, R.raw.down);
 
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
@@ -145,6 +149,19 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                if (mViewId == mPigUpId) {
+                    flingUp(mPigUp);
+                    up.start();
+                    mPigUp.setVisibility(View.INVISIBLE);
+                    fadeIn(mPigDown);
+                    mPigDown.setVisibility(View.VISIBLE);
+                } else if (mViewId == mPigDownId) {
+                    flingDown(mPigDown);
+                    down.start();
+                    mPigDown.setVisibility(View.INVISIBLE);
+                    fadeIn(mPigUp);
+                    mPigUp.setVisibility(View.VISIBLE);
+                }
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
         });
@@ -201,5 +218,23 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         Animation rotateAnimation = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.rotate_animation);
         view.startAnimation(rotateAnimation);
+    }
+
+    private void flingUp(View view) {
+        Animation flingUp = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_up_animation);
+        view.startAnimation(flingUp);
+    }
+
+    private void flingDown(View view) {
+        Animation flingDown = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_down_animation);
+        view.startAnimation(flingDown);
+    }
+
+    private void fadeIn(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
     }
 }
