@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.mehequanna.gestureplayground.R;
 
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, LevelTwoActivity.class);
             startActivity(intent);
         }
-        //TODO: Connect onClick View to activity after they are created.
         if (view == mLevelThreeImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelThreeActivity.class);
             startActivity(intent);
@@ -55,9 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (view == mLevelFiveImageButton) {
-            Toast.makeText(this, "Level Five Tapped", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(MainActivity.this, LevelFiveActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, LevelFiveActivity.class);
+            startActivity(intent);
         }
         if (view == mParentsButton) {
             Intent intent = new Intent(MainActivity.this, ParentsActivity.class);
