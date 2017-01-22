@@ -14,15 +14,15 @@ import butterknife.ButterKnife;
 
 public class LevelFiveActivity extends AppCompatActivity implements View.OnTouchListener {
     @Bind(R.id.winTextView) TextView mWinTextView;
-    @Bind(R.id.pig1) ImageView mPigUp;
-    @Bind(R.id.pig2) ImageView mPigDown;
-    @Bind(R.id.sixAirplaneRed) ImageView mAirplaneRed;
-    @Bind(R.id.sevenAirplaneBlue) ImageView mAirplaneBlue;
-    @Bind(R.id.threeTractorRed) ImageView mTractorRed;
+    @Bind(R.id.pigUp) ImageView mPigUp;
+    @Bind(R.id.pigDown) ImageView mPigDown;
+    @Bind(R.id.airplaneRed) ImageView mAirplaneRed;
+    @Bind(R.id.airplaneBlue) ImageView mAirplaneBlue;
+    @Bind(R.id.tractorRed) ImageView mTractorRed;
     @Bind(R.id.cowFive) ImageView mCowFive;
     @Bind(R.id.cowTen) ImageView mCowTen;
-    @Bind(R.id.chicken4) ImageView mChickenPink;
-    @Bind(R.id.chicken6) ImageView mChickenBlue;
+    @Bind(R.id.chickenPink) ImageView mChickenPink;
+    @Bind(R.id.chickenBlue) ImageView mChickenBlue;
 
 
     @Override
@@ -30,6 +30,16 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_five);
         ButterKnife.bind(this);
+
+//        Log.d("logs", "PigUp " + mPigUp.getId());
+//        Log.d("logs", "PigDown: " + mPigDown.getId());
+//        Log.d("logs", "PlaneBlue: " + mAirplaneBlue.getId());
+//        Log.d("logs", "PlaneRed: " + mAirplaneRed.getId());
+//        Log.d("logs", "TractorRed: " + mTractorRed.getId());
+//        Log.d("logs", "CowFive: " + mCowFive.getId());
+//        Log.d("logs", "CowTen: " + mCowTen.getId());
+//        Log.d("logs", "ChickenPink: " + mChickenPink.getId());
+//        Log.d("logs", "ChickenBlue: " + mChickenBlue.getId());
 
         mPigUp.setOnTouchListener(this);
         mPigDown.setOnTouchListener(this);

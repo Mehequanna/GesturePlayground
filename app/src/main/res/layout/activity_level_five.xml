@@ -18,13 +18,13 @@
     <ImageView
         android:contentDescription="@string/pig_up"
         android:src="@drawable/pigup"
-        android:id="@+id/pig1"
+        android:id="@+id/pigUp"
         style="@style/pig_imageviews" />
 
     <ImageView
         android:contentDescription="@string/pig_down"
         android:src="@drawable/pigdown"
-        android:id="@+id/pig2"
+        android:id="@+id/pigDown"
         style="@style/pig_imageviews" />
 
     <ImageView
@@ -34,8 +34,8 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/sixAirplaneRed"
-        android:layout_alignTop="@+id/sevenAirplaneBlue"
+        android:id="@+id/airplaneRed"
+        android:layout_alignTop="@+id/airplaneBlue"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="13dp"
         android:layout_marginTop="12dp" />
@@ -48,7 +48,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:scaleX="-1"
-        android:id="@+id/sevenAirplaneBlue"
+        android:id="@+id/airplaneBlue"
         android:layout_marginStart="13dp"
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
@@ -61,10 +61,10 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/threeTractorRed"
+        android:id="@+id/tractorRed"
         android:layout_marginTop="11dp"
-        android:layout_below="@+id/pig1"
-        android:layout_alignStart="@+id/sevenAirplaneBlue" />
+        android:layout_below="@+id/pigUp"
+        android:layout_alignStart="@+id/airplaneBlue" />
 
     <ImageView
         android:contentDescription="@string/cow_five"
@@ -74,8 +74,8 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFive"
-        android:layout_alignBottom="@+id/threeTractorRed"
-        android:layout_alignEnd="@+id/sixAirplaneRed"
+        android:layout_alignBottom="@+id/tractorRed"
+        android:layout_alignEnd="@+id/airplaneRed"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="27dp" />
 
@@ -88,7 +88,7 @@
         android:adjustViewBounds="true"
         android:id="@+id/cowTen"
         android:layout_alignTop="@+id/cowFive"
-        android:layout_toStartOf="@+id/pig1"
+        android:layout_toStartOf="@+id/pigUp"
         android:layout_marginEnd="9dp" />
 
     <ImageView
@@ -98,9 +98,9 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken4"
-        android:layout_above="@+id/threeTractorRed"
-        android:layout_alignEnd="@+id/sevenAirplaneBlue"
+        android:id="@+id/chickenPink"
+        android:layout_above="@+id/tractorRed"
+        android:layout_alignEnd="@+id/airplaneBlue"
         android:layout_marginBottom="20dp" />
 
     <ImageView
@@ -110,9 +110,9 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:id="@+id/chicken6"
+        android:id="@+id/chickenBlue"
         android:layout_marginStart="32dp"
         android:layout_marginTop="36dp"
-        android:layout_alignTop="@+id/chicken4"
-        android:layout_toEndOf="@+id/pig1" />
+        android:layout_alignTop="@+id/chickenPink"
+        android:layout_toEndOf="@+id/pigUp" />
 </RelativeLayout>
