@@ -24,6 +24,16 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.chickenPink) ImageView mChickenPink;
     @Bind(R.id.chickenBlue) ImageView mChickenBlue;
 
+    int mPigUpId;
+    int mPigDownId;
+    int mAirplaneBlueId;
+    int mAirplaneRedId;
+    int mTractorRedId;
+    int mCowFiveId;
+    int mCowTenId;
+    int mChickenPinkId;
+    int mChickenBlueId;
+    int mViewId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +41,15 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_level_five);
         ButterKnife.bind(this);
 
-//        Log.d("logs", "PigUp " + mPigUp.getId());
-//        Log.d("logs", "PigDown: " + mPigDown.getId());
-//        Log.d("logs", "PlaneBlue: " + mAirplaneBlue.getId());
-//        Log.d("logs", "PlaneRed: " + mAirplaneRed.getId());
-//        Log.d("logs", "TractorRed: " + mTractorRed.getId());
-//        Log.d("logs", "CowFive: " + mCowFive.getId());
-//        Log.d("logs", "CowTen: " + mCowTen.getId());
-//        Log.d("logs", "ChickenPink: " + mChickenPink.getId());
-//        Log.d("logs", "ChickenBlue: " + mChickenBlue.getId());
+        mPigUpId = mPigUp.getId();
+        mPigDownId = mPigDown.getId();
+        mAirplaneBlueId = mAirplaneBlue.getId();
+        mAirplaneRedId = mAirplaneRed.getId();
+        mTractorRedId = mTractorRed.getId();
+        mCowFiveId = mCowFive.getId();
+        mCowTenId = mCowTen.getId();
+        mChickenPinkId = mChickenPink.getId();
+        mChickenBlueId = mChickenBlue.getId();
 
         mPigUp.setOnTouchListener(this);
         mPigDown.setOnTouchListener(this);
@@ -54,6 +64,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        mViewId = view.getId();
         return false;
     }
 }
