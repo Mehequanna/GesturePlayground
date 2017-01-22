@@ -31,11 +31,11 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.pig11) ImageView mPig11;
     @Bind(R.id.winTextView) TextView mWinTextView;
 
-    GestureDetector mGestureDetector;
+    private GestureDetector mGestureDetector;
 
-    MediaPlayer up;
-    MediaPlayer down;
-    MediaPlayer pigsnort;
+    private MediaPlayer up;
+    private MediaPlayer down;
+    private MediaPlayer pigsnort;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
