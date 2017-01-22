@@ -24,6 +24,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.airplaneRed) ImageView mAirplaneRed;
     @Bind(R.id.airplaneBlue) ImageView mAirplaneBlue;
     @Bind(R.id.tractorRed) ImageView mTractorRed;
+    @Bind(R.id.tractorTralier) ImageView mTractorTrailer;
     @Bind(R.id.cowFive) ImageView mCowFive;
     @Bind(R.id.cowTen) ImageView mCowTen;
     @Bind(R.id.chickenPink) ImageView mChickenPink;
@@ -36,6 +37,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     int mAirplaneBlueId;
     int mAirplaneRedId;
     int mTractorRedId;
+    int mTractorTrailerId;
     int mCowFiveId;
     int mCowTenId;
     int mChickenPinkId;
@@ -49,6 +51,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     MediaPlayer planeFlyLeft;
     MediaPlayer tractorStartLeft;
     MediaPlayer tractorDriveRight;
+    MediaPlayer tractorStartRight;
+    MediaPlayer tractorDriveLeft;
     MediaPlayer five;
     MediaPlayer ten;
     MediaPlayer blue;
@@ -69,6 +73,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mAirplaneBlueId = mAirplaneBlue.getId();
         mAirplaneRedId = mAirplaneRed.getId();
         mTractorRedId = mTractorRed.getId();
+        mTractorTrailerId = mTractorTrailer.getId();
         mCowFiveId = mCowFive.getId();
         mCowTenId = mCowTen.getId();
         mChickenPinkId = mChickenPink.getId();
@@ -80,6 +85,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         planeFlyRight = MediaPlayer.create(this, R.raw.planeflytoright);
         tractorStartLeft = MediaPlayer.create(this, R.raw.tractorstartleft);
         tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
+        tractorStartRight = MediaPlayer.create(this, R.raw.tractorstartright);
+        tractorDriveLeft = MediaPlayer.create(this, R.raw.tractordrivingtoleft);
         five = MediaPlayer.create(this, R.raw.five);
         ten = MediaPlayer.create(this, R.raw.ten);
         pink = MediaPlayer.create(this, R.raw.pink);
@@ -108,6 +115,11 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
                     tractorStartLeft.stop();
                     tractorDriveRight.start();
                     moveRight(mTractorRed);
+                } else if (mViewId == mTractorTrailerId) {
+                    mCounter += 1;
+                    tractorStartRight.stop();
+                    tractorDriveLeft.start();
+                    moveLeft(mTractorTrailer);
                 }
             }
 
@@ -183,6 +195,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mAirplaneRed.setOnTouchListener(this);
         mAirplaneBlue.setOnTouchListener(this);
         mTractorRed.setOnTouchListener(this);
+        mTractorTrailer.setOnTouchListener(this);
         mCowFive.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
         mChickenBlue.setOnTouchListener(this);

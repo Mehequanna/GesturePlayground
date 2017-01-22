@@ -63,6 +63,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/tractorRed"
+        android:elevation="1dp"
         android:layout_marginTop="11dp"
         android:layout_below="@+id/pigUp"
         android:layout_alignStart="@+id/airplaneBlue" />
@@ -116,4 +117,17 @@
         android:layout_marginTop="36dp"
         android:layout_alignTop="@+id/chickenPink"
         android:layout_toEndOf="@+id/pigUp" />
+
+    <ImageView
+        android:contentDescription="@string/red_tractor"
+        android:src="@drawable/tractortrailer"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/tractorTralier"
+        android:elevation="1dp"
+        android:layout_alignBottom="@+id/tractorRed"
+        android:layout_alignEnd="@+id/airplaneRed"
+        android:scaleX="-1" />
 </RelativeLayout>
