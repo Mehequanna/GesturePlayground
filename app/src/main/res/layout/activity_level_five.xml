@@ -42,20 +42,6 @@
         android:layout_marginTop="12dp" />
 
     <ImageView
-        android:contentDescription="@string/blue_airplane"
-        android:src="@drawable/airplaneblue"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:scaleX="-1"
-        android:id="@+id/airplaneBlue"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="11dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
         android:contentDescription="@string/cow_ten"
         android:src="@drawable/cowten"
         android:layout_width="75dp"
@@ -126,4 +112,18 @@
         android:layout_marginBottom="13dp"
         android:layout_alignBottom="@+id/pigUp"
         android:layout_alignEnd="@+id/airplaneBlue" />
+
+    <ImageView
+        android:contentDescription="@string/blue_airplane"
+        android:src="@drawable/airplaneblue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:scaleX="-1"
+        android:id="@+id/airplaneBlue"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="26dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
