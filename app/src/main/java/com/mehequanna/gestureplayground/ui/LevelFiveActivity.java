@@ -30,35 +30,35 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.chickenPink) ImageView mChickenPink;
     @Bind(R.id.chickenBlue) ImageView mChickenBlue;
 
-    GestureDetector mGestureDetector;
+    private GestureDetector mGestureDetector;
 
-    int mPigUpId;
-    int mPigDownId;
-    int mAirplaneBlueId;
-    int mAirplaneRedId;
-    int mTractorRedId;
-    int mTractorTrailerId;
-    int mCowFiveId;
-    int mCowTenId;
-    int mChickenPinkId;
-    int mChickenBlueId;
-    int mViewId;
-    int mCounter;
+    private int mPigUpId;
+    private int mPigDownId;
+    private int mAirplaneBlueId;
+    private int mAirplaneRedId;
+    private int mTractorRedId;
+    private int mTractorTrailerId;
+    private int mCowFiveId;
+    private int mCowTenId;
+    private int mChickenPinkId;
+    private int mChickenBlueId;
+    private int mViewId;
+    private int mCounter;
 
-    MediaPlayer planeStartLeft;
-    MediaPlayer planeStartRight;
-    MediaPlayer planeFlyRight;
-    MediaPlayer planeFlyLeft;
-    MediaPlayer tractorStartLeft;
-    MediaPlayer tractorDriveRight;
-    MediaPlayer tractorStartRight;
-    MediaPlayer tractorDriveLeft;
-    MediaPlayer five;
-    MediaPlayer ten;
-    MediaPlayer blue;
-    MediaPlayer pink;
-    MediaPlayer up;
-    MediaPlayer down;
+    private MediaPlayer planeStartLeft;
+    private MediaPlayer planeStartRight;
+    private MediaPlayer planeFlyRight;
+    private MediaPlayer planeFlyLeft;
+    private MediaPlayer tractorStartLeft;
+    private MediaPlayer tractorDriveRight;
+    private MediaPlayer tractorStartRight;
+    private MediaPlayer tractorDriveLeft;
+    private MediaPlayer five;
+    private MediaPlayer ten;
+    private MediaPlayer blue;
+    private MediaPlayer pink;
+    private MediaPlayer up;
+    private MediaPlayer down;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
