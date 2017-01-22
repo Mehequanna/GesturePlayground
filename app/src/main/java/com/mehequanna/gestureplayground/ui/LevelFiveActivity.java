@@ -48,6 +48,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     MediaPlayer planeFlyLeft;
     MediaPlayer tractorStartLeft;
     MediaPlayer tractorDriveRight;
+    MediaPlayer five;
+    MediaPlayer ten;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         planeFlyRight = MediaPlayer.create(this, R.raw.planeflytoright);
         tractorStartLeft = MediaPlayer.create(this, R.raw.tractorstartleft);
         tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
+        five = MediaPlayer.create(this, R.raw.five);
+        ten = MediaPlayer.create(this, R.raw.ten);
 
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
@@ -111,6 +115,15 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
+                if (mViewId == mCowFiveId) {
+                    scaleUpFadeImage(mCowFive);
+                    five.start();
+                    return true;
+                } else if (mViewId == mCowTenId) {
+                    scaleDownFadeImage(mCowTen);
+                    ten.start();
+                    return true;
+                }
                 return super.onSingleTapConfirmed(e);
             }
 
@@ -153,5 +166,17 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         Animation moveLeft = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.move_left_fade_animation);
         view.startAnimation(moveLeft);
+    }
+
+    public void scaleUpFadeImage(View view) {
+        Animation scaleUpFade = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_up_fade_animation);
+        view.startAnimation(scaleUpFade);
+    }
+
+    public void scaleDownFadeImage(View view) {
+        Animation scaleDownFade = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_down_fade_animation);
+        view.startAnimation(scaleDownFade);
     }
 }
