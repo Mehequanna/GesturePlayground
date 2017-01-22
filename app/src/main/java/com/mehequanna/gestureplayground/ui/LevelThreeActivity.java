@@ -230,13 +230,13 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
 
     public void moveRight(View view) {
         Animation moveRight = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.move_right_fade_animation);
+                getApplicationContext(), R.anim.move_right_animation);
         view.startAnimation(moveRight);
     }
 
     private void moveLeft(View view) {
         Animation moveLeft = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.move_left_fade_animation);
+                getApplicationContext(), R.anim.move_left_animation);
         view.startAnimation(moveLeft);
     }
 }
