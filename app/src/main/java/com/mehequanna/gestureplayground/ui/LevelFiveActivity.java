@@ -41,6 +41,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     int mChickenPinkId;
     int mChickenBlueId;
     int mViewId;
+    int mCounter;
 
     MediaPlayer planeStartLeft;
     MediaPlayer planeStartRight;
@@ -60,6 +61,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_five);
         ButterKnife.bind(this);
+
+        mCounter = 0;
 
         mPigUpId = mPigUp.getId();
         mPigDownId = mPigDown.getId();
@@ -101,6 +104,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             public void onSwipeRight() {
                 super.onSwipeRight();
                 if (mViewId == mTractorRedId) {
+                    mCounter += 1;
                     tractorStartLeft.stop();
                     tractorDriveRight.start();
                     moveRight(mTractorRed);
@@ -111,10 +115,12 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             public void onSwipeLeft() {
                 super.onSwipeLeft();
                 if (mViewId == mAirplaneBlueId) {
+                    mCounter += 1;
                     planeStartLeft.start();
                     planeFlyRight.start();
                     moveRight(mAirplaneBlue);
                 } else if (mViewId == mAirplaneRedId) {
+                    mCounter += 1;
                     planeStartRight.start();
                     planeFlyLeft.start();
                     moveLeft(mAirplaneRed);
@@ -124,10 +130,12 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
                 if (mViewId == mCowFiveId) {
+                    mCounter += 1;
                     scaleUpFadeImage(mCowFive);
                     five.start();
                     return true;
                 } else if (mViewId == mCowTenId) {
+                    mCounter += 1;
                     scaleDownFadeImage(mCowTen);
                     ten.start();
                     return true;
@@ -138,9 +146,11 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 if (mViewId == mChickenBlueId) {
+                    mCounter += 1;
                     scaleImage(mChickenBlue);
                     blue.start();
                 } else if (mViewId == mChickenPinkId) {
+                    mCounter += 1;
                     rotateImage(mChickenPink);
                     pink.start();
                 }
@@ -150,12 +160,14 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mViewId == mPigUpId) {
+                    mCounter += 1;
                     flingUp(mPigUp);
                     up.start();
                     mPigUp.setVisibility(View.INVISIBLE);
                     fadeIn(mPigDown);
                     mPigDown.setVisibility(View.VISIBLE);
                 } else if (mViewId == mPigDownId) {
+                    mCounter += 1;
                     flingDown(mPigDown);
                     down.start();
                     mPigDown.setVisibility(View.INVISIBLE);
@@ -181,8 +193,31 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
+        winCheck();
         return true;
     }
+
+    public boolean winCheck() {
+        if (mCounter > 20) {
+            mPigUp.setVisibility(View.INVISIBLE);
+            mPigDown.setVisibility(View.INVISIBLE);
+            mAirplaneRed.setVisibility(View.INVISIBLE);
+            mAirplaneBlue.setVisibility(View.INVISIBLE);
+            mTractorRed.setVisibility(View.INVISIBLE);
+            mCowFive.setVisibility(View.INVISIBLE);
+            mCowTen.setVisibility(View.INVISIBLE);
+            mChickenBlue.setVisibility(View.INVISIBLE);
+            mChickenPink.setVisibility(View.INVISIBLE);
+
+            mWinTextView.setText(R.string.great_job);
+            Animation winAnimation = AnimationUtils.loadAnimation(
+                    getApplicationContext(), R.anim.win_scale_fade_animation);
+            mWinTextView.startAnimation(winAnimation);
+            return true;
+        }
+        return false;
+    }
+
 
     public void moveRight(View view) {
         Animation moveRight = AnimationUtils.loadAnimation(
