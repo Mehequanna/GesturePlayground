@@ -54,7 +54,7 @@
         android:layout_marginEnd="9dp" />
 
     <ImageView
-        android:contentDescription="@string/red_tractor"
+        android:contentDescription="@string/tractor_trailer"
         android:src="@drawable/tractortrailer"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
