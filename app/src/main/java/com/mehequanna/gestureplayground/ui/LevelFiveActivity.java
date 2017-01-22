@@ -50,6 +50,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     MediaPlayer tractorDriveRight;
     MediaPlayer five;
     MediaPlayer ten;
+    MediaPlayer blue;
+    MediaPlayer pink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
         five = MediaPlayer.create(this, R.raw.five);
         ten = MediaPlayer.create(this, R.raw.ten);
+        pink = MediaPlayer.create(this, R.raw.pink);
+        blue = MediaPlayer.create(this, R.raw.blue);
 
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
@@ -129,6 +133,13 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                if (mViewId == mChickenBlueId) {
+                    scaleImage(mChickenBlue);
+                    blue.start();
+                } else if (mViewId == mChickenPinkId) {
+                    rotateImage(mChickenPink);
+                    pink.start();
+                }
                 return super.onDoubleTap(e);
             }
 
@@ -178,5 +189,17 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         Animation scaleDownFade = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.scale_down_fade_animation);
         view.startAnimation(scaleDownFade);
+    }
+
+    public void scaleImage(View view) {
+        Animation scaleAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_animation);
+        view.startAnimation(scaleAnimation);
+    }
+
+    public void rotateImage(View view) {
+        Animation rotateAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.rotate_animation);
+        view.startAnimation(rotateAnimation);
     }
 }
