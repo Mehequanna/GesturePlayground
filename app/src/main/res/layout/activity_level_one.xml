@@ -8,7 +8,7 @@
 
     <ImageView
         android:src="@drawable/farmbackground"
-        android:id="@+id/imageView"
+        android:id="@+id/backgroundImageView"
         style="@style/farm_background" />
 
     <ImageView
