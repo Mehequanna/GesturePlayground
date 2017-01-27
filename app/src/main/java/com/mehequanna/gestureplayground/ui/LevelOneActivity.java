@@ -41,16 +41,16 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     private GestureDetector mCowNineGestureDetector;
     private GestureDetector mCowTenGestureDetector;
 
-    MediaPlayer one;
-    MediaPlayer two;
-    MediaPlayer three;
-    MediaPlayer four;
-    MediaPlayer five;
-    MediaPlayer six;
-    MediaPlayer seven;
-    MediaPlayer eight;
-    MediaPlayer nine;
-    MediaPlayer ten;
+    private MediaPlayer one;
+    private MediaPlayer two;
+    private MediaPlayer three;
+    private MediaPlayer four;
+    private MediaPlayer five;
+    private MediaPlayer six;
+    private MediaPlayer seven;
+    private MediaPlayer eight;
+    private MediaPlayer nine;
+    private MediaPlayer ten;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
