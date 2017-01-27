@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import com.mehequanna.gestureplayground.util.DetectGestures;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LevelOneActivity extends AppCompatActivity implements View.OnTouchListener {
+public class LevelOneActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
     @Bind(R.id.cowOne) ImageView mCowOne;
     @Bind(R.id.cowTwo) ImageView mCowTwo;
     @Bind(R.id.cowThree) ImageView mCowThree;
@@ -29,6 +30,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.cowNine) ImageView mCowNine;
     @Bind(R.id.cowTen) ImageView mCowTen;
     @Bind(R.id.winTextView) TextView mWinTextView;
+    @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
+    @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
 
     private GestureDetector mCowOneGestureDetector;
     private GestureDetector mCowTwoGestureDetector;
@@ -180,6 +183,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                 Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
                         getApplicationContext(), R.anim.win_scale_fade_animation);
                 mWinTextView.startAnimation(winScaleUpAnimation);
+
+                mHomeButton.setVisibility(View.VISIBLE);
+                mPlayAgain.setVisibility(View.VISIBLE);
                 return true;
             }
         });
@@ -194,6 +200,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEight.setOnTouchListener(this);
         mCowNine.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgain.setOnClickListener(this);
     }
 
     @Override
@@ -261,5 +269,17 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         Animation scaleDownFade = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.scale_down_fade_animation);
         view.startAnimation(scaleDownFade);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelOneActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgain) {
+            mPlayAgain.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mCowOne.setVisibility(View.VISIBLE);
+        }
     }
 }

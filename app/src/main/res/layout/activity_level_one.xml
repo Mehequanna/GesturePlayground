@@ -143,4 +143,27 @@
         android:layout_alignTop="@+id/cowNine"
         android:layout_alignStart="@+id/cowSeven" />
 
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:src="@drawable/playagainbutton"
+        android:id="@+id/playAgainButtonImageView"
+        android:visibility="invisible"
+        android:background="#33000000"
+        android:padding="2dp"
+        android:layout_marginTop="102dp"
+        android:layout_below="@+id/winTextView"
+        android:layout_toEndOf="@+id/cowTen" />
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:src="@drawable/homebutton"
+        android:id="@+id/homeButtonImageView"
+        android:background="#33000000"
+        android:visibility="invisible"
+        android:padding="2dp"
+        android:layout_above="@+id/cowNine"
+        android:layout_toEndOf="@+id/cowTen" />
+
 </RelativeLayout>
