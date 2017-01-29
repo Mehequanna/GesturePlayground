@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ import com.mehequanna.gestureplayground.util.DetectGestures;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchListener {
+public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
     @Bind(R.id.chicken1) ImageView mChicken1;
     @Bind(R.id.chicken2) ImageView mChicken2;
     @Bind(R.id.chicken3) ImageView mChicken3;
@@ -29,6 +30,8 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.chicken6) ImageView mChicken6;
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.mainVideoView) VideoView mDoubleTapVideoView;
+    @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
+    @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
 
     private GestureDetector mGestureDetector;
 
@@ -179,6 +182,8 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4.setOnTouchListener(this);
         mChicken5.setOnTouchListener(this);
         mChicken6.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgain.setOnClickListener(this);
         mDoubleTapVideoView.setOnTouchListener(this);
     }
 
@@ -216,8 +221,29 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
+            mPlayAgain.setVisibility(View.VISIBLE);
+            mHomeButton.setVisibility(View.VISIBLE);
         } else {
             Log.d("logs", "winCheck: Not Yet");
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelTwoActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgain) {
+            mPlayAgain.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
+            mChicken1Count = 0;
+            mChicken2Count = 0;
+            mChicken3Count = 0;
+            mChicken4Count = 0;
+            mChicken5Count = 0;
+            mChicken6Count = 0;
+            mChicken1.setVisibility(View.VISIBLE);
         }
     }
 }
