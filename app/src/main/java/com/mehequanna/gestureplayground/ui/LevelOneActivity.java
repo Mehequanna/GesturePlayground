@@ -279,6 +279,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         } else if (view == mPlayAgain) {
             mPlayAgain.setVisibility(View.INVISIBLE);
             mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
             mCowOne.setVisibility(View.VISIBLE);
         }
     }
