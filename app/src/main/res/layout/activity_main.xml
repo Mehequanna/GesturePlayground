@@ -45,21 +45,12 @@
         android:layout_toEndOf="@+id/titleTextView" />
 
     <ImageButton
-        android:src="@drawable/level1"
-        style="@style/level_buttons"
-        android:contentDescription="@string/level_one"
-        android:id="@+id/levelOneImageButton"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="66dp"
-        android:layout_above="@+id/parentsButton"
-        android:layout_toStartOf="@+id/subtitielTextView" />
-
-    <ImageButton
         android:src="@drawable/level2"
         style="@style/level_buttons"
         android:contentDescription="@string/level_two"
         android:id="@+id/levelTwoImageButton"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginStart="-20dp"
         android:layout_marginBottom="13dp"
         android:layout_alignBottom="@+id/parentsButton"
         android:layout_alignEnd="@+id/subtitielTextView" />
@@ -69,7 +60,7 @@
         style="@style/level_buttons"
         android:contentDescription="@string/level_three"
         android:id="@+id/levelThreeImageButton"
-        android:layout_marginStart="-70dp"
+        android:layout_marginStart="-130dp"
         android:layout_alignTop="@+id/levelOneImageButton"
         android:layout_toEndOf="@+id/levelTwoImageButton" />
 
@@ -78,7 +69,7 @@
         style="@style/level_buttons"
         android:contentDescription="@string/level_four"
         android:id="@+id/levelFourImageButton"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_alignTop="@+id/levelTwoImageButton"
         android:layout_toEndOf="@+id/levelThreeImageButton" />
 
@@ -87,8 +78,18 @@
         style="@style/level_buttons"
         android:contentDescription="@string/level_five"
         android:id="@+id/levelFiveImageButton"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="10dp"
         android:layout_alignTop="@+id/levelThreeImageButton"
         android:layout_toEndOf="@+id/levelFourImageButton" />
+
+    <ImageButton
+        android:src="@drawable/level1"
+        style="@style/level_buttons"
+        android:contentDescription="@string/level_one"
+        android:id="@+id/levelOneImageButton"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_above="@+id/parentsButton"
+        android:layout_toStartOf="@+id/levelTwoImageButton" />
 
 </RelativeLayout>

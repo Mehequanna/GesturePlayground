@@ -14,7 +14,6 @@
 
     <TextView
         android:id="@+id/winTextView"
-        android:visibility="invisible"
         style="@style/win_text" />
 
     <ImageView
@@ -25,7 +24,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTen"
-        android:visibility="invisible"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="38dp"
@@ -39,7 +37,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFive"
-        android:visibility="invisible"
         android:layout_alignTop="@+id/cowTen"
         android:layout_alignStart="@+id/cowTen" />
 
@@ -51,7 +48,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowNine"
-        android:visibility="invisible"
         android:layout_above="@+id/cowTen"
         android:layout_toStartOf="@+id/cowTen"
         android:layout_marginEnd="60dp" />
@@ -64,7 +60,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFour"
-        android:visibility="invisible"
         android:layout_alignTop="@+id/cowNine"
         android:layout_alignStart="@+id/cowNine" />
 
@@ -76,7 +71,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowEight"
-        android:visibility="invisible"
         android:layout_below="@+id/cowNine"
         android:layout_toStartOf="@+id/cowNine"
         android:layout_marginEnd="46dp" />
@@ -89,7 +83,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowThree"
-        android:visibility="invisible"
         android:layout_alignTop="@+id/cowEight"
         android:layout_alignStart="@+id/cowEight" />
 
@@ -101,7 +94,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowSeven"
-        android:visibility="invisible"
         android:layout_marginEnd="46dp"
         android:layout_alignTop="@+id/cowNine"
         android:layout_toStartOf="@+id/cowEight"
@@ -115,7 +107,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTwo"
-        android:visibility="invisible"
         android:layout_alignTop="@+id/cowSeven"
         android:layout_alignStart="@+id/cowSeven" />
 
@@ -131,15 +122,6 @@
         android:layout_alignStart="@+id/cowSix" />
 
     <ImageView
-        android:src="@drawable/homebutton"
-        android:id="@+id/homeButtonImageView"
-        android:visibility="invisible"
-        android:contentDescription="@string/home_button"
-        style="@style/menu_buttons"
-        android:layout_alignBottom="@+id/cowSeven"
-        android:layout_toStartOf="@+id/cowNine" />
-
-    <ImageView
         android:contentDescription="@string/cow_six"
         android:src="@drawable/cowsix"
         android:layout_width="75dp"
@@ -147,19 +129,25 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowSix"
-        android:visibility="invisible"
         android:layout_marginEnd="54dp"
         android:layout_alignTop="@+id/cowEight"
         android:layout_toStartOf="@+id/cowTwo" />
 
     <ImageView
+        android:src="@drawable/homebutton"
+        android:id="@+id/homeButtonImageView"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons"
+        android:layout_alignTop="@+id/cowSeven"
+        android:layout_toStartOf="@+id/cowNine"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
         android:src="@drawable/playagainbutton"
         android:id="@+id/playAgainButtonImageView"
-        android:visibility="invisible"
         android:contentDescription="@string/play_again"
         style="@style/menu_buttons"
-        android:layout_above="@+id/homeButtonImageView"
-        android:layout_alignStart="@+id/homeButtonImageView"
-        android:layout_marginBottom="12dp" />
+        android:layout_below="@+id/winTextView"
+        android:layout_toStartOf="@+id/cowNine" />
 
 </RelativeLayout>
