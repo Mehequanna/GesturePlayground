@@ -28,6 +28,16 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="level_buttons_lg">
+        <item name="android:background">#33000000</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:layout_width">125dp</item>
+        <item name="android:layout_height">125dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
     <style name="level_buttons_xl">
         <item name="android:background">#33000000</item>
         <item name="android:paddingEnd">2dp</item>

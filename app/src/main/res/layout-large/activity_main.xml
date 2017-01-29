@@ -47,7 +47,7 @@
 
     <ImageButton
         android:src="@drawable/level5"
-        style="@style/level_buttons_xl"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_five"
         android:id="@+id/levelFiveImageButton"
         android:layout_alignTop="@+id/levelThreeImageButton"
@@ -56,7 +56,7 @@
 
     <ImageButton
         android:src="@drawable/level3"
-        style="@style/level_buttons_xl"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_three"
         android:id="@+id/levelThreeImageButton"
         android:layout_marginEnd="44dp"
@@ -65,7 +65,7 @@
 
     <ImageButton
         android:src="@drawable/level4"
-        style="@style/level_buttons_xl"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_four"
         android:id="@+id/levelFourImageButton"
         android:layout_marginEnd="30dp"
@@ -74,7 +74,7 @@
 
     <ImageButton
         android:src="@drawable/level2"
-        style="@style/level_buttons_xl"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_two"
         android:id="@+id/levelTwoImageButton"
         android:layout_marginEnd="30dp"
@@ -83,7 +83,7 @@
 
     <ImageButton
         android:src="@drawable/level1"
-        style="@style/level_buttons_xl"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_one"
         android:id="@+id/levelOneImageButton"
         android:layout_marginBottom="33dp"
