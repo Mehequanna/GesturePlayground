@@ -10,6 +10,7 @@
     <ImageView
         android:src="@drawable/farmbackground"
         android:id="@+id/backgroundImageView"
+        android:contentDescription="@string/farm_background"
         style="@style/farm_background" />
 
     <Button
