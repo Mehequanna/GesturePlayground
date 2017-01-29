@@ -73,4 +73,13 @@
         <item name="android:paddingEnd">1dp</item>
         <item name="android:paddingStart">0dp</item>
     </style>
+
+    <style name="menu_buttons_lg">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">63dp</item>
+        <item name="android:background">#33000000</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingEnd">1dp</item>
+        <item name="android:paddingStart">0dp</item>
+    </style>
 </resources>
