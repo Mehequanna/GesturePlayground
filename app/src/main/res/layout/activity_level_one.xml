@@ -12,53 +12,10 @@
         android:contentDescription="@string/farm_background"
         style="@style/farm_background" />
 
-    <ImageView
-        android:contentDescription="@string/cow_eight"
-        android:src="@drawable/coweight"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowEight"
-        android:layout_alignTop="@+id/cowSix"
-        android:layout_toEndOf="@+id/cowSeven"
-        android:layout_marginStart="23dp" />
-
-    <ImageView
-        android:contentDescription="@string/cow_three"
-        android:src="@drawable/cowthree"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowThree"
-        android:layout_alignTop="@+id/cowSix"
-        android:layout_toEndOf="@+id/cowSeven"
-        android:layout_marginStart="23dp" />
-
-    <ImageView
-        android:contentDescription="@string/cow_nine"
-        android:src="@drawable/cownine"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowNine"
-        android:layout_above="@+id/cowSix"
-        android:layout_toEndOf="@+id/cowEight"
-        android:layout_marginStart="13dp" />
-
-    <ImageView
-        android:contentDescription="@string/cow_four"
-        android:src="@drawable/cowfour"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowFour"
-        android:layout_above="@+id/cowSix"
-        android:layout_toEndOf="@+id/cowEight"
-        android:layout_marginStart="13dp" />
+    <TextView
+        android:id="@+id/winTextView"
+        android:visibility="invisible"
+        style="@style/win_text" />
 
     <ImageView
         android:contentDescription="@string/cow_ten"
@@ -68,9 +25,11 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTen"
-        android:layout_alignTop="@+id/cowEight"
-        android:layout_toEndOf="@+id/cowNine"
-        android:layout_marginStart="37dp" />
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="31dp" />
 
     <ImageView
         android:contentDescription="@string/cow_five"
@@ -80,37 +39,59 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFive"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/cowTen"
+        android:layout_alignStart="@+id/cowTen" />
+
+    <ImageView
+        android:contentDescription="@string/cow_nine"
+        android:src="@drawable/cownine"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowNine"
+        android:visibility="invisible"
+        android:layout_above="@+id/cowTen"
+        android:layout_toStartOf="@+id/cowTen"
+        android:layout_marginEnd="60dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_four"
+        android:src="@drawable/cowfour"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowFour"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/cowNine"
+        android:layout_alignStart="@+id/cowNine" />
+
+    <ImageView
+        android:contentDescription="@string/cow_eight"
+        android:src="@drawable/coweight"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowEight"
+        android:visibility="invisible"
+        android:layout_below="@+id/cowNine"
+        android:layout_toStartOf="@+id/cowNine"
+        android:layout_marginEnd="46dp" />
+
+    <ImageView
+        android:contentDescription="@string/cow_three"
+        android:src="@drawable/cowthree"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowThree"
+        android:visibility="invisible"
         android:layout_alignTop="@+id/cowEight"
-        android:layout_toEndOf="@+id/cowNine"
-        android:layout_marginStart="37dp" />
-
-    <TextView
-        android:id="@+id/winTextView"
-        style="@style/win_text" />
-
-    <ImageView
-        android:contentDescription="@string/cow_one"
-        android:src="@drawable/cowone"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowOne"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="15dp" />
-
-    <ImageView
-        android:contentDescription="@string/cow_six"
-        android:src="@drawable/cowsix"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowSix"
-        android:layout_alignTop="@+id/cowOne"
-        android:layout_alignStart="@+id/cowOne" />
+        android:layout_alignStart="@+id/cowEight" />
 
     <ImageView
         android:contentDescription="@string/cow_seven"
@@ -120,9 +101,11 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowSeven"
-        android:layout_marginStart="64dp"
-        android:layout_alignTop="@+id/cowTwo"
-        android:layout_toEndOf="@+id/cowOne" />
+        android:visibility="invisible"
+        android:layout_marginEnd="46dp"
+        android:layout_alignTop="@+id/cowNine"
+        android:layout_toStartOf="@+id/cowEight"
+        android:layout_marginTop="11dp" />
 
     <ImageView
         android:contentDescription="@string/cow_two"
@@ -132,19 +115,51 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTwo"
-        android:layout_alignTop="@+id/cowNine"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/cowSeven"
         android:layout_alignStart="@+id/cowSeven" />
+
+    <ImageView
+        android:contentDescription="@string/cow_one"
+        android:src="@drawable/cowone"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowOne"
+        android:layout_alignTop="@+id/cowSix"
+        android:layout_alignStart="@+id/cowSix" />
 
     <ImageView
         android:src="@drawable/homebutton"
         android:id="@+id/homeButtonImageView"
+        android:visibility="invisible"
         android:contentDescription="@string/home_button"
-        style="@style/menu_buttons" />
+        style="@style/menu_buttons"
+        android:layout_alignBottom="@+id/cowSeven"
+        android:layout_toStartOf="@+id/cowNine" />
+
+    <ImageView
+        android:contentDescription="@string/cow_six"
+        android:src="@drawable/cowsix"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowSix"
+        android:visibility="invisible"
+        android:layout_marginEnd="54dp"
+        android:layout_alignTop="@+id/cowEight"
+        android:layout_toStartOf="@+id/cowTwo" />
 
     <ImageView
         android:src="@drawable/playagainbutton"
         android:id="@+id/playAgainButtonImageView"
+        android:visibility="invisible"
         android:contentDescription="@string/play_again"
-        style="@style/menu_buttons"/>
+        style="@style/menu_buttons"
+        android:layout_above="@+id/homeButtonImageView"
+        android:layout_alignStart="@+id/homeButtonImageView"
+        android:layout_marginBottom="12dp" />
 
 </RelativeLayout>
