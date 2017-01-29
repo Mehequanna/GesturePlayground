@@ -46,4 +46,6 @@
     <string name="pig_surprise">Pig surprise.</string>
     <string name="pig_family">Pig family.</string>
     <string name="tractor_trailer">Blue Tractor Trailer</string>
+    <string name="home_button">Home Button</string>
+    <string name="play_again">Play Again</string>
 </resources>

@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:id="@+id/parentsButton"
-        android:textSize="12sp"
+        android:textSize="24sp"
+        android:padding="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="13dp"/>
@@ -29,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:textSize="35sp"
+        android:textSize="70sp"
         android:id="@+id/titleTextView"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/parentsButton" />
@@ -39,56 +40,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textSize="25sp"
+        android:textSize="50sp"
         android:id="@+id/subtitielTextView"
         android:layout_below="@+id/titleTextView"
         android:layout_toEndOf="@+id/titleTextView" />
 
     <ImageButton
-        android:src="@drawable/level2"
-        style="@style/level_buttons"
-        android:contentDescription="@string/level_two"
-        android:id="@+id/levelTwoImageButton"
-        android:layout_marginEnd="140dp"
-        android:layout_marginStart="-20dp"
-        android:layout_marginBottom="13dp"
-        android:layout_alignBottom="@+id/parentsButton"
-        android:layout_alignEnd="@+id/subtitielTextView" />
+        android:src="@drawable/level5"
+        style="@style/level_buttons_lg"
+        android:contentDescription="@string/level_five"
+        android:id="@+id/levelFiveImageButton"
+        android:layout_alignTop="@+id/levelThreeImageButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="65dp" />
 
     <ImageButton
         android:src="@drawable/level3"
-        style="@style/level_buttons"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_three"
         android:id="@+id/levelThreeImageButton"
-        android:layout_marginStart="-130dp"
+        android:layout_marginEnd="44dp"
         android:layout_alignTop="@+id/levelOneImageButton"
-        android:layout_toEndOf="@+id/levelTwoImageButton" />
+        android:layout_toStartOf="@+id/levelFourImageButton" />
 
     <ImageButton
         android:src="@drawable/level4"
-        style="@style/level_buttons"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_four"
         android:id="@+id/levelFourImageButton"
-        android:layout_marginStart="10dp"
-        android:layout_alignTop="@+id/levelTwoImageButton"
-        android:layout_toEndOf="@+id/levelThreeImageButton" />
+        android:layout_marginEnd="30dp"
+        android:layout_alignBottom="@+id/parentsButton"
+        android:layout_toStartOf="@+id/levelFiveImageButton" />
 
     <ImageButton
-        android:src="@drawable/level5"
-        style="@style/level_buttons"
-        android:contentDescription="@string/level_five"
-        android:id="@+id/levelFiveImageButton"
-        android:layout_marginStart="10dp"
-        android:layout_alignTop="@+id/levelThreeImageButton"
-        android:layout_toEndOf="@+id/levelFourImageButton" />
+        android:src="@drawable/level2"
+        style="@style/level_buttons_lg"
+        android:contentDescription="@string/level_two"
+        android:id="@+id/levelTwoImageButton"
+        android:layout_marginEnd="30dp"
+        android:layout_alignTop="@+id/levelFourImageButton"
+        android:layout_toStartOf="@+id/levelThreeImageButton" />
 
     <ImageButton
         android:src="@drawable/level1"
-        style="@style/level_buttons"
+        style="@style/level_buttons_lg"
         android:contentDescription="@string/level_one"
         android:id="@+id/levelOneImageButton"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="33dp"
+        android:layout_marginEnd="26dp"
         android:layout_above="@+id/parentsButton"
         android:layout_toStartOf="@+id/levelTwoImageButton" />
 
