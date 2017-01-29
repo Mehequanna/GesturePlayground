@@ -147,24 +147,27 @@
     <ImageView
         android:layout_width="175dp"
         android:layout_height="60dp"
-        android:src="@drawable/playagainbutton"
-        android:id="@+id/playAgainButtonImageView"
-        android:visibility="invisible"
+        android:src="@drawable/homebutton"
+        android:id="@+id/homeButtonImageView"
         android:background="#33000000"
         android:padding="2dp"
-        android:layout_marginTop="102dp"
-        android:layout_below="@+id/winTextView"
-        android:layout_toEndOf="@+id/cowTen" />
+        android:visibility="invisible"
+        android:contentDescription="@string/home_button"
+        android:layout_marginStart="13dp"
+        android:layout_alignBottom="@+id/cowSeven"
+        android:layout_alignStart="@+id/cowEight" />
 
     <ImageView
         android:layout_width="175dp"
         android:layout_height="60dp"
-        android:src="@drawable/homebutton"
-        android:id="@+id/homeButtonImageView"
+        android:src="@drawable/playagainbutton"
+        android:id="@+id/playAgainButtonImageView"
         android:background="#33000000"
-        android:visibility="invisible"
         android:padding="2dp"
+        android:visibility="invisible"
+        android:contentDescription="@string/play_again"
+        android:layout_marginBottom="7dp"
         android:layout_above="@+id/cowNine"
-        android:layout_toEndOf="@+id/cowTen" />
+        android:layout_alignStart="@+id/homeButtonImageView" />
 
 </RelativeLayout>
