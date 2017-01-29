@@ -21,7 +21,6 @@
         android:layout_alignParentStart="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:elevation="-2dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"/>
@@ -34,6 +33,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken6"
+        android:visibility="invisible"
         android:layout_marginStart="74dp"
         android:layout_marginTop="24dp"
         android:layout_below="@+id/chicken1"
@@ -47,6 +47,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken4"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/chicken1"
         android:layout_alignEnd="@+id/chicken6"
         android:layout_marginEnd="14dp" />
@@ -59,6 +60,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken3"
+        android:visibility="invisible"
         android:layout_marginEnd="94dp"
         android:layout_alignBottom="@+id/chicken6"
         android:layout_toStartOf="@+id/winTextView"
@@ -72,6 +74,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken1"
+        android:visibility="invisible"
         android:layout_marginBottom="65dp"
         android:layout_above="@+id/chicken2"
         android:layout_toEndOf="@+id/chicken5"
@@ -85,6 +88,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken5"
+        android:visibility="invisible"
         android:layout_marginStart="33dp"
         android:layout_alignBottom="@+id/chicken2"
         android:layout_toEndOf="@+id/winTextView" />
@@ -97,9 +101,30 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chicken2"
+        android:visibility="invisible"
         android:layout_marginBottom="47dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="137dp" />
+
+    <ImageView
+        android:src="@drawable/homebutton"
+        android:id="@+id/homeButtonImageView"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons_xl"
+        android:visibility="invisible"
+        android:layout_marginBottom="21dp"
+        android:layout_above="@+id/chicken2"
+        android:layout_toStartOf="@+id/chicken1"
+        android:layout_marginEnd="34dp" />
+
+    <ImageView
+        android:src="@drawable/playagainbutton"
+        android:id="@+id/playAgainButtonImageView"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons_xl"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/chicken4"
+        android:layout_alignStart="@+id/homeButtonImageView" />
 
 </RelativeLayout>

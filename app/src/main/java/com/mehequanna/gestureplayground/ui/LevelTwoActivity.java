@@ -55,6 +55,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     private int mChicken4Id;
     private int mChicken5Id;
     private int mChicken6Id;
+    private int mVideoId;
     private int mViewId;
 
     @Override
@@ -73,6 +74,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4Id = mChicken4.getId();
         mChicken5Id = mChicken5.getId();
         mChicken6Id = mChicken6.getId();
+        mVideoId = mDoubleTapVideoView.getId();
 
         blue = MediaPlayer.create(this, R.raw.blue);
         brown = MediaPlayer.create(this, R.raw.brown);
@@ -91,8 +93,11 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
-                mDoubleTapVideoView.stopPlayback();
-                mDoubleTapVideoView.setVisibility(View.GONE);
+                if (mViewId == mVideoId) {
+                    mDoubleTapVideoView.stopPlayback();
+                    mDoubleTapVideoView.setVisibility(View.GONE);
+                    mChicken1.setVisibility(View.VISIBLE);
+                }
                 return super.onSingleTapUp(e);
             }
 
@@ -193,7 +198,9 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
-        winCheck();
+        if (mChicken1Count > 1) {
+            winCheck();
+        }
         return true;
     }
 
