@@ -14,12 +14,12 @@
 
     <TextView
         android:id="@+id/winTextView"
-        style="@style/win_text" />
+        style="@style/win_text_xl" />
 
     <ImageView
         android:contentDescription="@string/cow_ten"
         android:src="@drawable/cowten"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -33,7 +33,7 @@
     <ImageView
         android:contentDescription="@string/cow_five"
         android:src="@drawable/cowfive"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -43,9 +43,23 @@
         android:layout_alignStart="@+id/cowTen" />
 
     <ImageView
+        android:contentDescription="@string/cow_nine"
+        android:src="@drawable/cownine"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowNine"
+        android:visibility="invisible"
+        android:layout_above="@+id/cowTen"
+        android:layout_marginBottom="75dp"
+        android:layout_toStartOf="@+id/cowTen"
+        android:layout_marginEnd="150dp" />
+
+    <ImageView
         android:contentDescription="@string/cow_four"
         android:src="@drawable/cowfour"
-        android:layout_width="80dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -57,7 +71,7 @@
     <ImageView
         android:contentDescription="@string/cow_eight"
         android:src="@drawable/coweight"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -70,7 +84,7 @@
     <ImageView
         android:contentDescription="@string/cow_three"
         android:src="@drawable/cowthree"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -80,9 +94,23 @@
         android:layout_alignStart="@+id/cowEight" />
 
     <ImageView
+        android:contentDescription="@string/cow_seven"
+        android:src="@drawable/cowseven"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowSeven"
+        android:visibility="invisible"
+        android:layout_marginEnd="150dp"
+        android:layout_alignTop="@+id/cowNine"
+        android:layout_toStartOf="@+id/cowEight"
+        android:layout_marginTop="50dp" />
+
+    <ImageView
         android:contentDescription="@string/cow_two"
         android:src="@drawable/cowtwo"
-        android:layout_width="90dp"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -94,7 +122,7 @@
     <ImageView
         android:contentDescription="@string/cow_one"
         android:src="@drawable/cowone"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -105,7 +133,7 @@
     <ImageView
         android:contentDescription="@string/cow_six"
         android:src="@drawable/cowsix"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -116,50 +144,22 @@
         android:layout_toStartOf="@+id/cowTwo" />
 
     <ImageView
-        android:contentDescription="@string/cow_seven"
-        android:src="@drawable/cowseven"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowSeven"
-        android:visibility="invisible"
-        android:layout_marginEnd="70dp"
-        android:layout_marginTop="11dp"
-        android:layout_alignTop="@+id/cowNine"
-        android:layout_toStartOf="@+id/homeButtonImageView" />
-
-    <ImageView
-        android:contentDescription="@string/cow_nine"
-        android:src="@drawable/cownine"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowNine"
-        android:visibility="invisible"
-        android:layout_marginEnd="97dp"
-        android:layout_above="@+id/cowTen"
-        android:layout_toStartOf="@+id/cowTen"
-        android:layout_marginBottom="30dp" />
-
-    <ImageView
         android:src="@drawable/playagainbutton"
         android:id="@+id/playAgainButtonImageView"
         android:visibility="invisible"
         android:contentDescription="@string/play_again"
-        style="@style/menu_buttons_lg"
-        android:layout_above="@+id/cowFour"
-        android:layout_toStartOf="@+id/cowFour"
-        android:layout_marginEnd="23dp" />
+        style="@style/menu_buttons_xl"
+        android:layout_above="@+id/cowTwo"
+        android:layout_toStartOf="@+id/cowNine" />
 
     <ImageView
         android:src="@drawable/homebutton"
         android:id="@+id/homeButtonImageView"
         android:visibility="invisible"
         android:contentDescription="@string/home_button"
-        style="@style/menu_buttons_lg"
-        android:layout_alignBottom="@+id/cowFour"
-        android:layout_alignStart="@+id/playAgainButtonImageView" />
+        style="@style/menu_buttons_xl"
+        android:layout_alignBottom="@+id/cowSeven"
+        android:layout_toStartOf="@+id/cowNine"
+        android:layout_marginBottom="21dp" />
 
 </RelativeLayout>
