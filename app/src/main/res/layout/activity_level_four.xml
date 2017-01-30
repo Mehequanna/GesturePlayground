@@ -91,4 +91,23 @@
         android:id="@+id/pig10"
         android:visibility="invisible"
         style="@style/pig_imageviews" />
+
+    <ImageView
+        android:id="@+id/playAgainButtonImageView"
+        android:src="@drawable/playagainbutton"
+        android:contentDescription="@string/play_again"
+        style="@style/menu_buttons"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/pig1" />
+
+    <ImageView
+        android:id="@+id/homeButtonImageView"
+        android:src="@drawable/homebutton"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons"
+        android:visibility="invisible"
+        android:layout_below="@+id/playAgainButtonImageView"
+        android:layout_alignEnd="@+id/pig1"
+        android:layout_marginTop="16dp" />
 </RelativeLayout>
