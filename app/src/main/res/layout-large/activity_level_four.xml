@@ -14,89 +14,89 @@
 
     <TextView
         android:id="@+id/winTextView"
-        style="@style/win_text" />
+        style="@style/win_text_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_up"
         android:src="@drawable/pigup"
         android:id="@+id/pig1"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_down"
         android:src="@drawable/pigdown"
         android:id="@+id/pig2"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_left"
         android:src="@drawable/pigleft"
         android:id="@+id/pig3"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_right"
         android:src="@drawable/pigright"
         android:id="@+id/pig4"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_up_left"
         android:src="@drawable/pigupleft"
         android:id="@+id/pig5"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_down_left"
         android:src="@drawable/pigdownleft"
         android:id="@+id/pig6"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_up_right"
         android:src="@drawable/pigupright"
         android:id="@+id/pig7"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_down_right"
         android:src="@drawable/pigdownright"
         android:id="@+id/pig8"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_side_facing"
         android:src="@drawable/pigside"
         android:id="@+id/pig9"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_surprise"
         android:src="@drawable/pigsurprise"
         android:id="@+id/pig11"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:contentDescription="@string/pig_family"
         android:src="@drawable/pigfamily"
         android:id="@+id/pig10"
         android:visibility="invisible"
-        style="@style/pig_imageviews" />
+        style="@style/pig_imageviews_lg" />
 
     <ImageView
         android:id="@+id/playAgainButtonImageView"
         android:src="@drawable/playagainbutton"
         android:contentDescription="@string/play_again"
-        style="@style/menu_buttons"
+        style="@style/menu_buttons_lg"
         android:visibility="invisible"
         android:layout_centerVertical="true"
         android:layout_alignEnd="@+id/pig1" />
@@ -105,7 +105,7 @@
         android:id="@+id/homeButtonImageView"
         android:src="@drawable/homebutton"
         android:contentDescription="@string/home_button"
-        style="@style/menu_buttons"
+        style="@style/menu_buttons_lg"
         android:visibility="invisible"
         android:layout_below="@+id/playAgainButtonImageView"
         android:layout_alignEnd="@+id/pig1"

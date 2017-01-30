@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_level_two"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mehequanna.gestureplayground.ui.LevelTwoActivity">
+
+    <ImageView
+        android:src="@drawable/farmbackground"
+        android:id="@+id/backgroundImageView"
+        android:contentDescription="@string/farm_background"
+        style="@style/farm_background" />
+
+    <TextView
+        android:id="@+id/winTextView"
+        style="@style/win_text_xl"/>
+
+    <VideoView
+        android:id="@+id/mainVideoView"
+        android:layout_alignParentStart="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:contentDescription="@string/blue_chicken"
+        android:src="@drawable/chickenblue"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken6"
+        android:visibility="invisible"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/chicken1"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:contentDescription="@string/pink_chicken"
+        android:src="@drawable/chickenpink"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken4"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/chicken1"
+        android:layout_alignEnd="@+id/chicken6"
+        android:layout_marginEnd="14dp" />
+
+    <ImageView
+        android:contentDescription="@string/red_chicken"
+        android:src="@drawable/chickenred"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken3"
+        android:visibility="invisible"
+        android:layout_marginEnd="94dp"
+        android:layout_alignBottom="@+id/chicken6"
+        android:layout_toStartOf="@+id/winTextView"
+        android:layout_marginBottom="44dp" />
+
+    <ImageView
+        android:contentDescription="@string/yellow_chicken"
+        android:src="@drawable/chickenyellow"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken1"
+        android:visibility="invisible"
+        android:layout_marginBottom="65dp"
+        android:layout_above="@+id/chicken2"
+        android:layout_toEndOf="@+id/chicken5"
+        android:layout_marginStart="40dp" />
+
+    <ImageView
+        android:contentDescription="@string/brown_chicken"
+        android:src="@drawable/chickenbrown"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken5"
+        android:visibility="invisible"
+        android:layout_marginStart="33dp"
+        android:layout_alignBottom="@+id/chicken2"
+        android:layout_toEndOf="@+id/winTextView" />
+
+    <ImageView
+        android:contentDescription="@string/white_chicken"
+        android:src="@drawable/chickenwhite"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chicken2"
+        android:visibility="invisible"
+        android:layout_marginBottom="47dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="137dp" />
+
+    <ImageView
+        android:src="@drawable/homebutton"
+        android:id="@+id/homeButtonImageView"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons_xl"
+        android:visibility="invisible"
+        android:layout_marginBottom="21dp"
+        android:layout_above="@+id/chicken2"
+        android:layout_toStartOf="@+id/chicken1"
+        android:layout_marginEnd="34dp" />
+
+    <ImageView
+        android:src="@drawable/playagainbutton"
+        android:id="@+id/playAgainButtonImageView"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons_xl"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/chicken4"
+        android:layout_alignStart="@+id/homeButtonImageView" />
+
+</RelativeLayout>

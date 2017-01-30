@@ -24,6 +24,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTen"
+        android:visibility="invisible"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="38dp"
@@ -37,6 +38,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFive"
+        android:visibility="invisible"
         android:layout_alignTop="@+id/cowTen"
         android:layout_alignStart="@+id/cowTen" />
 
@@ -48,6 +50,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowNine"
+        android:visibility="invisible"
         android:layout_above="@+id/cowTen"
         android:layout_toStartOf="@+id/cowTen"
         android:layout_marginEnd="60dp" />
@@ -60,6 +63,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFour"
+        android:visibility="invisible"
         android:layout_alignTop="@+id/cowNine"
         android:layout_alignStart="@+id/cowNine" />
 
@@ -71,6 +75,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowEight"
+        android:visibility="invisible"
         android:layout_below="@+id/cowNine"
         android:layout_toStartOf="@+id/cowNine"
         android:layout_marginEnd="46dp" />
@@ -83,6 +88,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowThree"
+        android:visibility="invisible"
         android:layout_alignTop="@+id/cowEight"
         android:layout_alignStart="@+id/cowEight" />
 
@@ -94,6 +100,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowSeven"
+        android:visibility="invisible"
         android:layout_marginEnd="46dp"
         android:layout_alignTop="@+id/cowNine"
         android:layout_toStartOf="@+id/cowEight"
@@ -107,6 +114,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTwo"
+        android:visibility="invisible"
         android:layout_alignTop="@+id/cowSeven"
         android:layout_alignStart="@+id/cowSeven" />
 
@@ -129,6 +137,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowSix"
+        android:visibility="invisible"
         android:layout_marginEnd="54dp"
         android:layout_alignTop="@+id/cowEight"
         android:layout_toStartOf="@+id/cowTwo" />
@@ -136,6 +145,7 @@
     <ImageView
         android:src="@drawable/homebutton"
         android:id="@+id/homeButtonImageView"
+        android:visibility="invisible"
         android:contentDescription="@string/home_button"
         style="@style/menu_buttons"
         android:layout_alignTop="@+id/cowSeven"
@@ -145,6 +155,7 @@
     <ImageView
         android:src="@drawable/playagainbutton"
         android:id="@+id/playAgainButtonImageView"
+        android:visibility="invisible"
         android:contentDescription="@string/play_again"
         style="@style/menu_buttons"
         android:layout_below="@+id/winTextView"

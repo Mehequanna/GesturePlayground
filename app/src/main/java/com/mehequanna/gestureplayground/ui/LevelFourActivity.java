@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import com.mehequanna.gestureplayground.util.DetectGestures;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LevelFourActivity extends AppCompatActivity implements View.OnTouchListener {
+public class LevelFourActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
     @Bind(R.id.pig1) ImageView mPig1;
     @Bind(R.id.pig2) ImageView mPig2;
     @Bind(R.id.pig3) ImageView mPig3;
@@ -30,6 +31,8 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.pig10) ImageView mPig10;
     @Bind(R.id.pig11) ImageView mPig11;
     @Bind(R.id.winTextView) TextView mWinTextView;
+    @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgainButton;
+    @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
 
     private GestureDetector mGestureDetector;
 
@@ -119,6 +122,9 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                     Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
+
+                    mHomeButton.setVisibility(View.VISIBLE);
+                    mPlayAgainButton.setVisibility(View.VISIBLE);
                 }
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
@@ -135,6 +141,8 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         mPig9.setOnTouchListener(this);
         mPig10.setOnTouchListener(this);
         mPig11.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgainButton.setOnClickListener(this);
     }
 
     @Override
@@ -195,5 +203,18 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         Animation fadeIn = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.fade_in_animation);
         view.startAnimation(fadeIn);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelFourActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgainButton) {
+            mPlayAgainButton.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
+            mPig1.setVisibility(View.VISIBLE);
+        }
     }
 }

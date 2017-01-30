@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.mehequanna.gestureplayground.ui.LevelThreeActivity">
 
-
     <ImageView
         android:src="@drawable/farmbackground"
         android:id="@+id/backgroundImageView"
@@ -15,18 +14,18 @@
 
     <TextView
         android:id="@+id/winTextView"
-        style="@style/win_text" />
+        style="@style/win_text_xl" />
 
     <ImageView
         android:contentDescription="@string/blue_airplane"
         android:src="@drawable/airplaneblue"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:scaleX="-1"
         android:id="@+id/sevenAirplaneBlue"
-        android:visibility="invisible"
         android:layout_marginStart="27dp"
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
@@ -35,21 +34,34 @@
     <ImageView
         android:contentDescription="@string/red_airplane"
         android:src="@drawable/airplanered"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:id="@+id/sixAirplaneRed"
-        android:visibility="invisible"
         android:layout_alignTop="@+id/sevenAirplaneBlue"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="13dp"
         android:layout_marginTop="12dp" />
 
     <ImageView
+        android:contentDescription="@string/green_airplane"
+        android:src="@drawable/airplanegreen"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:visibility="invisible"
+        android:adjustViewBounds="true"
+        android:scaleX="-1"
+        android:id="@+id/fiveAirplaneGreen"
+        android:layout_below="@+id/sixAirplaneRed"
+        android:layout_alignStart="@+id/sevenAirplaneBlue" />
+
+    <ImageView
         android:contentDescription="@string/pink_tractor"
         android:src="@drawable/tractorpink"
-        android:layout_width="100dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
@@ -62,12 +74,12 @@
     <ImageView
         android:contentDescription="@string/black_tractor"
         android:src="@drawable/tractorblack"
-        android:layout_width="100dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:id="@+id/twoTractorBlack"
-        android:visibility="invisible"
         android:layout_marginBottom="11dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/fourTractorGreen"
@@ -76,12 +88,12 @@
     <ImageView
         android:contentDescription="@string/tractor_trailer"
         android:src="@drawable/tractortrailer"
-        android:layout_width="150dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:id="@+id/eightTractorTrailer"
-        android:visibility="invisible"
         android:scaleX="-1"
         android:layout_above="@+id/fourTractorGreen"
         android:layout_alignEnd="@+id/fourTractorGreen" />
@@ -89,12 +101,12 @@
     <ImageView
         android:contentDescription="@string/red_tractor"
         android:src="@drawable/tractorred"
-        android:layout_width="100dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:id="@+id/threeTractorRed"
-        android:visibility="invisible"
         android:layout_marginBottom="8dp"
         android:layout_alignBottom="@+id/twoTractorBlack"
         android:layout_alignParentStart="true" />
@@ -102,45 +114,33 @@
     <ImageView
         android:contentDescription="@string/green_tractor"
         android:src="@drawable/tractorgreen"
-        android:layout_width="100dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
+        android:visibility="invisible"
         android:adjustViewBounds="true"
         android:id="@+id/fourTractorGreen"
-        android:visibility="invisible"
         android:scaleX="-1"
         android:layout_alignBottom="@+id/oneTractorPink"
         android:layout_alignStart="@+id/sixAirplaneRed"
         android:layout_marginBottom="10dp" />
 
     <ImageView
-        android:contentDescription="@string/green_airplane"
-        android:src="@drawable/airplanegreen"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:visibility="invisible"
-        android:scaleX="-1"
-        android:id="@+id/fiveAirplaneGreen"
-        android:layout_below="@+id/sevenAirplaneBlue"
-        android:layout_alignStart="@+id/sevenAirplaneBlue"/>
-
-    <ImageView
         android:id="@id/playAgainButtonImageView"
         android:src="@drawable/playagainbutton"
         android:contentDescription="@string/play_again"
-        style="@style/menu_buttons"
+        style="@style/menu_buttons_xl"
         android:visibility="invisible"
-        android:layout_alignTop="@+id/eightTractorTrailer"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/eightTractorTrailer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
 
     <ImageView
         android:id="@id/homeButtonImageView"
         android:src="@drawable/homebutton"
         android:contentDescription="@string/home_button"
-        style="@style/menu_buttons"
+        style="@style/menu_buttons_xl"
         android:visibility="invisible"
-        android:layout_alignTop="@+id/oneTractorPink"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/playAgainButtonImageView"
+        android:layout_alignStart="@+id/playAgainButtonImageView" />
 </RelativeLayout>

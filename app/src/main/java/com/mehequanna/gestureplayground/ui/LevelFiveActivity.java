@@ -1,5 +1,6 @@
 package com.mehequanna.gestureplayground.ui;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ import com.mehequanna.gestureplayground.util.DetectGestures;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class LevelFiveActivity extends AppCompatActivity implements View.OnTouchListener {
+public class LevelFiveActivity extends AppCompatActivity implements View.OnTouchListener, View.OnClickListener {
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.pigUp) ImageView mPigUp;
     @Bind(R.id.pigDown) ImageView mPigDown;
@@ -29,6 +30,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.cowTen) ImageView mCowTen;
     @Bind(R.id.chickenPink) ImageView mChickenPink;
     @Bind(R.id.chickenBlue) ImageView mChickenBlue;
+    @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
+    @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgainButton;
 
     private GestureDetector mGestureDetector;
 
@@ -200,11 +203,14 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mCowTen.setOnTouchListener(this);
         mChickenBlue.setOnTouchListener(this);
         mChickenPink.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgainButton.setOnClickListener(this);
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
+        swipeIconsCheck();
         mGestureDetector.onTouchEvent(motionEvent);
         winCheck();
         return true;
@@ -226,6 +232,9 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             Animation winAnimation = AnimationUtils.loadAnimation(
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
+
+            mHomeButton.setVisibility(View.VISIBLE);
+            mPlayAgainButton.setVisibility(View.VISIBLE);
             return true;
         }
         return false;
@@ -284,5 +293,56 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         Animation fadeIn = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.fade_in_animation);
         view.startAnimation(fadeIn);
+    }
+
+    private void swipeIconsCheck() {
+        if (mAirplaneBlue.isShown()) {
+            mAirplaneBlue.setVisibility(View.INVISIBLE);
+            mAirplaneBlue.clearAnimation();
+            mAirplaneBlue.setVisibility(View.VISIBLE);
+        }
+        if (mAirplaneRed.isShown()) {
+            mAirplaneRed.setVisibility(View.INVISIBLE);
+            mAirplaneRed.clearAnimation();
+            mAirplaneRed.setVisibility(View.VISIBLE);
+        }
+        if (mTractorTrailer.isShown()) {
+            mTractorTrailer.setVisibility(View.INVISIBLE);
+            mTractorTrailer.clearAnimation();
+            mTractorTrailer.setVisibility(View.VISIBLE);
+        }
+        if (mTractorRed.isShown()) {
+            mTractorRed.setVisibility(View.INVISIBLE);
+            mTractorRed.clearAnimation();
+            mTractorRed.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelFiveActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgainButton) {
+            mPlayAgainButton.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
+
+            mAirplaneRed.clearAnimation();
+            mAirplaneBlue.clearAnimation();
+            mTractorRed.clearAnimation();
+            mTractorTrailer.clearAnimation();
+
+            mCounter = 0;
+            mPigUp.setVisibility(View.VISIBLE);
+            mPigDown.setVisibility(View.VISIBLE);
+            mAirplaneRed.setVisibility(View.VISIBLE);
+            mAirplaneBlue.setVisibility(View.VISIBLE);
+            mTractorRed.setVisibility(View.VISIBLE);
+            mCowFive.setVisibility(View.VISIBLE);
+            mCowTen.setVisibility(View.VISIBLE);
+            mChickenBlue.setVisibility(View.VISIBLE);
+            mChickenPink.setVisibility(View.VISIBLE);
+        }
     }
 }
