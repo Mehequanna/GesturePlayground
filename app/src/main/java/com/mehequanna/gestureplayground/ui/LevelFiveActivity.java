@@ -210,6 +210,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
+        swipeIconsCheck();
         mGestureDetector.onTouchEvent(motionEvent);
         winCheck();
         return true;
@@ -292,6 +293,29 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         Animation fadeIn = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.fade_in_animation);
         view.startAnimation(fadeIn);
+    }
+
+    private void swipeIconsCheck() {
+        if (mAirplaneBlue.isShown()) {
+            mAirplaneBlue.setVisibility(View.INVISIBLE);
+            mAirplaneBlue.clearAnimation();
+            mAirplaneBlue.setVisibility(View.VISIBLE);
+        }
+        if (mAirplaneRed.isShown()) {
+            mAirplaneRed.setVisibility(View.INVISIBLE);
+            mAirplaneRed.clearAnimation();
+            mAirplaneRed.setVisibility(View.VISIBLE);
+        }
+        if (mTractorTrailer.isShown()) {
+            mTractorTrailer.setVisibility(View.INVISIBLE);
+            mTractorTrailer.clearAnimation();
+            mTractorTrailer.setVisibility(View.VISIBLE);
+        }
+        if (mTractorRed.isShown()) {
+            mTractorRed.setVisibility(View.INVISIBLE);
+            mTractorRed.clearAnimation();
+            mTractorRed.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
