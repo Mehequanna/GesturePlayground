@@ -50,7 +50,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/tractorTralier"
-        android:elevation="1dp"
         android:layout_alignBottom="@+id/tractorRed"
         android:layout_alignEnd="@+id/airplaneRed"
         android:scaleX="-1" />
@@ -63,7 +62,6 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/tractorRed"
-        android:elevation="1dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/airplaneBlue" />
 
