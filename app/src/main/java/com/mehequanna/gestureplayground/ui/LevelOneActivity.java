@@ -33,16 +33,19 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
 
-    private GestureDetector mCowOneGestureDetector;
-    private GestureDetector mCowTwoGestureDetector;
-    private GestureDetector mCowThreeGestureDetector;
-    private GestureDetector mCowFourGestureDetector;
-    private GestureDetector mCowFiveGestureDetector;
-    private GestureDetector mCowSixGestureDetector;
-    private GestureDetector mCowSevenGestureDetector;
-    private GestureDetector mCowEightGestureDetector;
-    private GestureDetector mCowNineGestureDetector;
-    private GestureDetector mCowTenGestureDetector;
+    private int mCowOneId;
+    private int mCowTwoId;
+    private int mCowThreeId;
+    private int mCowFourId;
+    private int mCowFiveId;
+    private int mCowSixId;
+    private int mCowSevenId;
+    private int mCowEightId;
+    private int mCowNineId;
+    private int mCowTenId;
+    private int mViewId;
+
+    private GestureDetector mGestureDetector;
 
     private MediaPlayer one;
     private MediaPlayer two;
@@ -72,122 +75,82 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         nine = MediaPlayer.create(this, R.raw.nine);
         ten = MediaPlayer.create(this, R.raw.ten);
 
-        mCowOneGestureDetector = new GestureDetector(this, new DetectGestures(){
+        mCowOneId = mCowOne.getId();
+        mCowTwoId = mCowTwo.getId();
+        mCowThreeId = mCowThree.getId();
+        mCowFourId = mCowFour.getId();
+        mCowFiveId = mCowFive.getId();
+        mCowSixId = mCowSix.getId();
+        mCowSevenId = mCowSeven.getId();
+        mCowEightId = mCowEight.getId();
+        mCowNineId = mCowNine.getId();
+        mCowTenId = mCowTen.getId();
+
+        mGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleUpFadeImage(mCowOne);
-               one.start();
-               mCowOne.setVisibility(View.INVISIBLE);
-               mCowTwo.setVisibility(View.VISIBLE);
-               return true;
+               if (mViewId == mCowOneId) {
+                   scaleUpFadeImage(mCowOne);
+                   one.start();
+                   mCowOne.setVisibility(View.INVISIBLE);
+                   mCowTwo.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowTwoId) {
+                   scaleDownFadeImage(mCowTwo);
+                   two.start();
+                   mCowTwo.setVisibility(View.INVISIBLE);
+                   mCowThree.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowThreeId) {
+                   scaleUpFadeImage(mCowThree);
+                   three.start();
+                   mCowThree.setVisibility(View.INVISIBLE);
+                   mCowFour.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowFourId) {
+                   scaleDownFadeImage(mCowFour);
+                   four.start();
+                   mCowFour.setVisibility(View.INVISIBLE);
+                   mCowFive.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowFiveId) {
+                   scaleUpFadeImage(mCowFive);
+                   five.start();
+                   mCowFive.setVisibility(View.INVISIBLE);
+                   mCowSix.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowSixId) {
+                   scaleDownFadeImage(mCowSix);
+                   six.start();
+                   mCowSix.setVisibility(View.INVISIBLE);
+                   mCowSeven.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowSevenId) {
+                   scaleUpFadeImage(mCowSeven);
+                   seven.start();
+                   mCowSeven.setVisibility(View.INVISIBLE);
+                   mCowEight.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowEightId) {
+                   scaleDownFadeImage(mCowEight);
+                   eight.start();
+                   mCowEight.setVisibility(View.INVISIBLE);
+                   mCowNine.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowNineId) {
+                   scaleUpFadeImage(mCowNine);
+                   nine.start();
+                   mCowNine.setVisibility(View.INVISIBLE);
+                   mCowTen.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowTenId) {
+                   scaleDownFadeImage(mCowTen);
+                   ten.start();
+                   mCowTen.setVisibility(View.INVISIBLE);
+
+                   mWinTextView.setText(R.string.great_job);
+
+                   Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
+                           getApplicationContext(), R.anim.win_scale_fade_animation);
+                   mWinTextView.startAnimation(winScaleUpAnimation);
+
+                   mHomeButton.setVisibility(View.VISIBLE);
+                   mPlayAgain.setVisibility(View.VISIBLE);
+               }
+
+              return super.onSingleTapConfirmed(e);
            }
-        });
-
-        mCowTwoGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleDownFadeImage(mCowTwo);
-               two.start();
-               mCowTwo.setVisibility(View.INVISIBLE);
-               mCowThree.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowThreeGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleUpFadeImage(mCowThree);
-               three.start();
-               mCowThree.setVisibility(View.INVISIBLE);
-               mCowFour.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowFourGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleDownFadeImage(mCowFour);
-               four.start();
-               mCowFour.setVisibility(View.INVISIBLE);
-               mCowFive.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowFiveGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleUpFadeImage(mCowFive);
-               five.start();
-               mCowFive.setVisibility(View.INVISIBLE);
-               mCowSix.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowSixGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleDownFadeImage(mCowSix);
-               six.start();
-               mCowSix.setVisibility(View.INVISIBLE);
-               mCowSeven.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowSevenGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleUpFadeImage(mCowSeven);
-               seven.start();
-               mCowSeven.setVisibility(View.INVISIBLE);
-               mCowEight.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowEightGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleDownFadeImage(mCowEight);
-               eight.start();
-               mCowEight.setVisibility(View.INVISIBLE);
-               mCowNine.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowNineGestureDetector = new GestureDetector(this, new DetectGestures(){
-           @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-               scaleUpFadeImage(mCowNine);
-               nine.start();
-               mCowNine.setVisibility(View.INVISIBLE);
-               mCowTen.setVisibility(View.VISIBLE);
-               return true;
-           }
-        });
-
-        mCowTenGestureDetector = new GestureDetector(this, new DetectGestures(){
-            @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
-                scaleDownFadeImage(mCowTen);
-                ten.start();
-                mCowTen.setVisibility(View.INVISIBLE);
-
-                mWinTextView.setText(R.string.great_job);
-
-                Animation winScaleUpAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.win_scale_fade_animation);
-                mWinTextView.startAnimation(winScaleUpAnimation);
-
-                mHomeButton.setVisibility(View.VISIBLE);
-                mPlayAgain.setVisibility(View.VISIBLE);
-                return true;
-            }
         });
 
         mCowOne.setOnTouchListener(this);
@@ -206,57 +169,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (view == mCowOne) {
-            mCowOneGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowTwo) {
-            mCowTwoGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowThree) {
-            mCowThreeGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowFour) {
-            mCowFourGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowFive) {
-            mCowFiveGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowSix) {
-            mCowSixGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowSeven) {
-            mCowSevenGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowEight) {
-            mCowEightGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowNine) {
-            mCowNineGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        if (view == mCowTen) {
-            mCowTenGestureDetector.onTouchEvent(motionEvent);
-            return true;
-        }
-
-        return false;
+        mViewId = view.getId();
+        mGestureDetector.onTouchEvent(motionEvent);
+        return true;
     }
 
     public void scaleUpFadeImage(View view) {
