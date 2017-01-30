@@ -43,18 +43,6 @@
         android:layout_marginTop="12dp" />
 
     <ImageView
-        android:contentDescription="@string/cow_ten"
-        android:src="@drawable/cowten"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/cowTen"
-        android:layout_alignTop="@+id/cowFive"
-        android:layout_toStartOf="@+id/pigUp"
-        android:layout_marginEnd="9dp" />
-
-    <ImageView
         android:contentDescription="@string/tractor_trailer"
         android:src="@drawable/tractortrailer"
         android:layout_width="150dp"
@@ -92,17 +80,6 @@
         android:layout_marginStart="37dp" />
 
     <ImageView
-        android:contentDescription="@string/blue_chicken"
-        android:src="@drawable/chickenblue"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true"
-        android:id="@+id/chickenBlue"
-        android:layout_alignBottom="@+id/cowFive"
-        android:layout_toStartOf="@+id/tractorTralier" />
-
-    <ImageView
         android:contentDescription="@string/pink_chicken"
         android:src="@drawable/chickenpink"
         android:layout_width="70dp"
@@ -127,4 +104,48 @@
         android:layout_marginTop="26dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:contentDescription="@string/cow_ten"
+        android:src="@drawable/cowten"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/cowTen"
+        android:layout_marginEnd="7dp"
+        android:layout_alignTop="@+id/cowFive"
+        android:layout_toStartOf="@+id/pigUp"
+        android:layout_marginTop="30dp" />
+
+    <ImageView
+        android:contentDescription="@string/blue_chicken"
+        android:src="@drawable/chickenblue"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/chickenBlue"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/pigUp" />
+
+    <ImageView
+        android:id="@+id/playAgainButtonImageView"
+        android:src="@drawable/playagainbutton"
+        android:contentDescription="@string/play_again"
+        style="@style/menu_buttons"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/cowFive"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <ImageView
+        android:id="@+id/homeButtonImageView"
+        android:src="@drawable/homebutton"
+        android:contentDescription="@string/home_button"
+        style="@style/menu_buttons"
+        android:visibility="invisible"
+        android:layout_below="@+id/playAgainButtonImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
 </RelativeLayout>
