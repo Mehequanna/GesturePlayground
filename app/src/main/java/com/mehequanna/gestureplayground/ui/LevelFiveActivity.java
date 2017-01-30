@@ -223,6 +223,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             mAirplaneRed.setVisibility(View.INVISIBLE);
             mAirplaneBlue.setVisibility(View.INVISIBLE);
             mTractorRed.setVisibility(View.INVISIBLE);
+            mTractorTrailer.setVisibility(View.INVISIBLE);
             mCowFive.setVisibility(View.INVISIBLE);
             mCowTen.setVisibility(View.INVISIBLE);
             mChickenBlue.setVisibility(View.INVISIBLE);
@@ -339,6 +340,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             mAirplaneRed.setVisibility(View.VISIBLE);
             mAirplaneBlue.setVisibility(View.VISIBLE);
             mTractorRed.setVisibility(View.VISIBLE);
+            mTractorTrailer.setVisibility(View.VISIBLE);
             mCowFive.setVisibility(View.VISIBLE);
             mCowTen.setVisibility(View.VISIBLE);
             mChickenBlue.setVisibility(View.VISIBLE);
