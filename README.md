@@ -2,20 +2,20 @@
 Gesture Playground
 
 ##Description
-Gesture Playground is an app to teach toddlers the gestures needed on android devices. Toddlers learn best by playing and doing actions. Each level will have a miniature instructional piece. Then the toddler will then practice/play with that gesture on the level.
+Gesture Playground is an app to teach toddlers the gestures needed on android devices. Toddlers learn best by playing and doing actions. Each level will have a miniature instructional piece. Then the toddler will practice/play with that gesture on the level.
 
 ![screenshot of project](gestureplaygound1.png)
 ![screenshot of project](gestureplaygound2.png)
 
 ##Technologies
-Android Studio, Java, GestureDetector, MediaPlayer
+Android Studio, Java, XML, GestureDetector, MediaPlayer
 
 ##Current Features
-* Play area for each gesture.
-* Video tutorials for each level.
+* Play area for each gesture, tap, double tap, swipe (left/right), and fling.
+* Video tutorials on each level.
 
-##Future Features
-* Add levels covering more gestures, for example, swipe, pinch, two finger tap.
+##Future Pieces
+* Animated menu buttons.
 
 ##Usage
 * Open Android Studio
@@ -27,6 +27,14 @@ Android Studio, Java, GestureDetector, MediaPlayer
 * Follow the prompts. Note: There may need to be some refactoring on your end based on your version of Android Studio.
 
 ##Known Issues
+* Pig reset animation is jumpy.
+* Fix error: E/MEDIAPLAYER: SHOULD HAVE SUBTITLE CONTROLLER ALREADY SET
+* Refactor: Put repeat code into methods.
+* Background image resolution too low?
+
+##Resource Attributions
+Vocabulary sounds found on https://www.freesound.org/people/margo_heston/. These sounds are very well done!
+Clip art found on http://www.clker.com/. It's a great resource for clip art!
 
 ##Author
 Stephen Emery
