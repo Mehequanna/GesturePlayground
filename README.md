@@ -4,8 +4,15 @@ Gesture Playground
 ##Description
 Gesture Playground is an app to teach toddlers the gestures needed on android devices. Toddlers learn best by playing and doing actions. Each level will have a miniature instructional piece. Then the toddler will practice/play with that gesture on the level.
 
-![screenshot of project](gestureplaygound1.png)
-![screenshot of project](gestureplaygound2.png)
+
+Main Activity:
+![screenshot of main activity](gpmain.png)
+
+Level 2:
+![screenshot of level 2](gplevel2.png)
+
+Level 5:
+![screenshot of level 5](gplevel5.png)
 
 ##Technologies
 Android Studio, Java, XML, GestureDetector, MediaPlayer
