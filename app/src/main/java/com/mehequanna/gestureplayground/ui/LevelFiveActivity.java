@@ -2,6 +2,7 @@ package com.mehequanna.gestureplayground.ui;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -32,6 +34,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.chickenBlue) ImageView mChickenBlue;
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgainButton;
+    @Bind(R.id.level5VideoView) VideoView mVideoView;
 
     private GestureDetector mGestureDetector;
 
@@ -45,6 +48,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     private int mCowTenId;
     private int mChickenPinkId;
     private int mChickenBlueId;
+    private int mVideoViewId;
     private int mViewId;
     private int mCounter;
 
@@ -81,6 +85,11 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mCowTenId = mCowTen.getId();
         mChickenPinkId = mChickenPink.getId();
         mChickenBlueId = mChickenBlue.getId();
+        mVideoViewId = mVideoView.getId();
+
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level5med720);
+        mVideoView.setVideoURI(uri);
+        mVideoView.start();
 
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
         planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
@@ -144,7 +153,19 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (mViewId == mCowFiveId) {
+                if (mViewId == mVideoViewId) {
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
+                    mPigUp.setVisibility(View.VISIBLE);
+                    mAirplaneRed.setVisibility(View.VISIBLE);
+                    mAirplaneBlue.setVisibility(View.VISIBLE);
+                    mTractorRed.setVisibility(View.VISIBLE);
+                    mTractorTrailer.setVisibility(View.VISIBLE);
+                    mCowFive.setVisibility(View.VISIBLE);
+                    mCowTen.setVisibility(View.VISIBLE);
+                    mChickenBlue.setVisibility(View.VISIBLE);
+                    mChickenPink.setVisibility(View.VISIBLE);
+                } else if (mViewId == mCowFiveId) {
                     mCounter += 1;
                     scaleUpFadeImage(mCowFive);
                     five.start();
@@ -202,6 +223,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mCowFive.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
         mChickenBlue.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
         mChickenPink.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
@@ -336,7 +358,6 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             mCounter = 0;
             mPigUp.setVisibility(View.VISIBLE);
-            mPigDown.setVisibility(View.VISIBLE);
             mAirplaneRed.setVisibility(View.VISIBLE);
             mAirplaneBlue.setVisibility(View.VISIBLE);
             mTractorRed.setVisibility(View.VISIBLE);
