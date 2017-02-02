@@ -17,6 +17,15 @@
         android:id="@+id/winTextView"
         style="@style/win_text_lg" />
 
+    <VideoView
+        android:id="@+id/level3VideoView"
+        android:layout_alignParentStart="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"/>
+
     <ImageView
         android:contentDescription="@string/blue_airplane"
         android:src="@drawable/airplaneblue"
@@ -67,6 +76,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/oneTractorPink"
+        android:visibility="invisible"
         android:layout_marginBottom="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"

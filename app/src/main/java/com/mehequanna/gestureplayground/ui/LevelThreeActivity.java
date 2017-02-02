@@ -2,6 +2,7 @@ package com.mehequanna.gestureplayground.ui;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -30,6 +32,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
+    @Bind(R.id.level3VideoView) VideoView mVideoView;
 
     private GestureDetector mGestureDetector;
 
@@ -48,6 +51,10 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level3med720);
+        mVideoView.setVideoURI(uri);
+        mVideoView.start();
+
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
         planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
         planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
@@ -60,7 +67,11 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onDown(MotionEvent e) {
-                if (mOneTractorPink.isShown()) {
+                if (mVideoView.isShown()) {
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
+                    mOneTractorPink.setVisibility(View.VISIBLE);
+                } else if (mOneTractorPink.isShown()) {
                     tractorStartLeft.start();
                 } else if (mTwoTractorBlack.isShown()) {
                     tractorStartRight.start();
@@ -161,6 +172,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mSixAirplaneRed.setOnTouchListener(this);
         mSevenAirplaneBlue.setOnTouchListener(this);
         mEightTractorTrailer.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
     }
