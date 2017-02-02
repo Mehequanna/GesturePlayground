@@ -38,6 +38,7 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 * Fix error: E/MEDIAPLAYER: SHOULD HAVE SUBTITLE CONTROLLER ALREADY SET
 * Refactor: Put repeat code into methods.
 * Background image resolution too low?
+* Add preference to remove videos.
 
 ##Resource Attributions
 Vocabulary sounds found on https://www.freesound.org/people/margo_heston/. These sounds are very well done!
