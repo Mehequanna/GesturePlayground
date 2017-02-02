@@ -29,7 +29,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.chicken5) ImageView mChicken5;
     @Bind(R.id.chicken6) ImageView mChicken6;
     @Bind(R.id.winTextView) TextView mWinTextView;
-    @Bind(R.id.mainVideoView) VideoView mDoubleTapVideoView;
+    @Bind(R.id.level2VideoView) VideoView mVideoView;
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
 
@@ -65,8 +65,8 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         ButterKnife.bind(this);
 
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.doubletap);
-        mDoubleTapVideoView.setVideoURI(uri);
-        mDoubleTapVideoView.start();
+        mVideoView.setVideoURI(uri);
+        mVideoView.start();
 
         mChicken1Id = mChicken1.getId();
         mChicken2Id = mChicken2.getId();
@@ -74,7 +74,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken4Id = mChicken4.getId();
         mChicken5Id = mChicken5.getId();
         mChicken6Id = mChicken6.getId();
-        mVideoId = mDoubleTapVideoView.getId();
+        mVideoId = mVideoView.getId();
 
         blue = MediaPlayer.create(this, R.raw.blue);
         brown = MediaPlayer.create(this, R.raw.brown);
@@ -94,8 +94,8 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
                 if (mViewId == mVideoId) {
-                    mDoubleTapVideoView.stopPlayback();
-                    mDoubleTapVideoView.setVisibility(View.GONE);
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
                     mChicken1.setVisibility(View.VISIBLE);
                 }
                 return super.onSingleTapUp(e);
@@ -191,7 +191,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken6.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
-        mDoubleTapVideoView.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
     }
 
     @Override
