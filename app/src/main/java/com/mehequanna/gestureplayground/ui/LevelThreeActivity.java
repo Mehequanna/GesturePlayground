@@ -2,6 +2,7 @@ package com.mehequanna.gestureplayground.ui;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -30,6 +32,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
+    @Bind(R.id.level3VideoView) VideoView mVideoView;
 
     private GestureDetector mGestureDetector;
 
@@ -48,6 +51,69 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
+        initResources();
+        initGestures();
+
+        mVideoView.start();
+
+        mOneTractorPink.setOnTouchListener(this);
+        mTwoTractorBlack.setOnTouchListener(this);
+        mThreeTractorRed.setOnTouchListener(this);
+        mFourTractorGreen.setOnTouchListener(this);
+        mFiveAirplaneGreen.setOnTouchListener(this);
+        mSixAirplaneRed.setOnTouchListener(this);
+        mSevenAirplaneBlue.setOnTouchListener(this);
+        mEightTractorTrailer.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgain.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        mGestureDetector.onTouchEvent(motionEvent);
+        return true;
+    }
+
+    public void moveRight(View view) {
+        Animation moveRight = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.move_right_animation);
+        view.startAnimation(moveRight);
+    }
+
+    private void moveLeft(View view) {
+        Animation moveLeft = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.move_left_animation);
+        view.startAnimation(moveLeft);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelThreeActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgain) {
+            mPlayAgain.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
+
+            mOneTractorPink.clearAnimation();
+            mTwoTractorBlack.clearAnimation();
+            mThreeTractorRed.clearAnimation();
+            mFourTractorGreen.clearAnimation();
+            mFiveAirplaneGreen.clearAnimation();
+            mSixAirplaneRed.clearAnimation();
+            mSevenAirplaneBlue.clearAnimation();
+            mEightTractorTrailer.clearAnimation();
+
+            mOneTractorPink.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void initResources() {
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level3med720);
+        mVideoView.setVideoURI(uri);
+
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
         planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
         planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
@@ -56,11 +122,17 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         tractorStartRight = MediaPlayer.create(this, R.raw.tractorstartright);
         tractorDriveLeft = MediaPlayer.create(this, R.raw.tractordrivingtoleft);
         tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
+    }
 
+    private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onDown(MotionEvent e) {
-                if (mOneTractorPink.isShown()) {
+                if (mVideoView.isShown()) {
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
+                    mOneTractorPink.setVisibility(View.VISIBLE);
+                } else if (mOneTractorPink.isShown()) {
                     tractorStartLeft.start();
                 } else if (mTwoTractorBlack.isShown()) {
                     tractorStartRight.start();
@@ -152,57 +224,5 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
                 super.onSwipeLeft();
             }
         });
-
-        mOneTractorPink.setOnTouchListener(this);
-        mTwoTractorBlack.setOnTouchListener(this);
-        mThreeTractorRed.setOnTouchListener(this);
-        mFourTractorGreen.setOnTouchListener(this);
-        mFiveAirplaneGreen.setOnTouchListener(this);
-        mSixAirplaneRed.setOnTouchListener(this);
-        mSevenAirplaneBlue.setOnTouchListener(this);
-        mEightTractorTrailer.setOnTouchListener(this);
-        mHomeButton.setOnClickListener(this);
-        mPlayAgain.setOnClickListener(this);
-    }
-
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        mGestureDetector.onTouchEvent(motionEvent);
-        return true;
-    }
-
-    public void moveRight(View view) {
-        Animation moveRight = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.move_right_animation);
-        view.startAnimation(moveRight);
-    }
-
-    private void moveLeft(View view) {
-        Animation moveLeft = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.move_left_animation);
-        view.startAnimation(moveLeft);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view == mHomeButton) {
-            Intent intent = new Intent(LevelThreeActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if (view == mPlayAgain) {
-            mPlayAgain.setVisibility(View.INVISIBLE);
-            mHomeButton.setVisibility(View.INVISIBLE);
-            mWinTextView.setVisibility(View.INVISIBLE);
-
-            mOneTractorPink.clearAnimation();
-            mTwoTractorBlack.clearAnimation();
-            mThreeTractorRed.clearAnimation();
-            mFourTractorGreen.clearAnimation();
-            mFiveAirplaneGreen.clearAnimation();
-            mSixAirplaneRed.clearAnimation();
-            mSevenAirplaneBlue.clearAnimation();
-            mEightTractorTrailer.clearAnimation();
-
-            mOneTractorPink.setVisibility(View.VISIBLE);
-        }
     }
 }

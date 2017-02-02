@@ -16,10 +16,20 @@
         android:id="@+id/winTextView"
         style="@style/win_text_lg" />
 
+    <VideoView
+        android:id="@+id/level5VideoView"
+        android:layout_alignParentStart="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"/>
+
     <ImageView
         android:contentDescription="@string/pig_up"
         android:src="@drawable/pigup"
         android:id="@+id/pigUp"
+        android:visibility="invisible"
         style="@style/pig_imageviews_lg" />
 
     <ImageView
@@ -37,6 +47,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/airplaneRed"
+        android:visibility="invisible"
         android:layout_alignTop="@+id/airplaneBlue"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="13dp"
@@ -50,7 +61,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/tractorTralier"
-        android:elevation="1dp"
+        android:visibility="invisible"
         android:layout_alignBottom="@+id/tractorRed"
         android:layout_alignEnd="@+id/airplaneRed"
         android:scaleX="-1" />
@@ -63,7 +74,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/tractorRed"
-        android:elevation="1dp"
+        android:visibility="invisible"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/airplaneBlue" />
 
@@ -75,6 +86,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowFive"
+        android:visibility="invisible"
         android:layout_above="@+id/tractorRed"
         android:layout_alignStart="@+id/tractorTralier"
         android:layout_marginStart="37dp" />
@@ -87,6 +99,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chickenPink"
+        android:visibility="invisible"
         android:layout_marginBottom="13dp"
         android:layout_alignBottom="@+id/pigUp"
         android:layout_alignEnd="@+id/airplaneBlue" />
@@ -100,6 +113,7 @@
         android:adjustViewBounds="true"
         android:scaleX="-1"
         android:id="@+id/airplaneBlue"
+        android:visibility="invisible"
         android:layout_marginStart="23dp"
         android:layout_marginTop="26dp"
         android:layout_alignParentTop="true"
@@ -113,6 +127,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/cowTen"
+        android:visibility="invisible"
         android:layout_marginEnd="7dp"
         android:layout_alignTop="@+id/cowFive"
         android:layout_toStartOf="@+id/pigUp"
@@ -120,8 +135,8 @@
 
     <ImageView
         android:id="@+id/homeButtonImageView"
-        android:src="@drawable/homebutton"
         android:visibility="invisible"
+        android:src="@drawable/homebutton"
         android:contentDescription="@string/home_button"
         style="@style/menu_buttons_lg"
         android:layout_below="@+id/playAgainButtonImageView"
@@ -136,6 +151,7 @@
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
         android:id="@+id/chickenBlue"
+        android:visibility="invisible"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/pigUp"
         android:layout_marginStart="26dp" />

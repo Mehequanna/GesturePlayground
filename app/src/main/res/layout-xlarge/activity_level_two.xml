@@ -17,7 +17,7 @@
         style="@style/win_text_xl"/>
 
     <VideoView
-        android:id="@+id/mainVideoView"
+        android:id="@+id/level2VideoView"
         android:layout_alignParentStart="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
