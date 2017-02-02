@@ -16,6 +16,15 @@
         android:id="@+id/winTextView"
         style="@style/win_text" />
 
+    <VideoView
+        android:id="@+id/level1VideoView"
+        android:layout_alignParentStart="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"/>
+
     <ImageView
         android:contentDescription="@string/cow_ten"
         android:src="@drawable/cowten"
@@ -125,6 +134,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
+        android:visibility="invisible"
         android:id="@+id/cowOne"
         android:layout_alignTop="@+id/cowSix"
         android:layout_alignStart="@+id/cowSix" />

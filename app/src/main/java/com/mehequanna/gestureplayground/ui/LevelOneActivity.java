@@ -2,6 +2,7 @@ package com.mehequanna.gestureplayground.ui;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -32,6 +34,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgain;
+    @Bind(R.id.level1VideoView) VideoView mVideoView;
 
     private int mCowOneId;
     private int mCowTwoId;
@@ -43,6 +46,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     private int mCowEightId;
     private int mCowNineId;
     private int mCowTenId;
+    private int mVideoViewId;
     private int mViewId;
 
     private GestureDetector mGestureDetector;
@@ -75,6 +79,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         nine = MediaPlayer.create(this, R.raw.nine);
         ten = MediaPlayer.create(this, R.raw.ten);
 
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level1med720);
+        mVideoView.setVideoURI(uri);
+        mVideoView.start();
+
         mCowOneId = mCowOne.getId();
         mCowTwoId = mCowTwo.getId();
         mCowThreeId = mCowThree.getId();
@@ -85,11 +93,16 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEightId = mCowEight.getId();
         mCowNineId = mCowNine.getId();
         mCowTenId = mCowTen.getId();
+        mVideoViewId = mVideoView.getId();
 
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
            @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
-               if (mViewId == mCowOneId) {
+               if (mViewId == mVideoViewId) {
+                   mVideoView.stopPlayback();
+                   mVideoView.setVisibility(View.GONE);
+                   mCowOne.setVisibility(View.VISIBLE);
+               } else if (mViewId == mCowOneId) {
                    scaleUpFadeImage(mCowOne);
                    one.start();
                    mCowOne.setVisibility(View.INVISIBLE);
@@ -163,6 +176,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEight.setOnTouchListener(this);
         mCowNine.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
     }
