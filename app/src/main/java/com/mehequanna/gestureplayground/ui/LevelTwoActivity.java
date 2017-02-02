@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -64,7 +63,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         setContentView(R.layout.activity_level_two);
         ButterKnife.bind(this);
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.doubletap);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level2med720);
         mVideoView.setVideoURI(uri);
         mVideoView.start();
 
@@ -232,8 +231,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
             mPlayAgain.setVisibility(View.VISIBLE);
             mHomeButton.setVisibility(View.VISIBLE);
-        } else {
-            Log.d("logs", "winCheck: Not Yet");
         }
     }
 
