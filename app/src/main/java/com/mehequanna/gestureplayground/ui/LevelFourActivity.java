@@ -2,6 +2,7 @@ package com.mehequanna.gestureplayground.ui;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
 import com.mehequanna.gestureplayground.util.DetectGestures;
@@ -33,6 +35,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     @Bind(R.id.winTextView) TextView mWinTextView;
     @Bind(R.id.playAgainButtonImageView) ImageView mPlayAgainButton;
     @Bind(R.id.homeButtonImageView) ImageView mHomeButton;
+    @Bind(R.id.level4VideoView) VideoView mVideoView;
 
     private GestureDetector mGestureDetector;
 
@@ -50,7 +53,21 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         down = MediaPlayer.create(this, R.raw.down);
         pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
 
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4med720);
+        mVideoView.setVideoURI(uri);
+        mVideoView.start();
+
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                if (mVideoView.isShown()) {
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
+                    mPig1.setVisibility(View.VISIBLE);
+                }
+                return super.onSingleTapConfirmed(e);
+            }
+
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mPig1.isShown()) {
@@ -141,6 +158,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         mPig9.setOnTouchListener(this);
         mPig10.setOnTouchListener(this);
         mPig11.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
     }
