@@ -73,146 +73,10 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_level_five);
         ButterKnife.bind(this);
 
-        mCounter = 0;
+        initResources();
+        initGestures();
 
-        mPigUpId = mPigUp.getId();
-        mPigDownId = mPigDown.getId();
-        mAirplaneBlueId = mAirplaneBlue.getId();
-        mAirplaneRedId = mAirplaneRed.getId();
-        mTractorRedId = mTractorRed.getId();
-        mTractorTrailerId = mTractorTrailer.getId();
-        mCowFiveId = mCowFive.getId();
-        mCowTenId = mCowTen.getId();
-        mChickenPinkId = mChickenPink.getId();
-        mChickenBlueId = mChickenBlue.getId();
-        mVideoViewId = mVideoView.getId();
-
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level5med720);
-        mVideoView.setVideoURI(uri);
         mVideoView.start();
-
-        planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
-        planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
-        planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
-        planeFlyRight = MediaPlayer.create(this, R.raw.planeflytoright);
-        tractorStartLeft = MediaPlayer.create(this, R.raw.tractorstartleft);
-        tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
-        tractorStartRight = MediaPlayer.create(this, R.raw.tractorstartright);
-        tractorDriveLeft = MediaPlayer.create(this, R.raw.tractordrivingtoleft);
-        five = MediaPlayer.create(this, R.raw.five);
-        ten = MediaPlayer.create(this, R.raw.ten);
-        pink = MediaPlayer.create(this, R.raw.pink);
-        blue = MediaPlayer.create(this, R.raw.blue);
-        up = MediaPlayer.create(this, R.raw.up);
-        down = MediaPlayer.create(this, R.raw.down);
-
-        mGestureDetector = new GestureDetector(this, new DetectGestures(){
-            @Override
-            public boolean onDown(MotionEvent e) {
-                if (mViewId == mAirplaneBlueId) {
-                    planeStartLeft.start();
-                } else if (mViewId == mAirplaneRedId) {
-                    planeStartRight.start();
-                } else if (mViewId == mTractorRedId) {
-                    tractorStartLeft.start();
-                }
-                return super.onDown(e);
-            }
-
-            @Override
-            public void onSwipeRight() {
-                super.onSwipeRight();
-                if (mViewId == mTractorRedId) {
-                    mCounter += 1;
-                    tractorStartLeft.stop();
-                    tractorDriveRight.start();
-                    moveRight(mTractorRed);
-                } else if (mViewId == mTractorTrailerId) {
-                    mCounter += 1;
-                    tractorStartRight.stop();
-                    tractorDriveLeft.start();
-                    moveLeft(mTractorTrailer);
-                }
-            }
-
-            @Override
-            public void onSwipeLeft() {
-                super.onSwipeLeft();
-                if (mViewId == mAirplaneBlueId) {
-                    mCounter += 1;
-                    planeStartLeft.start();
-                    planeFlyRight.start();
-                    moveRight(mAirplaneBlue);
-                } else if (mViewId == mAirplaneRedId) {
-                    mCounter += 1;
-                    planeStartRight.start();
-                    planeFlyLeft.start();
-                    moveLeft(mAirplaneRed);
-                }
-            }
-
-            @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (mViewId == mVideoViewId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mPigUp.setVisibility(View.VISIBLE);
-                    mAirplaneRed.setVisibility(View.VISIBLE);
-                    mAirplaneBlue.setVisibility(View.VISIBLE);
-                    mTractorRed.setVisibility(View.VISIBLE);
-                    mTractorTrailer.setVisibility(View.VISIBLE);
-                    mCowFive.setVisibility(View.VISIBLE);
-                    mCowTen.setVisibility(View.VISIBLE);
-                    mChickenBlue.setVisibility(View.VISIBLE);
-                    mChickenPink.setVisibility(View.VISIBLE);
-                } else if (mViewId == mCowFiveId) {
-                    mCounter += 1;
-                    scaleUpFadeImage(mCowFive);
-                    five.start();
-                    return true;
-                } else if (mViewId == mCowTenId) {
-                    mCounter += 1;
-                    scaleDownFadeImage(mCowTen);
-                    ten.start();
-                    return true;
-                }
-                return super.onSingleTapConfirmed(e);
-            }
-
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                if (mViewId == mChickenBlueId) {
-                    mCounter += 1;
-                    scaleImage(mChickenBlue);
-                    blue.start();
-                } else if (mViewId == mChickenPinkId) {
-                    mCounter += 1;
-                    rotateImage(mChickenPink);
-                    pink.start();
-                }
-                return super.onDoubleTap(e);
-            }
-
-            @Override
-            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                if (mViewId == mPigUpId) {
-                    mCounter += 1;
-                    flingUp(mPigUp);
-                    up.start();
-                    mPigUp.setVisibility(View.INVISIBLE);
-                    fadeIn(mPigDown);
-                    mPigDown.setVisibility(View.VISIBLE);
-                } else if (mViewId == mPigDownId) {
-                    mCounter += 1;
-                    flingDown(mPigDown);
-                    down.start();
-                    mPigDown.setVisibility(View.INVISIBLE);
-                    fadeIn(mPigUp);
-                    mPigUp.setVisibility(View.VISIBLE);
-                }
-                return super.onFling(e1, e2, velocityX, velocityY);
-            }
-        });
 
         mPigUp.setOnTouchListener(this);
         mPigDown.setOnTouchListener(this);
@@ -367,5 +231,149 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
             mChickenBlue.setVisibility(View.VISIBLE);
             mChickenPink.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void initResources() {
+        mCounter = 0;
+
+        mPigUpId = mPigUp.getId();
+        mPigDownId = mPigDown.getId();
+        mAirplaneBlueId = mAirplaneBlue.getId();
+        mAirplaneRedId = mAirplaneRed.getId();
+        mTractorRedId = mTractorRed.getId();
+        mTractorTrailerId = mTractorTrailer.getId();
+        mCowFiveId = mCowFive.getId();
+        mCowTenId = mCowTen.getId();
+        mChickenPinkId = mChickenPink.getId();
+        mChickenBlueId = mChickenBlue.getId();
+        mVideoViewId = mVideoView.getId();
+
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level5med720);
+        mVideoView.setVideoURI(uri);
+
+        planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
+        planeStartRight = MediaPlayer.create(this, R.raw.planestartright);
+        planeFlyLeft = MediaPlayer.create(this, R.raw.planeflytoleft);
+        planeFlyRight = MediaPlayer.create(this, R.raw.planeflytoright);
+        tractorStartLeft = MediaPlayer.create(this, R.raw.tractorstartleft);
+        tractorDriveRight = MediaPlayer.create(this, R.raw.tractordrivingtoright);
+        tractorStartRight = MediaPlayer.create(this, R.raw.tractorstartright);
+        tractorDriveLeft = MediaPlayer.create(this, R.raw.tractordrivingtoleft);
+        five = MediaPlayer.create(this, R.raw.five);
+        ten = MediaPlayer.create(this, R.raw.ten);
+        pink = MediaPlayer.create(this, R.raw.pink);
+        blue = MediaPlayer.create(this, R.raw.blue);
+        up = MediaPlayer.create(this, R.raw.up);
+        down = MediaPlayer.create(this, R.raw.down);
+    }
+
+    private void initGestures() {
+        mGestureDetector = new GestureDetector(this, new DetectGestures(){
+            @Override
+            public boolean onDown(MotionEvent e) {
+                if (mViewId == mAirplaneBlueId) {
+                    planeStartLeft.start();
+                } else if (mViewId == mAirplaneRedId) {
+                    planeStartRight.start();
+                } else if (mViewId == mTractorRedId) {
+                    tractorStartLeft.start();
+                }
+                return super.onDown(e);
+            }
+
+            @Override
+            public void onSwipeRight() {
+                super.onSwipeRight();
+                if (mViewId == mTractorRedId) {
+                    mCounter += 1;
+                    tractorStartLeft.stop();
+                    tractorDriveRight.start();
+                    moveRight(mTractorRed);
+                } else if (mViewId == mTractorTrailerId) {
+                    mCounter += 1;
+                    tractorStartRight.stop();
+                    tractorDriveLeft.start();
+                    moveLeft(mTractorTrailer);
+                }
+            }
+
+            @Override
+            public void onSwipeLeft() {
+                super.onSwipeLeft();
+                if (mViewId == mAirplaneBlueId) {
+                    mCounter += 1;
+                    planeStartLeft.start();
+                    planeFlyRight.start();
+                    moveRight(mAirplaneBlue);
+                } else if (mViewId == mAirplaneRedId) {
+                    mCounter += 1;
+                    planeStartRight.start();
+                    planeFlyLeft.start();
+                    moveLeft(mAirplaneRed);
+                }
+            }
+
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                if (mViewId == mVideoViewId) {
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
+                    mPigUp.setVisibility(View.VISIBLE);
+                    mAirplaneRed.setVisibility(View.VISIBLE);
+                    mAirplaneBlue.setVisibility(View.VISIBLE);
+                    mTractorRed.setVisibility(View.VISIBLE);
+                    mTractorTrailer.setVisibility(View.VISIBLE);
+                    mCowFive.setVisibility(View.VISIBLE);
+                    mCowTen.setVisibility(View.VISIBLE);
+                    mChickenBlue.setVisibility(View.VISIBLE);
+                    mChickenPink.setVisibility(View.VISIBLE);
+                } else if (mViewId == mCowFiveId) {
+                    mCounter += 1;
+                    scaleUpFadeImage(mCowFive);
+                    five.start();
+                    return true;
+                } else if (mViewId == mCowTenId) {
+                    mCounter += 1;
+                    scaleDownFadeImage(mCowTen);
+                    ten.start();
+                    return true;
+                }
+                return super.onSingleTapConfirmed(e);
+            }
+
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                if (mViewId == mChickenBlueId) {
+                    mCounter += 1;
+                    scaleImage(mChickenBlue);
+                    blue.start();
+                } else if (mViewId == mChickenPinkId) {
+                    mCounter += 1;
+                    rotateImage(mChickenPink);
+                    pink.start();
+                }
+                return super.onDoubleTap(e);
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                if (mViewId == mPigUpId) {
+                    mCounter += 1;
+                    flingUp(mPigUp);
+                    up.start();
+                    mPigUp.setVisibility(View.INVISIBLE);
+                    fadeIn(mPigDown);
+                    mPigDown.setVisibility(View.VISIBLE);
+                } else if (mViewId == mPigDownId) {
+                    mCounter += 1;
+                    flingDown(mPigDown);
+                    down.start();
+                    mPigDown.setVisibility(View.INVISIBLE);
+                    fadeIn(mPigUp);
+                    mPigUp.setVisibility(View.VISIBLE);
+                }
+                return super.onFling(e1, e2, velocityX, velocityY);
+            }
+        });
     }
 }

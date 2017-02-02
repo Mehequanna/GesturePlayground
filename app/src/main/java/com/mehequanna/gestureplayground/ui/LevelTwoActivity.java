@@ -63,32 +63,83 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         setContentView(R.layout.activity_level_two);
         ButterKnife.bind(this);
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level2med720);
-        mVideoView.setVideoURI(uri);
+        initResources();
+        initGestures();
+
         mVideoView.start();
 
-        mChicken1Id = mChicken1.getId();
-        mChicken2Id = mChicken2.getId();
-        mChicken3Id = mChicken3.getId();
-        mChicken4Id = mChicken4.getId();
-        mChicken5Id = mChicken5.getId();
-        mChicken6Id = mChicken6.getId();
-        mVideoId = mVideoView.getId();
+        mChicken1.setOnTouchListener(this);
+        mChicken2.setOnTouchListener(this);
+        mChicken3.setOnTouchListener(this);
+        mChicken4.setOnTouchListener(this);
+        mChicken5.setOnTouchListener(this);
+        mChicken6.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgain.setOnClickListener(this);
+        mVideoView.setOnTouchListener(this);
+    }
 
-        blue = MediaPlayer.create(this, R.raw.blue);
-        brown = MediaPlayer.create(this, R.raw.brown);
-        pink = MediaPlayer.create(this, R.raw.pink);
-        red = MediaPlayer.create(this, R.raw.red);
-        white = MediaPlayer.create(this, R.raw.white);
-        yellow = MediaPlayer.create(this, R.raw.yellow);
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        mViewId = view.getId();
+        mGestureDetector.onTouchEvent(motionEvent);
+        if (mChicken1Count > 1) {
+            winCheck();
+        }
+        return true;
+    }
 
-        mChicken1Count = 0;
-        mChicken2Count = 0;
-        mChicken3Count = 0;
-        mChicken4Count = 0;
-        mChicken5Count = 0;
-        mChicken6Count = 0;
+    public void scaleImage(View view) {
+        Animation scaleAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.scale_animation);
+        view.startAnimation(scaleAnimation);
+    }
 
+    public void rotateImage(View view) {
+        Animation rotateAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.rotate_animation);
+        view.startAnimation(rotateAnimation);
+    }
+
+    public void fadeOutImage(View view) {
+        Animation fadeOutAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_out_animation);
+        view.startAnimation(fadeOutAnimation);
+    }
+
+    public void winCheck() {
+        if (mChicken1.getVisibility() >= 4 && mChicken2.getVisibility() >= 4 && mChicken3.getVisibility() >= 4 && mChicken4.getVisibility() >= 4 && mChicken5.getVisibility() >= 4 && mChicken6.getVisibility() >= 4) {
+            mWinTextView.setText(R.string.great_job);
+
+            Animation winAnimation = AnimationUtils.loadAnimation(
+                    getApplicationContext(), R.anim.win_scale_fade_animation);
+            mWinTextView.startAnimation(winAnimation);
+
+            mPlayAgain.setVisibility(View.VISIBLE);
+            mHomeButton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelTwoActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgain) {
+            mPlayAgain.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
+            mChicken1Count = 0;
+            mChicken2Count = 0;
+            mChicken3Count = 0;
+            mChicken4Count = 0;
+            mChicken5Count = 0;
+            mChicken6Count = 0;
+            mChicken1.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
@@ -181,75 +232,32 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                 return super.onDoubleTap(e);
             }
         });
-
-        mChicken1.setOnTouchListener(this);
-        mChicken2.setOnTouchListener(this);
-        mChicken3.setOnTouchListener(this);
-        mChicken4.setOnTouchListener(this);
-        mChicken5.setOnTouchListener(this);
-        mChicken6.setOnTouchListener(this);
-        mHomeButton.setOnClickListener(this);
-        mPlayAgain.setOnClickListener(this);
-        mVideoView.setOnTouchListener(this);
     }
 
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        mViewId = view.getId();
-        mGestureDetector.onTouchEvent(motionEvent);
-        if (mChicken1Count > 1) {
-            winCheck();
-        }
-        return true;
-    }
+    private void initResources() {
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level2med720);
+        mVideoView.setVideoURI(uri);
 
-    public void scaleImage(View view) {
-        Animation scaleAnimation = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.scale_animation);
-        view.startAnimation(scaleAnimation);
-    }
+        mChicken1Id = mChicken1.getId();
+        mChicken2Id = mChicken2.getId();
+        mChicken3Id = mChicken3.getId();
+        mChicken4Id = mChicken4.getId();
+        mChicken5Id = mChicken5.getId();
+        mChicken6Id = mChicken6.getId();
+        mVideoId = mVideoView.getId();
 
-    public void rotateImage(View view) {
-        Animation rotateAnimation = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.rotate_animation);
-        view.startAnimation(rotateAnimation);
-    }
+        blue = MediaPlayer.create(this, R.raw.blue);
+        brown = MediaPlayer.create(this, R.raw.brown);
+        pink = MediaPlayer.create(this, R.raw.pink);
+        red = MediaPlayer.create(this, R.raw.red);
+        white = MediaPlayer.create(this, R.raw.white);
+        yellow = MediaPlayer.create(this, R.raw.yellow);
 
-    public void fadeOutImage(View view) {
-        Animation fadeOutAnimation = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fade_out_animation);
-        view.startAnimation(fadeOutAnimation);
-    }
-
-    public void winCheck() {
-        if (mChicken1.getVisibility() >= 4 && mChicken2.getVisibility() >= 4 && mChicken3.getVisibility() >= 4 && mChicken4.getVisibility() >= 4 && mChicken5.getVisibility() >= 4 && mChicken6.getVisibility() >= 4) {
-            mWinTextView.setText(R.string.great_job);
-
-            Animation winAnimation = AnimationUtils.loadAnimation(
-                    getApplicationContext(), R.anim.win_scale_fade_animation);
-            mWinTextView.startAnimation(winAnimation);
-
-            mPlayAgain.setVisibility(View.VISIBLE);
-            mHomeButton.setVisibility(View.VISIBLE);
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view == mHomeButton) {
-            Intent intent = new Intent(LevelTwoActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if (view == mPlayAgain) {
-            mPlayAgain.setVisibility(View.INVISIBLE);
-            mHomeButton.setVisibility(View.INVISIBLE);
-            mWinTextView.setVisibility(View.INVISIBLE);
-            mChicken1Count = 0;
-            mChicken2Count = 0;
-            mChicken3Count = 0;
-            mChicken4Count = 0;
-            mChicken5Count = 0;
-            mChicken6Count = 0;
-            mChicken1.setVisibility(View.VISIBLE);
-        }
+        mChicken1Count = 0;
+        mChicken2Count = 0;
+        mChicken3Count = 0;
+        mChicken4Count = 0;
+        mChicken5Count = 0;
+        mChicken6Count = 0;
     }
 }

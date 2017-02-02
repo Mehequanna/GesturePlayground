@@ -49,14 +49,110 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_level_four);
         ButterKnife.bind(this);
 
+        initResources();
+        initGestures();
+
+        mVideoView.start();
+
+        mPig1.setOnTouchListener(this);
+        mPig2.setOnTouchListener(this);
+        mPig3.setOnTouchListener(this);
+        mPig4.setOnTouchListener(this);
+        mPig5.setOnTouchListener(this);
+        mPig6.setOnTouchListener(this);
+        mPig7.setOnTouchListener(this);
+        mPig8.setOnTouchListener(this);
+        mPig9.setOnTouchListener(this);
+        mPig10.setOnTouchListener(this);
+        mPig11.setOnTouchListener(this);
+        mVideoView.setOnTouchListener(this);
+        mHomeButton.setOnClickListener(this);
+        mPlayAgainButton.setOnClickListener(this);
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        mGestureDetector.onTouchEvent(motionEvent);
+        return true;
+    }
+
+    private void flingUp(View view) {
+        Animation flingUp = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_up_animation);
+        view.startAnimation(flingUp);
+    }
+
+    private void flingDown(View view) {
+        Animation flingDown = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_down_animation);
+        view.startAnimation(flingDown);
+    }
+
+    private void flingDownRight(View view) {
+        Animation flingDownRight = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_down_right_animation);
+        view.startAnimation(flingDownRight);
+    }
+
+    private void flingDownLeft(View view) {
+        Animation flingDownLeft = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_down_left_animation);
+        view.startAnimation(flingDownLeft);
+    }
+
+    private void flingUpRight(View view) {
+        Animation flingUpRight = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_up_right_animation);
+        view.startAnimation(flingUpRight);
+    }
+
+    private void flingUpLeft(View view) {
+        Animation flingUpLeft = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_up_left_animation);
+        view.startAnimation(flingUpLeft);
+    }
+
+    private void flingLeft(View view) {
+        Animation flingLeft = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_left_animation);
+        view.startAnimation(flingLeft);
+    }
+
+    private void flingRight(View view) {
+        Animation flingRight = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fling_right_animation);
+        view.startAnimation(flingRight);
+    }
+
+    private void fadeIn(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mHomeButton) {
+            Intent intent = new Intent(LevelFourActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (view == mPlayAgainButton) {
+            mPlayAgainButton.setVisibility(View.INVISIBLE);
+            mHomeButton.setVisibility(View.INVISIBLE);
+            mWinTextView.setVisibility(View.INVISIBLE);
+            mPig1.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void initResources() {
         up = MediaPlayer.create(this, R.raw.up);
         down = MediaPlayer.create(this, R.raw.down);
         pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
 
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4med720);
         mVideoView.setVideoURI(uri);
-        mVideoView.start();
+    }
 
+    private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
@@ -146,93 +242,5 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
         });
-
-        mPig1.setOnTouchListener(this);
-        mPig2.setOnTouchListener(this);
-        mPig3.setOnTouchListener(this);
-        mPig4.setOnTouchListener(this);
-        mPig5.setOnTouchListener(this);
-        mPig6.setOnTouchListener(this);
-        mPig7.setOnTouchListener(this);
-        mPig8.setOnTouchListener(this);
-        mPig9.setOnTouchListener(this);
-        mPig10.setOnTouchListener(this);
-        mPig11.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
-        mHomeButton.setOnClickListener(this);
-        mPlayAgainButton.setOnClickListener(this);
-    }
-
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        mGestureDetector.onTouchEvent(motionEvent);
-        return true;
-    }
-
-    private void flingUp(View view) {
-        Animation flingUp = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_up_animation);
-        view.startAnimation(flingUp);
-    }
-
-    private void flingDown(View view) {
-        Animation flingDown = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_down_animation);
-        view.startAnimation(flingDown);
-    }
-
-    private void flingDownRight(View view) {
-        Animation flingDownRight = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_down_right_animation);
-        view.startAnimation(flingDownRight);
-    }
-
-    private void flingDownLeft(View view) {
-        Animation flingDownLeft = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_down_left_animation);
-        view.startAnimation(flingDownLeft);
-    }
-
-    private void flingUpRight(View view) {
-        Animation flingUpRight = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_up_right_animation);
-        view.startAnimation(flingUpRight);
-    }
-
-    private void flingUpLeft(View view) {
-        Animation flingUpLeft = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_up_left_animation);
-        view.startAnimation(flingUpLeft);
-    }
-
-    private void flingLeft(View view) {
-        Animation flingLeft = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_left_animation);
-        view.startAnimation(flingLeft);
-    }
-
-    private void flingRight(View view) {
-        Animation flingRight = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fling_right_animation);
-        view.startAnimation(flingRight);
-    }
-
-    private void fadeIn(View view) {
-        Animation fadeIn = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fade_in_animation);
-        view.startAnimation(fadeIn);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view == mHomeButton) {
-            Intent intent = new Intent(LevelFourActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if (view == mPlayAgainButton) {
-            mPlayAgainButton.setVisibility(View.INVISIBLE);
-            mHomeButton.setVisibility(View.INVISIBLE);
-            mWinTextView.setVisibility(View.INVISIBLE);
-            mPig1.setVisibility(View.VISIBLE);
-        }
     }
 }
