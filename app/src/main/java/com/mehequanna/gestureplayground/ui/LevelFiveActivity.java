@@ -94,6 +94,29 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    private void mediaRelease() {
+        planeStartLeft.release();
+        planeStartRight.release();
+        planeFlyLeft.release();
+        planeFlyRight.release();
+        tractorStartLeft.release();
+        tractorDriveRight.release();
+        tractorStartRight.release();
+        tractorDriveLeft.release();
+        five.release();
+        ten.release();
+        pink.release();
+        blue.release();
+        up.release();
+        down.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         swipeIconsCheck();
@@ -120,7 +143,9 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
+            fadeInButtons(mHomeButton);
             mHomeButton.setVisibility(View.VISIBLE);
+            fadeInButtons(mPlayAgainButton);
             mPlayAgainButton.setVisibility(View.VISIBLE);
             return true;
         }
@@ -179,6 +204,12 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     private void fadeIn(View view) {
         Animation fadeIn = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
+    }
+
+    private void fadeInButtons(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
         view.startAnimation(fadeIn);
     }
 
