@@ -126,10 +126,10 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         view.startAnimation(scaleDownFade);
     }
 
-    private void fadeIn(View view) {
-        Animation fadeIn = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fade_in_animation);
-        view.startAnimation(fadeIn);
+    private void fadeInButtons(View view) {
+        Animation fadeInButtons = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
+        view.startAnimation(fadeInButtons);
     }
 
     @Override
@@ -237,9 +237,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
-                    fadeIn(mHomeButton);
+                    fadeInButtons(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
-                    fadeIn(mPlayAgain);
+                    fadeInButtons(mPlayAgain);
                     mPlayAgain.setVisibility(View.VISIBLE);
                 }
 

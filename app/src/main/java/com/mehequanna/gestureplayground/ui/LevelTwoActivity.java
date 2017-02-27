@@ -122,10 +122,10 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         view.startAnimation(fadeOutAnimation);
     }
 
-    private void fadeIn(View view) {
-        Animation fadeIn = AnimationUtils.loadAnimation(
-                getApplicationContext(), R.anim.fade_in_animation);
-        view.startAnimation(fadeIn);
+    private void fadeInButtons(View view) {
+        Animation fadeInButtons = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
+        view.startAnimation(fadeInButtons);
     }
 
     public void winCheck() {
@@ -136,9 +136,9 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
-            fadeIn(mPlayAgain);
+            fadeInButtons(mPlayAgain);
             mPlayAgain.setVisibility(View.VISIBLE);
-            fadeIn(mHomeButton);
+            fadeInButtons(mHomeButton);
             mHomeButton.setVisibility(View.VISIBLE);
         }
     }

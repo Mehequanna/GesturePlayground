@@ -137,6 +137,12 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         view.startAnimation(fadeIn);
     }
 
+    private void fadeInButtons(View view) {
+        Animation fadeInButtons = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
+        view.startAnimation(fadeInButtons);
+    }
+
     @Override
     public void onClick(View view) {
         if (view == mHomeButton) {
@@ -245,9 +251,9 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
 
-                    fadeIn(mHomeButton);
+                    fadeInButtons(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
-                    fadeIn(mPlayAgainButton);
+                    fadeInButtons(mPlayAgainButton);
                     mPlayAgainButton.setVisibility(View.VISIBLE);
                 }
                 return super.onFling(e1, e2, velocityX, velocityY);
