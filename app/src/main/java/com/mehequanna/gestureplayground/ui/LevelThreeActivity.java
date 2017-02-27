@@ -70,6 +70,23 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    private void mediaRelease() {
+        planeStartLeft.release();
+        planeStartRight.release();
+        planeFlyLeft.release();
+        planeFlyRight.release();
+        tractorStartLeft.release();
+        tractorStartRight.release();
+        tractorDriveLeft.release();
+        tractorDriveRight.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mGestureDetector.onTouchEvent(motionEvent);
         return true;
@@ -85,6 +102,12 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         Animation moveLeft = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.move_left_animation);
         view.startAnimation(moveLeft);
+    }
+
+    private void fadeIn(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
     }
 
     @Override
@@ -192,7 +215,9 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
+                    fadeIn(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
+                    fadeIn(mPlayAgain);
                     mPlayAgain.setVisibility(View.VISIBLE);
                 }
                 super.onSwipeRight();
