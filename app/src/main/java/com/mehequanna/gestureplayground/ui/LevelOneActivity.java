@@ -89,6 +89,25 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    private void mediaRelease() {
+        one.release();
+        two.release();
+        three.release();
+        four.release();
+        five.release();
+        six.release();
+        seven.release();
+        eight.release();
+        nine.release();
+        ten.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
@@ -105,6 +124,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         Animation scaleDownFade = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.scale_down_fade_animation);
         view.startAnimation(scaleDownFade);
+    }
+
+    private void fadeIn(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
     }
 
     @Override
@@ -212,7 +237,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
+                    fadeIn(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
+                    fadeIn(mPlayAgain);
                     mPlayAgain.setVisibility(View.VISIBLE);
                 }
 
