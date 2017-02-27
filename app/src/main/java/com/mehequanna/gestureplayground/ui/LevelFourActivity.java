@@ -246,7 +246,10 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
+
+                    fadeIn(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
+                    fadeIn(mPlayAgainButton);
                     mPlayAgainButton.setVisibility(View.VISIBLE);
                 }
                 return super.onFling(e1, e2, velocityX, velocityY);
