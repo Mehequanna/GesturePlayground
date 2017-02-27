@@ -35,7 +35,6 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 
 ##Known Issues
 * Refactor: Put repeat code into methods.
-* Level 4: Pig reset animation is jumpy.
 * Level 4: Pig4 sound not playing.
 * Parents: Add preference to remove videos.
 * Fix error: E/MEDIAPLAYER: SHOULD HAVE SUBTITLE CONTROLLER ALREADY SET
