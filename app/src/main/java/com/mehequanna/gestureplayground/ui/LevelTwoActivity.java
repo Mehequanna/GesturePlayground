@@ -80,6 +80,21 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    private void mediaRelease() {
+        blue.release();
+        brown.release();
+        pink.release();
+        red.release();
+        white.release();
+        yellow.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
@@ -107,6 +122,12 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         view.startAnimation(fadeOutAnimation);
     }
 
+    private void fadeIn(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
+    }
+
     public void winCheck() {
         if (mChicken1.getVisibility() >= 4 && mChicken2.getVisibility() >= 4 && mChicken3.getVisibility() >= 4 && mChicken4.getVisibility() >= 4 && mChicken5.getVisibility() >= 4 && mChicken6.getVisibility() >= 4) {
             mWinTextView.setText(R.string.great_job);
@@ -115,7 +136,9 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
+            fadeIn(mPlayAgain);
             mPlayAgain.setVisibility(View.VISIBLE);
+            fadeIn(mHomeButton);
             mHomeButton.setVisibility(View.VISIBLE);
         }
     }
