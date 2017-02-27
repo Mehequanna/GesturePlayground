@@ -21,9 +21,6 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 * Play area for each gesture, tap, double tap, swipe (left/right), and fling.
 * Video tutorials on each level.
 
-##Future Pieces
-* Animated menu buttons.
-
 ##Usage
 * Open Android Studio
 * Click on "Check out project from Version Control"
@@ -33,9 +30,11 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 * Then click "clone"
 * Follow the prompts. Note: There may need to be some refactoring on your end based on your version of Android Studio.
 
+##Future Features
+* Parents: Add preference to remove videos.
+
 ##Known Issues
 * Refactor: Put repeat code into methods.
-* Parents: Add preference to remove videos.
 * Fix Error: Video Error (1,-38) on API 21
 
 ##Resource Attributions
