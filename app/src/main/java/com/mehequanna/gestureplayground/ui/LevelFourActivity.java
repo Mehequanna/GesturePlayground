@@ -43,6 +43,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     private MediaPlayer up;
     private MediaPlayer down;
     private MediaPlayer pigsnort;
+    private MediaPlayer pigsnort2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +156,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         up = MediaPlayer.create(this, R.raw.up);
         down = MediaPlayer.create(this, R.raw.down);
         pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
+        pigsnort2 = MediaPlayer.create(this, R.raw.pigsnort);
 
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4med720);
         mVideoView.setVideoURI(uri);
@@ -194,7 +196,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                     mPig4.setVisibility(View.VISIBLE);
                 } else if (mPig4.isShown()) {
                     flingRight(mPig4);
-                    pigsnort.start();
+                    pigsnort2.start();
                     mPig4.setVisibility(View.INVISIBLE);
                     fadeIn(mPig5);
                     mPig5.setVisibility(View.VISIBLE);

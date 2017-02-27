@@ -35,9 +35,7 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 
 ##Known Issues
 * Refactor: Put repeat code into methods.
-* Level 4: Pig4 sound not playing.
 * Parents: Add preference to remove videos.
-* Fix error: E/MEDIAPLAYER: SHOULD HAVE SUBTITLE CONTROLLER ALREADY SET
 * Fix Error: Video Error (1,-38) on API 21
 
 ##Resource Attributions
