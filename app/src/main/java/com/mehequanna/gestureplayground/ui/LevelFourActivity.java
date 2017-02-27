@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -68,6 +69,13 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Log", "onPause: ");
+        mediaRelease();
     }
 
     @Override
@@ -242,5 +250,11 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
         });
+    }
+
+    public void mediaRelease() {
+        up.release();
+        down.release();
+        pigsnort.release();
     }
 }
