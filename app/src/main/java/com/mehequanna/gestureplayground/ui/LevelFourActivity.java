@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -75,7 +74,6 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("Log", "onPause: ");
         mediaRelease();
     }
 
