@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view == mParentsButton) {
             Intent intent = new Intent(MainActivity.this, ParentsActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
         }
     }
 }
