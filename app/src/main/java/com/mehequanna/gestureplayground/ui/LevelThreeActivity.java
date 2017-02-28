@@ -141,6 +141,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         if (view == mHomeButton) {
             Intent intent = new Intent(LevelThreeActivity.this, MainActivity.class);
             startActivity(intent);
+            onBackPressed();
         } else if (view == mPlayAgain) {
             mPlayAgain.setVisibility(View.INVISIBLE);
             mHomeButton.setVisibility(View.INVISIBLE);

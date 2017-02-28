@@ -174,6 +174,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         if (view == mHomeButton) {
             Intent intent = new Intent(LevelTwoActivity.this, MainActivity.class);
             startActivity(intent);
+            onBackPressed();
         } else if (view == mPlayAgain) {
             mPlayAgain.setVisibility(View.INVISIBLE);
             mHomeButton.setVisibility(View.INVISIBLE);
