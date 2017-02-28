@@ -266,6 +266,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         if (view == mHomeButton) {
             Intent intent = new Intent(LevelFiveActivity.this, MainActivity.class);
             startActivity(intent);
+            onBackPressed();
         } else if (view == mPlayAgainButton) {
             mPlayAgainButton.setVisibility(View.INVISIBLE);
             mHomeButton.setVisibility(View.INVISIBLE);

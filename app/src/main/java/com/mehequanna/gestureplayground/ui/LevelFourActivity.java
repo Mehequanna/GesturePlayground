@@ -174,6 +174,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         if (view == mHomeButton) {
             Intent intent = new Intent(LevelFourActivity.this, MainActivity.class);
             startActivity(intent);
+            onBackPressed();
         } else if (view == mPlayAgainButton) {
             mPlayAgainButton.setVisibility(View.INVISIBLE);
             mHomeButton.setVisibility(View.INVISIBLE);
