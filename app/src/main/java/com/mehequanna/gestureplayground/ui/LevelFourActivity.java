@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -42,6 +43,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     private MediaPlayer up;
     private MediaPlayer down;
     private MediaPlayer pigsnort;
+    private MediaPlayer pigsnort2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,37 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.home:
+                onBackPressed();
+                break;
+            case R.id.homeAsUp:
+                onBackPressed();
+                break;
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
     @Override
@@ -130,6 +163,12 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         view.startAnimation(fadeIn);
     }
 
+    private void fadeInButtons(View view) {
+        Animation fadeInButtons = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
+        view.startAnimation(fadeInButtons);
+    }
+
     @Override
     public void onClick(View view) {
         if (view == mHomeButton) {
@@ -147,6 +186,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         up = MediaPlayer.create(this, R.raw.up);
         down = MediaPlayer.create(this, R.raw.down);
         pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
+        pigsnort2 = MediaPlayer.create(this, R.raw.pigsnort);
 
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4med720);
         mVideoView.setVideoURI(uri);
@@ -186,7 +226,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                     mPig4.setVisibility(View.VISIBLE);
                 } else if (mPig4.isShown()) {
                     flingRight(mPig4);
-                    pigsnort.start();
+                    pigsnort2.start();
                     mPig4.setVisibility(View.INVISIBLE);
                     fadeIn(mPig5);
                     mPig5.setVisibility(View.VISIBLE);
@@ -236,11 +276,20 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
+
+                    fadeInButtons(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
+                    fadeInButtons(mPlayAgainButton);
                     mPlayAgainButton.setVisibility(View.VISIBLE);
                 }
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
         });
+    }
+
+    public void mediaRelease() {
+        up.release();
+        down.release();
+        pigsnort.release();
     }
 }

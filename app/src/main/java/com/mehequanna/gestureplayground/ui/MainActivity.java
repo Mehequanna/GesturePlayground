@@ -39,26 +39,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view == mLevelOneImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelOneActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
         if (view == mLevelTwoImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelTwoActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
         if (view == mLevelThreeImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelThreeActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
         if (view == mLevelFourImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelFourActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
         if (view == mLevelFiveImageButton) {
             Intent intent = new Intent(MainActivity.this, LevelFiveActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         }
         if (view == mParentsButton) {
             Intent intent = new Intent(MainActivity.this, ParentsActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
         }
     }
 }

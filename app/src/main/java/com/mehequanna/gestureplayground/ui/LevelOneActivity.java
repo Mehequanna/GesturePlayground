@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -89,6 +90,50 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.home:
+                onBackPressed();
+                break;
+            case R.id.homeAsUp:
+                onBackPressed();
+                break;
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    private void mediaRelease() {
+        one.release();
+        two.release();
+        three.release();
+        four.release();
+        five.release();
+        six.release();
+        seven.release();
+        eight.release();
+        nine.release();
+        ten.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
@@ -105,6 +150,12 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         Animation scaleDownFade = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.scale_down_fade_animation);
         view.startAnimation(scaleDownFade);
+    }
+
+    private void fadeInButtons(View view) {
+        Animation fadeInButtons = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
+        view.startAnimation(fadeInButtons);
     }
 
     @Override
@@ -212,7 +263,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
                             getApplicationContext(), R.anim.win_scale_fade_animation);
                     mWinTextView.startAnimation(winScaleUpAnimation);
 
+                    fadeInButtons(mHomeButton);
                     mHomeButton.setVisibility(View.VISIBLE);
+                    fadeInButtons(mPlayAgain);
                     mPlayAgain.setVisibility(View.VISIBLE);
                 }
 

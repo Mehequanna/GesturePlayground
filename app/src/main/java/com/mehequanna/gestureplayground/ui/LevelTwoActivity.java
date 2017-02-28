@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -80,6 +81,46 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.home:
+                onBackPressed();
+                break;
+            case R.id.homeAsUp:
+                onBackPressed();
+                break;
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    private void mediaRelease() {
+        blue.release();
+        brown.release();
+        pink.release();
+        red.release();
+        white.release();
+        yellow.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         mGestureDetector.onTouchEvent(motionEvent);
@@ -107,6 +148,12 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         view.startAnimation(fadeOutAnimation);
     }
 
+    private void fadeInButtons(View view) {
+        Animation fadeInButtons = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
+        view.startAnimation(fadeInButtons);
+    }
+
     public void winCheck() {
         if (mChicken1.getVisibility() >= 4 && mChicken2.getVisibility() >= 4 && mChicken3.getVisibility() >= 4 && mChicken4.getVisibility() >= 4 && mChicken5.getVisibility() >= 4 && mChicken6.getVisibility() >= 4) {
             mWinTextView.setText(R.string.great_job);
@@ -115,7 +162,9 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
+            fadeInButtons(mPlayAgain);
             mPlayAgain.setVisibility(View.VISIBLE);
+            fadeInButtons(mHomeButton);
             mHomeButton.setVisibility(View.VISIBLE);
         }
     }

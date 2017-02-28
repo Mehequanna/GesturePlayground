@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -94,6 +95,53 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        mediaRelease();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.home:
+                onBackPressed();
+                break;
+            case R.id.homeAsUp:
+                onBackPressed();
+                break;
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    private void mediaRelease() {
+        planeStartLeft.release();
+        planeStartRight.release();
+        planeFlyLeft.release();
+        planeFlyRight.release();
+        tractorStartLeft.release();
+        tractorDriveRight.release();
+        tractorStartRight.release();
+        tractorDriveLeft.release();
+        five.release();
+        ten.release();
+        pink.release();
+        blue.release();
+        up.release();
+        down.release();
+    }
+
+    @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         mViewId = view.getId();
         swipeIconsCheck();
@@ -120,7 +168,9 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
                     getApplicationContext(), R.anim.win_scale_fade_animation);
             mWinTextView.startAnimation(winAnimation);
 
+            fadeInButtons(mHomeButton);
             mHomeButton.setVisibility(View.VISIBLE);
+            fadeInButtons(mPlayAgainButton);
             mPlayAgainButton.setVisibility(View.VISIBLE);
             return true;
         }
@@ -179,6 +229,12 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     private void fadeIn(View view) {
         Animation fadeIn = AnimationUtils.loadAnimation(
                 getApplicationContext(), R.anim.fade_in_animation);
+        view.startAnimation(fadeIn);
+    }
+
+    private void fadeInButtons(View view) {
+        Animation fadeIn = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.fade_in_buttons_animation);
         view.startAnimation(fadeIn);
     }
 
