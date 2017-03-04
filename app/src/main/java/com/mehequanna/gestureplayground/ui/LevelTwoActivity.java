@@ -89,6 +89,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 

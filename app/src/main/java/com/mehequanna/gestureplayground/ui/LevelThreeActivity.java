@@ -79,6 +79,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
