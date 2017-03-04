@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -65,12 +64,18 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         setContentView(R.layout.activity_level_two);
         ButterKnife.bind(this);
 
-        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
-
         initResources();
         initGestures();
 
         mVideoView.start();
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mChicken1.setVisibility(View.VISIBLE);
+            }
+        });
 
         mChicken1.setOnTouchListener(this);
         mChicken2.setOnTouchListener(this);
@@ -80,7 +85,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken6.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
-        mVideoView.setOnTouchListener(this);
     }
 
     @Override
@@ -195,16 +199,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
-            @Override
-            public boolean onDown(MotionEvent e) {
-                if (mViewId == mVideoId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mChicken1.setVisibility(View.VISIBLE);
-                }
-                return super.onDown(e);
-            }
-
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 if (mViewId == mChicken1Id) {

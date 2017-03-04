@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -53,12 +52,18 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
 
-        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
-
         initResources();
         initGestures();
 
         mVideoView.start();
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mOneTractorPink.setVisibility(View.VISIBLE);
+            }
+        });
 
         mOneTractorPink.setOnTouchListener(this);
         mTwoTractorBlack.setOnTouchListener(this);
@@ -68,7 +73,6 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mSixAirplaneRed.setOnTouchListener(this);
         mSevenAirplaneBlue.setOnTouchListener(this);
         mEightTractorTrailer.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
     }
@@ -182,11 +186,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onDown(MotionEvent e) {
-                if (mVideoView.isShown()) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mOneTractorPink.setVisibility(View.VISIBLE);
-                } else if (mOneTractorPink.isShown()) {
+                if (mOneTractorPink.isShown()) {
                     tractorStartLeft.start();
                 } else if (mTwoTractorBlack.isShown()) {
                     tractorStartRight.start();

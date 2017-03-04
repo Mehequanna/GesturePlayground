@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -75,12 +74,26 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_level_five);
         ButterKnife.bind(this);
 
-        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
-
         initResources();
         initGestures();
 
         mVideoView.start();
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mPigUp.setVisibility(View.VISIBLE);
+                mAirplaneRed.setVisibility(View.VISIBLE);
+                mAirplaneBlue.setVisibility(View.VISIBLE);
+                mTractorRed.setVisibility(View.VISIBLE);
+                mTractorTrailer.setVisibility(View.VISIBLE);
+                mCowFive.setVisibility(View.VISIBLE);
+                mCowTen.setVisibility(View.VISIBLE);
+                mChickenBlue.setVisibility(View.VISIBLE);
+                mChickenPink.setVisibility(View.VISIBLE);
+            }
+        });
 
         mPigUp.setOnTouchListener(this);
         mPigDown.setOnTouchListener(this);
@@ -91,7 +104,6 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mCowFive.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
         mChickenBlue.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mChickenPink.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
@@ -338,18 +350,6 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
                     planeStartRight.start();
                 } else if (mViewId == mTractorRedId) {
                     tractorStartLeft.start();
-                } else if (mViewId == mVideoViewId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mPigUp.setVisibility(View.VISIBLE);
-                    mAirplaneRed.setVisibility(View.VISIBLE);
-                    mAirplaneBlue.setVisibility(View.VISIBLE);
-                    mTractorRed.setVisibility(View.VISIBLE);
-                    mTractorTrailer.setVisibility(View.VISIBLE);
-                    mCowFive.setVisibility(View.VISIBLE);
-                    mCowTen.setVisibility(View.VISIBLE);
-                    mChickenBlue.setVisibility(View.VISIBLE);
-                    mChickenPink.setVisibility(View.VISIBLE);
                 }
                 return super.onDown(e);
             }

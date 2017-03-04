@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -70,12 +69,18 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         setContentView(R.layout.activity_level_one);
         ButterKnife.bind(this);
 
-        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
-
         initResources();
         initGestures();
 
         mVideoView.start();
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mCowOne.setVisibility(View.VISIBLE);
+            }
+        });
 
         mCowOne.setOnTouchListener(this);
         mCowTwo.setOnTouchListener(this);
@@ -87,7 +92,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEight.setOnTouchListener(this);
         mCowNine.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
     }
@@ -206,16 +210,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
 
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
-            @Override
-            public boolean onDown(MotionEvent e) {
-                if (mViewId == mVideoViewId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mCowOne.setVisibility(View.VISIBLE);
-                }
-                    return super.onDown(e);
-            }
-
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
                 if (mViewId == mCowOneId) {

@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -52,12 +51,18 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         setContentView(R.layout.activity_level_four);
         ButterKnife.bind(this);
 
-        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
-
         initResources();
         initGestures();
 
         mVideoView.start();
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mPig1.setVisibility(View.VISIBLE);
+            }
+        });
 
         mPig1.setOnTouchListener(this);
         mPig2.setOnTouchListener(this);
@@ -70,7 +75,6 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         mPig9.setOnTouchListener(this);
         mPig10.setOnTouchListener(this);
         mPig11.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
     }
@@ -199,16 +203,6 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
 
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
-            @Override
-            public boolean onDown(MotionEvent e) {
-                if (mVideoView.isShown()) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mPig1.setVisibility(View.VISIBLE);
-                }
-                return super.onDown(e);
-            }
-
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mPig1.isShown()) {
