@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -68,6 +69,8 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one);
         ButterKnife.bind(this);
+
+        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
 
         initResources();
         initGestures();
@@ -204,12 +207,18 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
-            public boolean onSingleTapConfirmed(MotionEvent e){
+            public boolean onDown(MotionEvent e) {
                 if (mViewId == mVideoViewId) {
                     mVideoView.stopPlayback();
                     mVideoView.setVisibility(View.GONE);
                     mCowOne.setVisibility(View.VISIBLE);
-                } else if (mViewId == mCowOneId) {
+                }
+                    return super.onDown(e);
+            }
+
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e){
+                if (mViewId == mCowOneId) {
                     scaleUpFadeImage(mCowOne);
                     one.start();
                     mCowOne.setVisibility(View.INVISIBLE);

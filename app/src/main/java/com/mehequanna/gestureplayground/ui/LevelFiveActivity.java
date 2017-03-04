@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -73,6 +74,8 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_five);
         ButterKnife.bind(this);
+
+        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
 
         initResources();
         initGestures();
@@ -335,6 +338,18 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
                     planeStartRight.start();
                 } else if (mViewId == mTractorRedId) {
                     tractorStartLeft.start();
+                } else if (mViewId == mVideoViewId) {
+                    mVideoView.stopPlayback();
+                    mVideoView.setVisibility(View.GONE);
+                    mPigUp.setVisibility(View.VISIBLE);
+                    mAirplaneRed.setVisibility(View.VISIBLE);
+                    mAirplaneBlue.setVisibility(View.VISIBLE);
+                    mTractorRed.setVisibility(View.VISIBLE);
+                    mTractorTrailer.setVisibility(View.VISIBLE);
+                    mCowFive.setVisibility(View.VISIBLE);
+                    mCowTen.setVisibility(View.VISIBLE);
+                    mChickenBlue.setVisibility(View.VISIBLE);
+                    mChickenPink.setVisibility(View.VISIBLE);
                 }
                 return super.onDown(e);
             }
@@ -373,19 +388,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (mViewId == mVideoViewId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mPigUp.setVisibility(View.VISIBLE);
-                    mAirplaneRed.setVisibility(View.VISIBLE);
-                    mAirplaneBlue.setVisibility(View.VISIBLE);
-                    mTractorRed.setVisibility(View.VISIBLE);
-                    mTractorTrailer.setVisibility(View.VISIBLE);
-                    mCowFive.setVisibility(View.VISIBLE);
-                    mCowTen.setVisibility(View.VISIBLE);
-                    mChickenBlue.setVisibility(View.VISIBLE);
-                    mChickenPink.setVisibility(View.VISIBLE);
-                } else if (mViewId == mCowFiveId) {
+                 if (mViewId == mCowFiveId) {
                     mCounter += 1;
                     scaleUpFadeImage(mCowFive);
                     five.start();

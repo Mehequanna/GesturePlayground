@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -51,6 +52,8 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_three);
         ButterKnife.bind(this);
+
+        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
 
         initResources();
         initGestures();

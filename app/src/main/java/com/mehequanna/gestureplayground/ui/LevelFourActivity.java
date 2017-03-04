@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -50,6 +51,8 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_four);
         ButterKnife.bind(this);
+
+        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
 
         initResources();
         initGestures();
@@ -197,13 +200,13 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
+            public boolean onDown(MotionEvent e) {
                 if (mVideoView.isShown()) {
                     mVideoView.stopPlayback();
                     mVideoView.setVisibility(View.GONE);
                     mPig1.setVisibility(View.VISIBLE);
                 }
-                return super.onSingleTapConfirmed(e);
+                return super.onDown(e);
             }
 
             @Override

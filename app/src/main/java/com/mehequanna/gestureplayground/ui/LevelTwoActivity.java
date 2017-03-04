@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.mehequanna.gestureplayground.R;
@@ -63,6 +64,8 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_two);
         ButterKnife.bind(this);
+
+        Toast.makeText(this, "Tap to continue.", Toast.LENGTH_SHORT).show();
 
         initResources();
         initGestures();
@@ -193,13 +196,13 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
-            public boolean onSingleTapUp(MotionEvent e) {
+            public boolean onDown(MotionEvent e) {
                 if (mViewId == mVideoId) {
                     mVideoView.stopPlayback();
                     mVideoView.setVisibility(View.GONE);
                     mChicken1.setVisibility(View.VISIBLE);
                 }
-                return super.onSingleTapUp(e);
+                return super.onDown(e);
             }
 
             @Override
