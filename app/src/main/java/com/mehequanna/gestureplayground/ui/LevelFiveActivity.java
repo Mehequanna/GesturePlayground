@@ -77,7 +77,12 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         initResources();
         initGestures();
 
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
 
         mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
