@@ -188,7 +188,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         nine = MediaPlayer.create(this, R.raw.nine);
         ten = MediaPlayer.create(this, R.raw.ten);
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level1med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level1sd480);
         mVideoView.setVideoURI(uri);
 
         mCowOneId = mCowOne.getId();

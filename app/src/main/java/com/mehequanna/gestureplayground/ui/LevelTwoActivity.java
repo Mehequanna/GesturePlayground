@@ -289,7 +289,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     private void initResources() {
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level2med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level2sd480);
         mVideoView.setVideoURI(uri);
 
         mChicken1Id = mChicken1.getId();

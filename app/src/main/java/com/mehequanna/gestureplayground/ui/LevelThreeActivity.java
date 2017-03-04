@@ -165,7 +165,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     }
 
     private void initResources() {
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level3med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level3sd480);
         mVideoView.setVideoURI(uri);
 
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);

@@ -193,7 +193,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
         pigsnort2 = MediaPlayer.create(this, R.raw.pigsnort);
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4sd480);
         mVideoView.setVideoURI(uri);
     }
 

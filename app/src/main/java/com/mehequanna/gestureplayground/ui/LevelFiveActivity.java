@@ -309,7 +309,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mChickenBlueId = mChickenBlue.getId();
         mVideoViewId = mVideoView.getId();
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level5med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level5sd480);
         mVideoView.setVideoURI(uri);
 
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
