@@ -79,7 +79,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
             }
         });
 
-
         mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
                 mVideoView.stopPlayback();
@@ -114,7 +113,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
