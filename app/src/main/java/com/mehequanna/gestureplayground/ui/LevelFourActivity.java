@@ -54,7 +54,20 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         initResources();
         initGestures();
 
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mPig1.setVisibility(View.VISIBLE);
+            }
+        });
 
         mPig1.setOnTouchListener(this);
         mPig2.setOnTouchListener(this);
@@ -67,7 +80,6 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         mPig9.setOnTouchListener(this);
         mPig10.setOnTouchListener(this);
         mPig11.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
     }
@@ -81,6 +93,7 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
@@ -189,22 +202,12 @@ public class LevelFourActivity extends AppCompatActivity implements View.OnTouch
         pigsnort = MediaPlayer.create(this, R.raw.pigsnort);
         pigsnort2 = MediaPlayer.create(this, R.raw.pigsnort);
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level4sd480);
         mVideoView.setVideoURI(uri);
     }
 
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
-            @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (mVideoView.isShown()) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mPig1.setVisibility(View.VISIBLE);
-                }
-                return super.onSingleTapConfirmed(e);
-            }
-
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
                 if (mPig1.isShown()) {

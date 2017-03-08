@@ -17,6 +17,7 @@ public class ParentsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
 

@@ -55,7 +55,20 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         initResources();
         initGestures();
 
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mOneTractorPink.setVisibility(View.VISIBLE);
+            }
+        });
 
         mOneTractorPink.setOnTouchListener(this);
         mTwoTractorBlack.setOnTouchListener(this);
@@ -65,7 +78,6 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mSixAirplaneRed.setOnTouchListener(this);
         mSevenAirplaneBlue.setOnTouchListener(this);
         mEightTractorTrailer.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
     }
@@ -79,6 +91,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
@@ -161,7 +174,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     }
 
     private void initResources() {
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level3med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level3sd480);
         mVideoView.setVideoURI(uri);
 
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
@@ -178,11 +191,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onDown(MotionEvent e) {
-                if (mVideoView.isShown()) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mOneTractorPink.setVisibility(View.VISIBLE);
-                } else if (mOneTractorPink.isShown()) {
+                if (mOneTractorPink.isShown()) {
                     tractorStartLeft.start();
                 } else if (mTwoTractorBlack.isShown()) {
                     tractorStartRight.start();

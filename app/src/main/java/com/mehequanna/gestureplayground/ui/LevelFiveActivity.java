@@ -77,7 +77,28 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         initResources();
         initGestures();
 
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mPigUp.setVisibility(View.VISIBLE);
+                mAirplaneRed.setVisibility(View.VISIBLE);
+                mAirplaneBlue.setVisibility(View.VISIBLE);
+                mTractorRed.setVisibility(View.VISIBLE);
+                mTractorTrailer.setVisibility(View.VISIBLE);
+                mCowFive.setVisibility(View.VISIBLE);
+                mCowTen.setVisibility(View.VISIBLE);
+                mChickenBlue.setVisibility(View.VISIBLE);
+                mChickenPink.setVisibility(View.VISIBLE);
+            }
+        });
 
         mPigUp.setOnTouchListener(this);
         mPigDown.setOnTouchListener(this);
@@ -88,7 +109,6 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mCowFive.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
         mChickenBlue.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mChickenPink.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgainButton.setOnClickListener(this);
@@ -103,6 +123,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
@@ -305,7 +326,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
         mChickenBlueId = mChickenBlue.getId();
         mVideoViewId = mVideoView.getId();
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level5med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level5sd480);
         mVideoView.setVideoURI(uri);
 
         planeStartLeft = MediaPlayer.create(this, R.raw.planestartleft);
@@ -372,19 +393,7 @@ public class LevelFiveActivity extends AppCompatActivity implements View.OnTouch
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (mViewId == mVideoViewId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mPigUp.setVisibility(View.VISIBLE);
-                    mAirplaneRed.setVisibility(View.VISIBLE);
-                    mAirplaneBlue.setVisibility(View.VISIBLE);
-                    mTractorRed.setVisibility(View.VISIBLE);
-                    mTractorTrailer.setVisibility(View.VISIBLE);
-                    mCowFive.setVisibility(View.VISIBLE);
-                    mCowTen.setVisibility(View.VISIBLE);
-                    mChickenBlue.setVisibility(View.VISIBLE);
-                    mChickenPink.setVisibility(View.VISIBLE);
-                } else if (mViewId == mCowFiveId) {
+                 if (mViewId == mCowFiveId) {
                     mCounter += 1;
                     scaleUpFadeImage(mCowFive);
                     five.start();

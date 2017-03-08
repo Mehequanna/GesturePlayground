@@ -67,7 +67,20 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         initResources();
         initGestures();
 
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mChicken1.setVisibility(View.VISIBLE);
+            }
+        });
 
         mChicken1.setOnTouchListener(this);
         mChicken2.setOnTouchListener(this);
@@ -77,7 +90,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         mChicken6.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
-        mVideoView.setOnTouchListener(this);
     }
 
     @Override
@@ -89,6 +101,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
 
@@ -192,16 +205,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     private void initGestures() {
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
-            public boolean onSingleTapUp(MotionEvent e) {
-                if (mViewId == mVideoId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mChicken1.setVisibility(View.VISIBLE);
-                }
-                return super.onSingleTapUp(e);
-            }
-
-            @Override
             public boolean onDoubleTap(MotionEvent e) {
                 if (mViewId == mChicken1Id) {
                     if (mChicken1Count == 0) {
@@ -285,7 +288,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     private void initResources() {
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level2med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+ R.raw.level2sd480);
         mVideoView.setVideoURI(uri);
 
         mChicken1Id = mChicken1.getId();

@@ -72,7 +72,20 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         initResources();
         initGestures();
 
-        mVideoView.start();
+        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mVideoView.start();
+            }
+        });
+
+        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mVideoView.stopPlayback();
+                mVideoView.setVisibility(View.GONE);
+                mCowOne.setVisibility(View.VISIBLE);
+            }
+        });
 
         mCowOne.setOnTouchListener(this);
         mCowTwo.setOnTouchListener(this);
@@ -84,7 +97,6 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mCowEight.setOnTouchListener(this);
         mCowNine.setOnTouchListener(this);
         mCowTen.setOnTouchListener(this);
-        mVideoView.setOnTouchListener(this);
         mHomeButton.setOnClickListener(this);
         mPlayAgain.setOnClickListener(this);
     }
@@ -98,9 +110,9 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        finish();
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -184,7 +196,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         nine = MediaPlayer.create(this, R.raw.nine);
         ten = MediaPlayer.create(this, R.raw.ten);
 
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level1med720);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.level1sd480);
         mVideoView.setVideoURI(uri);
 
         mCowOneId = mCowOne.getId();
@@ -204,11 +216,7 @@ public class LevelOneActivity extends AppCompatActivity implements View.OnTouchL
         mGestureDetector = new GestureDetector(this, new DetectGestures(){
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e){
-                if (mViewId == mVideoViewId) {
-                    mVideoView.stopPlayback();
-                    mVideoView.setVisibility(View.GONE);
-                    mCowOne.setVisibility(View.VISIBLE);
-                } else if (mViewId == mCowOneId) {
+                if (mViewId == mCowOneId) {
                     scaleUpFadeImage(mCowOne);
                     one.start();
                     mCowOne.setVisibility(View.INVISIBLE);
