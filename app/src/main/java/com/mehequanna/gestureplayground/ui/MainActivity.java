@@ -13,12 +13,15 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.levelOneImageButton) ImageButton mLevelOneImageButton;
-    @Bind(R.id.levelTwoImageButton) ImageButton mLevelTwoImageButton;
-    @Bind(R.id.levelThreeImageButton) ImageButton mLevelThreeImageButton;
-    @Bind(R.id.levelFourImageButton) ImageButton mLevelFourImageButton;
-    @Bind(R.id.levelFiveImageButton) ImageButton mLevelFiveImageButton;
-    @Bind(R.id.parentsButton) Button mParentsButton;
+    /* TODO: public is required for testing. See if making them public
+       will make them less secure.
+     */
+    public @Bind(R.id.levelOneImageButton) ImageButton mLevelOneImageButton;
+    public @Bind(R.id.levelTwoImageButton) ImageButton mLevelTwoImageButton;
+    public @Bind(R.id.levelThreeImageButton) ImageButton mLevelThreeImageButton;
+    public @Bind(R.id.levelFourImageButton) ImageButton mLevelFourImageButton;
+    public @Bind(R.id.levelFiveImageButton) ImageButton mLevelFiveImageButton;
+    public @Bind(R.id.parentsButton) Button mParentsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
