@@ -1,7 +1,7 @@
-##Project Name
+## Project Name
 Gesture Playground
 
-##Description
+## Description
 Gesture Playground is an app to teach toddlers the gestures needed on android devices. Toddlers learn best by playing and doing actions. Each level will have a miniature instructional piece. Then the toddler will practice/play with that gesture on the level.
 
 [![Foo](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/200px-Get_it_on_Google_play.svg.png)](https://play.google.com/store/apps/details?id=com.mehequanna.gestureplayground&hl=en)
@@ -15,14 +15,14 @@ Level 2:
 Level 5:
 ![screenshot of level 5](gplevel5.png)
 
-##Technologies
+## Technologies
 Android Studio, Java, XML, GestureDetector, MediaPlayer
 
-##Current Features
+## Current Features
 * Play area for each gesture, tap, double tap, swipe (left/right), and fling.
 * Video tutorials on each level.
 
-##Usage
+## Usage
 * Open Android Studio
 * Click on "Check out project from Version Control"
 * In the popup that appears, click on Git
@@ -31,20 +31,20 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 * Then click "clone"
 * Follow the prompts. Note: There may need to be some refactoring on your end based on your version of Android Studio.
 
-##Future Features
+## Future Features
 * Parents: Add preference to remove videos.
 
-##Known Issues
+## Known Issues
 * Refactor: Put repeat code into methods.
 * Fix Error: Video Error (1,-38) on API 21
 
-##Resource Attributions
+## Resource Attributions
 Vocabulary sounds found on https://www.freesound.org/people/margo_heston/. These sounds are very well done!
 Clip art found on http://www.clker.com/. It's a great resource for clip art!
 
-##Author
+## Author
 Stephen Emery
 
-##License
+## License
 This work can be used under the MIT License.
 Copyright (c) 2016 Stephen Emery
