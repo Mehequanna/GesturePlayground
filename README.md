@@ -35,8 +35,6 @@ Android Studio, Java, XML, GestureDetector, MediaPlayer
 * Parents: Add preference to remove videos.
 
 ## Known Issues
-* Refactor: Put repeat code into methods.
-* Fix Error: Video Error (1,-38) on API 21
 
 ## Resource Attributions
 Vocabulary sounds found on https://www.freesound.org/people/margo_heston/. These sounds are very well done!
